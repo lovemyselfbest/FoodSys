@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*部门管理*@
+@model FoodSys.Web.Areas.ModuleSys.Models.ModelSysOrgDepartmentManageIndex
+<script type="text/javascript">
+    function addDepartment(organizationId) {
+        window.top.openDialog({ Url: "/ModuleSys/SysOrgDepartmentManage/Create/?organizationId=" + organizationId + "&pagestate=" + create, Title: "新增部门信息", Width: 650, Height: 460 });
+    }
+
+    function deleteDepartment(id) {
+        top.window.$("#sysConfirm").html("确定要删除？");
+        top.window.$("#sysConfirm").dialog({
+            resizable: false,
+            height: 200,
+            title: "系统提示",
+            modal: true,
+            buttons: {
+                "是": function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "/ModuleSys/SysOrgDepartmentManage/Delete",
+                        data: "id=" + id,
+                        success: function (msg) {
+                            msg = eval("(" + msg + ")");
+                            if (msg.result == "") {
+                                window.location = commonPage.getCurrentUrl();
+                                window.top.sysMessage();
+                            }
+                            else {
+                                window.top.sysAlert(msg.result);
+                            }
+                        }
+                    });
+                    top.window.$("#sysConfirm").dialog("close");
+                },
+                "否": function () {
+                    top.window.$("#sysConfirm").dialog("close");
+                }
+            }
+        });
+    }
+
+    function deleteDepartmentBatch() {
+        if (!defaultTable.isSelect())
+            return;
+
+        top.window.$("#sysConfirm").html("确定要删除？");
+        top.window.$("#sysConfirm").dialog({
+            resizable: false,
+            height: 200,
+            title: "系统提示",
+            modal: true,
+            buttons: {
+                "是": function () {
+                    $("form").attr("action", "/ModuleSys/SysOrgDepartmentManage/DeleteBatch/?RetUrl=" + escape(commonPage.getCurrentUrl())).submit();
+                    top.window.$("#sysConfirm").dialog("close");
+                },
+                "否": function () {
+                    top.window.$("#sysConfirm").dialog("close");
+                }
+            }
+        });
+    }
+    //根据ID修改部门信息
+    function editDepartment(departmentID) {
+        window.top.openDialog({ Url: "/ModuleSys/SysOrgDepartmentManage/Create/?organizationId=" + departmentID + "&pagestate=" + edit, Title: "编辑部门信息", Width: 650, Height: 460 });
+    }
+
+    function show(departmentID) {
+        window.top.openDialog({ Url: "/ModuleSys/SysOrgDepartmentManage/Create/?organizationId=" + departmentID + "&pagestate=" + detail, Title: "部门信息查看", Width: 650, Height: 460 });
+    }
+
+</script>
+<div>
+	@using (Html.BeginForm())
+ {
+	 /* 工具栏部分 toolbar
+	 ----------------------------------------------------------*/
+		<div class="toolbar">
+			<div class="toolbar-left">
+				@Html.Button(ButtonType.新增, "addDepartment('" + @Model.OrganizationId + "')")
+			</div>
+			<div class="toolbar-right">
+				@Html.TextBoxFor(x => x.SearchEntity._CommonSearchCondition, new { @class = "common-search-condition" })
+				<input type="submit" class="common-search-submit" value="" />
+			</div>
+		</div>
+     
+	 /* 说明文字
+        ----------------------------------------------------------*/
+		<div class="search-clue">
+			您可通过该功能，维护本公司的部门结构信息
+		</div>
+     
+	 /* grid部分
+        ----------------------------------------------------------*/
+        <div class="replace-container">
+			@{
+	 Html.RenderPartial("Index_Partial");
+			}
+		</div>
+		
+ }
+</div>
+

@@ -1,0 +1,69 @@
+﻿@{
+	Layout = null;
+}
+@model FoodSys.Web.Areas.ModuleSys.Models.ModelOrgCompanySelect
+<div class="common-table-container">
+	<table class="common-table" id="common-table">
+		<colgroup>
+			<col width="50" />
+			<col width="250" />
+			<col width="150" />
+			<col width="150" />
+			<col width="200" />
+			<col width="220" />
+			<col width="100" />
+			<col width="100" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th>
+				</th>
+				@Html.HiddenFor(x => x.SearchEntity._OrderName, new { data_order_name = "" })
+				@Html.HiddenFor(x => x.SearchEntity._OrderDirection, new { data_order_direction = "" })
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrgCompany>(x => x.CompanyName, "企业名称"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrgCompany>(x => x.CompanyCode, "组织机构代码"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrgCompany>(x => x.LicenseNo, "营业执照代码"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrgCompany>(x => x.TaxRegisterNo, "税务登记证号"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrgCompany>(x => x.Address, "企业地址"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrgCompany>(x => x.Corporation, "法人代表"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrgCompany>(x => x.CompanyType, "企业类型"))
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model.GridDatasource)
+   {
+				<tr ondblclick="javascript:show('@item.ID');">
+					<td>
+						<input type="radio" name="checkboxItem" class="checkboxItem" value="@item.ID" />
+					</td>
+					<td title="@item.CompanyName" style=" text-align:left; padding-left:5px;">
+						@Project.Common.StringUtility.CutString(item.CompanyName, 14)
+					</td>
+					<td title="@item.CompanyCode">
+						@item.CompanyCode
+					</td>
+					<td title="@item.LicenseNo">
+						@item.LicenseNo
+					</td>
+					<td title="@item.TaxRegisterNo">
+						@item.TaxRegisterNo
+					</td>
+					<td title="@item.Address"  style=" text-align:left; padding-left:5px;">
+						@Project.Common.StringUtility.CutString(item.Address, 15)
+					</td>
+					<td>
+						@item.Corporation
+					</td>
+					<td>
+						@(((FoodSys.Enum.EnumCompanyType)item.CompanyType).ToString())
+					</td>
+				</tr>
+   }
+		</tbody>
+	</table>
+</div>
+<div>
+	@{
+		Html.RenderPartial("/Views/Controls/Paginate.cshtml", Model.PaginateHelperObject);
+	}
+</div>

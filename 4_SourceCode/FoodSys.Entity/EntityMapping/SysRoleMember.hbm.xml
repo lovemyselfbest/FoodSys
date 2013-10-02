@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="FoodSys.Entity" namespace="FoodSys.Entity" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="SysRoleMember" table="Sys_Role_Member" lazy="true" >
+					<id name="ID">
+			  <generator class="guid.comb" />
+			</id>
+					<version name="Version" unsaved-value="null" generated="always"  type="BinaryBlob"/>
+        
+				<property name="RoleID"  >
+			<column name="RoleID" sql-type="uniqueidentifier" not-null="true" />
+		</property>
+				<property name="UserID"  >
+			<column name="UserID" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+			</class>
+</hibernate-mapping>
+		

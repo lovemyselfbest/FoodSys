@@ -1,0 +1,149 @@
+﻿@{
+	ViewBag.Title = "Create";
+	Layout = "~/Views/Shared/_LayoutDialog.cshtml";
+}
+@model FoodSys.Web.Areas.ModuleSys.Models.MdoelOrgCompanyCreate
+<style type="text/css">
+	.table-detail th
+	{
+		width: 150px;
+	}
+	body, html
+	{
+		height: 600px;
+		overflow: auto;
+		overflow-x: hidden;
+	}
+</style>
+<div class="wfill hfill center">
+	<p class="p-s1">
+		@(Model.PageState)企业信息
+	</p>
+	@using (Html.BeginForm())
+ {
+        @Html.HiddenFor(x => x.UTOrgCompanyEntity.Version)
+		<table cellpadding="0" cellspacing="0" align="center" class="table-detail">
+			<thead>
+				<tr>
+					<td colspan="4">
+						<div>
+							企业信息</div>
+					</td>
+				</tr>
+			</thead>
+			<tbody>
+                <tr>
+					<th>
+						<span class="red">*</span>组织机构代码证号：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.UTOrgCompanyEntity.OrganizationCode, new { maxlength = 9 })
+						@Html.ValidationMessageFor(x => x.UTOrgCompanyEntity.OrganizationCode)
+					</td>
+                    <th>
+						<span class="red">*</span>企业名称：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.UTOrgCompanyEntity.Name, new { maxlength = 100 })
+						@Html.ValidationMessageFor(x => x.UTOrgCompanyEntity.Name)
+					</td>
+				</tr>
+				<tr>
+				    <th>
+						<span class="red">*</span>注册地址：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.UTOrgCompanyEntity.Address, new { maxlength = 100 })
+						@Html.ValidationMessageFor(x => x.UTOrgCompanyEntity.Address)
+					</td>
+                    <th>
+						<span class="red">*</span>法人登记号：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.UTOrgCompanyEntity.LegalPersonRegNO, new { maxlength = 50 })
+						@Html.ValidationMessageFor(x => x.UTOrgCompanyEntity.LegalPersonRegNO)
+					</td>
+				</tr>
+                <tr>
+					<th>
+						<span class="red">*</span>税务登记证号：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.UTOrgCompanyEntity.TaxRegNO, new { maxlength = 50 })
+						@Html.ValidationMessageFor(x => x.UTOrgCompanyEntity.TaxRegNO)
+					</td>
+                    <th>
+						<span class="red">*</span>营业执照号：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.UTOrgCompanyEntity.LicenseNo, new { maxlength = 50 })
+						@Html.ValidationMessageFor(x => x.UTOrgCompanyEntity.LicenseNo)
+					</td>
+				</tr>
+				
+                <tr>
+					<th>
+						<span class="red">*</span>社会保险登记证号:
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.UTOrgCompanyEntity.SocialInsuranceRegNO, new { maxlength = 50 })
+						@Html.ValidationMessageFor(x => x.UTOrgCompanyEntity.SocialInsuranceRegNO)
+					</td>
+                    <th>
+						<span class="red">*</span>住房公积金账户:
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.UTOrgCompanyEntity.HousingFundNO, new { maxlength = 50 })
+						@Html.ValidationMessageFor(x => x.UTOrgCompanyEntity.HousingFundNO)
+					</td>
+				</tr>
+                <tr>
+					<th>
+						<span class="red">*</span>联系人:
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.UTOrgCompanyEntity.LinkMan, new { maxlength = 50 })
+						@Html.ValidationMessageFor(x => x.UTOrgCompanyEntity.LinkMan)
+					</td>
+                    <th>
+						<span class="red">*</span>手机：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.UTOrgCompanyEntity.Mobile, new { maxlength = 20 })
+						@Html.ValidationMessageFor(x => x.UTOrgCompanyEntity.Mobile)
+					</td>
+				</tr>
+                <tr>
+					<th>
+						<span class="red">*</span>座机：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.UTOrgCompanyEntity.Tel, new { maxlength = 20 })
+						@Html.ValidationMessageFor(x => x.UTOrgCompanyEntity.Tel)
+					</td>
+                    <th>
+						<span class="red">*</span>传真：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.UTOrgCompanyEntity.Fax, new { maxlength = 20 })
+						@Html.ValidationMessageFor(x => x.UTOrgCompanyEntity.Fax)
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<span class="red">*</span>邮箱：
+					</th>
+					<td colspan="3">
+						@Html.TextBoxFor(x => x.UTOrgCompanyEntity.Email, new { maxlength = 50 })
+						@Html.ValidationMessageFor(x => x.UTOrgCompanyEntity.Email)
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="center wfill">
+			@Html.HiddenFor(x => x.UTOrgCompanyEntity.ID)
+			<input type="submit" value="保存" class="button" />
+			<input type="button" value="关闭" class="button" onclick="javascript:window.parent.closeDialog();" />
+		</div>
+ }
+</div>

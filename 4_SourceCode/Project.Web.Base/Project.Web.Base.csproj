@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{75824D46-819E-4425-B968-262938FC16CC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Project.Web.Base</RootNamespace>
+    <AssemblyName>Project.Web.Base</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Aspose.Cells">
+      <HintPath>..\Project.References\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\Project.References\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Project.References\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\Project.References\System.Data.SQLite.DLL</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseController.cs" />
+    <Compile Include="BaseControllerFactory.cs" />
+    <Compile Include="BaseModel.cs" />
+    <Compile Include="ElmahHelper.cs" />
+    <Compile Include="Filters\AdminFilter.cs" />
+    <Compile Include="Filters\CompressFilter.cs" />
+    <Compile Include="InjectBizObject.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\ControlExtensionHelper.cs" />
+    <Compile Include="Utility\ExportHelper.cs" />
+    <Compile Include="Utility\ExpressionConditionHelper.cs" />
+    <Compile Include="Utility\PaginateHelper.cs" />
+    <Compile Include="Utility\SelectListHelper.cs" />
+    <Compile Include="Utility\TypeMerger.cs" />
+    <Compile Include="Utility\TypeMergerPolicy.cs" />
+    <Compile Include="Utility\UploadHelper.cs" />
+    <Compile Include="Utility\WebTools.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project.Biz.Base\Project.Biz.Base.csproj">
+      <Project>{D8038A75-7355-4E97-BB22-77366BA7239C}</Project>
+      <Name>Project.Biz.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Common\Project.Common.csproj">
+      <Project>{8684770C-FE2A-4B2D-910C-B88D5E2EF353}</Project>
+      <Name>Project.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Dal.Base\Project.Dal.Base.csproj">
+      <Project>{C487053F-C28D-41B4-93F4-EA4397B0CB53}</Project>
+      <Name>Project.Dal.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Entity.Base\Project.Entity.Base.csproj">
+      <Project>{08B4FECA-C7F9-405D-A876-A3BA087F891A}</Project>
+      <Name>Project.Entity.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

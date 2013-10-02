@@ -1,0 +1,138 @@
+﻿@model FoodSys.Web.Areas.ModuleSys.Models.ModelSysUserManageCreate
+@{
+	ViewBag.Title = "ModelSysUserManageCreate";
+	Layout = "~/Views/Shared/_LayoutDialog.cshtml";
+}
+<style type="text/css">
+	.table-detail th
+	{
+		width: 150px;
+	}
+	.td-retype .field-validation-valid
+	{
+		display: none;
+	}
+</style>
+<div class="wfill hfill center">
+	<p class="p-s1">
+		@(Model.PageState)部门用户
+	</p>
+	@using (Html.BeginForm())
+ {
+        @Html.HiddenFor(x => x.SysUserEntity.Version)
+		<table cellpadding="0" cellspacing="0" align="center" class="table-detail">
+			<thead>
+				<tr>
+					<td colspan="2">
+						<div>
+							人员信息</div>
+					</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>
+						<span class="red">*</span>用户账号：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.SysUserEntity.UserAccount, new { maxlength = 50 })
+						@Html.ValidationMessageFor(x => x.SysUserEntity.UserAccount)
+					</td>
+				</tr>
+				@*
+				<tr>
+					<th>
+						<span class="red">*</span>用户类型：
+					</th>
+					<td>
+						@Html.DropDownListForFix(x=>x.SysUserEntity.UserType,SelectListHelper.ComposeSelectListFromEnum<FoodSys.Enum.EnumInternalUserType>("--请选择--",""))
+						@Html.ValidationMessageFor(x => x.SysUserEntity.UserType)
+					</td>
+				</tr>
+				*@
+				@if (Model.PageState == Project.Common.EnumPageState.新增)
+    {
+					<tr>
+						<th>
+							<span class="red">*</span>密码：
+						</th>
+						<td>
+							@Html.PasswordFor(x => x.SysUserEntity.Password, new { maxlength = 50 })
+							@Html.ValidationMessageFor(x => x.SysUserEntity.Password)
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<span class="red">*</span>再次输入密码：
+						</th>
+						<td class="td-retype">
+							<input type="password" id="retypePassword" name="retypePassword" equalto="#SysUserEntity_Password" />
+							@Html.ValidationMessage("retypePassword", "重复密码不一致！")
+						</td>
+					</tr>
+    }
+				<tr>
+					<th>
+						<span class="red">*</span>姓名：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.SysUserEntity.UserName, new { maxlength = 50 })
+						@Html.ValidationMessageFor(x => x.SysUserEntity.UserName)
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<span class="red">*</span>所属角色：
+					</th>
+					<td>
+						@Html.DropDownListForFix(x => x.SysRoleMemberEntity.RoleID, SelectListHelper.ComposeSelectListFromCollect(Model.SysRoleList, x => x.ID, x => x.RoleName, "-- 请选择 --", null))
+						@Html.ValidationMessageFor(x => x.SysRoleMemberEntity.RoleID)
+					</td>
+				</tr>
+				@if (Model.DepartmentId == null)
+    {
+					<tr>
+						<th>
+							<span class="red">*</span>部门：
+						</th>
+						<td>
+							@Html.DropDownListFor(x => x.SysUserEntity.DepartmentID, SelectListHelper.ComposeSelectListFromCollect(Model.UTOrgDepartmentList, x => x.ID, x => x.DepartmentName, "-- 请选择 --", null))
+						</td>
+					</tr>
+    }
+				<tr>
+					<th>
+						手机：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.SysUserEntity.Mobile, new { maxlength = 20 })
+						@Html.ValidationMessageFor(x => x.SysUserEntity.Mobile)
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<span class="red">*</span>邮箱：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.SysUserEntity.Email, new { maxlength = 50 })
+						@Html.ValidationMessageFor(x => x.SysUserEntity.Email)
+					</td>
+				</tr>
+				<tr>
+					<th>
+						备注：
+					</th>
+					<td>
+						@Html.TextAreaForFix(x => x.SysUserEntity.Memo, new { style = "height:90px;width:460px;", cols = "20", rows = "5" })
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="center wfill">
+			@Html.HiddenFor(x => x.SysUserEntity.ID)
+			@Html.Hidden("departmentId", @Model.DepartmentId)
+			<input type="submit" value="保存" class="button" />
+			<input type="button" value="关闭" class="button" onclick="javascript:window.parent.closeDialog();" />
+		</div>
+ }
+</div>

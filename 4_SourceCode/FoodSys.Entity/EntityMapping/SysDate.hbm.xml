@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="FoodSys.Entity" namespace="FoodSys.Entity" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="SysDate" table="Sys_Date" lazy="true" >
+					<id name="ID">
+			  <generator class="guid.comb" />
+			</id>
+					<version name="Version" unsaved-value="null" generated="always"  type="BinaryBlob"/>
+        
+				<property name="Date"  >
+			<column name="Date" sql-type="datetime" not-null="false" />
+		</property>
+				<property name="IsHoliday"  >
+			<column name="IsHoliday" sql-type="bit" not-null="false" />
+		</property>
+			</class>
+</hibernate-mapping>
+		

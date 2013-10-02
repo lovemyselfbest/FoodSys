@@ -1,0 +1,207 @@
+﻿@model FoodSys.Web.Areas.ModuleLogin.Models.ModelLoginIndex
+<html>
+<head>
+	<title>西安高新区公租房管理信息系统</title>@*<link href="/Content/Css/SysLoginManageIndex.css" type="text/css" rel="Stylesheet" />*@
+	<script src="/Scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
+	<script src="/Scripts/jquery-ui-1.8.11.js" type="text/javascript"></script>
+	<link href="/Content/themes/redmond/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+	<link rel="shortcut icon" href="/Content/Images/favicon.ico" type="image/x-icon" />
+	<script type="text/javascript">
+		function login() {
+			if ($("#SysUser_UserAccount").val() == "" || $("#SysUser_UserAccount").val() == "请输入用户名") {
+				window.top.sysAlert('@(FoodSys.Resources.Properties.Resources.M10004I)');
+			}
+			else {
+				var hasChecked;
+				if ($("#RememberLoginStatus").attr("checked") == "checked")
+					hasChecked = true;
+				else
+					hasChecked = false;
+				$.ajax({
+					type: "POST",
+					url: "/ModuleLogin/Login/index",
+					data: "SysUser.UserAccount=" + $("#SysUser_UserAccount").val() + "&SysUser.Password=" + $("#SysUser_Password").val() + "&rememberLoginStatus=" + hasChecked,
+					success: function (msg) {
+						msg = eval("(" + msg + ")");
+						if (msg.result == "")
+							window.location = "/home";
+						else {
+							sysAlert(msg.result);
+						}
+					}
+				});
+			}
+		}
+
+		function sysAlert(message) {
+			if (message == undefined)
+				return;
+			$("#sysAlert").html(message);
+			$("#sysAlert").dialog({ modal: true, title: "系统提示", height: "200" });
+			$("#sysAlert").dialog({
+				modal: true,
+				buttons: {
+					确定: function () {
+						$(this).dialog("close");
+					}
+				}
+			});
+		}
+
+		$(function () {
+			$("#SysUser_UserAccount").click(
+				function () {
+					if ($.trim($(this).val()) == "请输入用户名") {
+						$(this).val("");
+					}
+				}
+			);
+			$("#SysUser_UserAccount").blur(
+				function () {
+					if ($.trim($(this).val()) == "") {
+						$(this).val("请输入用户名");
+					}
+				}
+			);
+			if ($.trim($("#SysUser_UserAccount").val()) == "") {
+				$("#SysUser_UserAccount").val("请输入用户名");
+			}
+			$("#SysUser_UserAccount").select();
+			$("#SysUser_UserAccount").focus();
+
+			$(document).bind('keypress', function (e) {
+				var code = (e.keyCode ? e.keyCode : e.which);
+				if (code == 13) { //Enter keycode
+					login();
+				}
+			});
+
+		});
+
+	</script>
+	<style type="text/css">
+		body
+		{
+			background: url("/content/images/login/login.jpg") center top no-repeat;
+			
+			text-align: center;
+			margin: 0 auto;
+			width: 1024px;
+			overflow: hidden;
+			font-size: 12px;
+		}
+		.top
+		{
+			background: url("/content/images/login/login-top.jpg") no-repeat scroll 0 0 #FFFFFF;
+			height: 182px;
+			width: 984px;
+		}
+		.middle
+		{
+			background: url("/content/images/login/login-middle.jpg") no-repeat scroll 0 0 #FFFFFF;
+			width: 984px;
+			height: 322px;
+			
+			text-align: left;
+		}
+		.bottom
+		{
+			width: 984px;
+			
+			margin:0px 0 5px 0;
+			padding-top:30px;
+			background: url("/content/images/login/login-bottom.jpg") no-repeat scroll 0 0 #FFFFFF;
+			color:#212121;
+		}
+		.bottom a 
+		{
+			text-decoration: none;
+		
+			color:#212121;
+		}
+		
+		.form-element
+		{ top:228px !important;
+			position: relative;
+			top: 223px;
+			left: 290px;
+			color: white;
+		   
+		}
+
+		.form-element_dl{position: relative;top: 264px;
+			left: -160px;}
+			.margin_left{left:295px !important;left:290px;}
+			 .form-element_bt{position: relative;top: 270px;
+			left: 100px;}
+		.input-user
+		{
+			border: none;
+			background:none;
+			color:#696969;
+			font-size:12px;
+			width: 160px;
+			height: 17px;
+			padding-left: 10px;
+			text-align:left;
+			paddin-top:3px;
+		}
+		.input-password
+		{
+			border:none;
+			background:none;
+				text-align:left;
+			width: 160px;
+			height: 17px;
+			   paddin-top:3px;
+			padding-left: 4px;
+		}
+		.button
+		{
+			width: 90px;
+			height: 27px;
+			background-image: url('/content/images/login/login-button.jpg');
+			background-repeat: no-repeat;
+			border: 0px;
+			cursor: pointer;
+		}
+		.magin-10
+		{
+			margin: 0 0 0 100px;
+		}
+	   
+		.logo{ margin-left: 4px; margin-top:6px;background: url('/content/images/login/logo-hanwintech.png') 600px no-repeat;@*_background: none;
+	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/Images/SysLogin/logo_cm.png" ,sizingMethod="crop");_background-positon:600px;*@ text-align:center; height:15px; line-height:15px;  }
+	</style>
+</head>
+<body>
+	@using (Html.BeginForm())
+ {
+		<div class="top">
+		</div>
+		<div class="middle">
+			<span class="form-element margin_left">
+				@Html.TextBoxFor(x => x.SysUser.UserAccount, new { @class = "input-user", value = "请输入用户名" })
+			</span><span class="form-element magin-10">
+				@Html.PasswordFor(x => x.SysUser.Password, new { @class = "input-password" })
+			</span>
+			<span class="form-element_dl">两周内自动登录？
+				@Html.CheckBoxFor(x => x.RememberLoginStatus)
+			</span>
+			<span class="form-element_bt">
+				<input type="button" value="  " class="button" onclick="login();" />
+			</span>
+		</div>
+		<div class="bottom">
+			<div>
+				© 2011-2012 版权所有：<a href="http://www.xdz.gov.cn" target="_blank">西安高新区保障房管理中心</a></div>
+			<div class="logo">
+				技术支持：<a href="http://www.hanwintech.com" target="_blank">江苏瀚远科技股份有限公司 </a>
+			</div>
+		</div>
+ }
+	<div id="sysAlert" class="info" style="display: none">
+		系统消息--操作失败
+	</div>
+</body>
+</html>

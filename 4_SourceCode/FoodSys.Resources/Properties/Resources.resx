@@ -1,0 +1,594 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="M00001I" xml:space="preserve">
+    <value>操作成功！</value>
+  </data>
+  <data name="M00002E" xml:space="preserve">
+    <value>操作失败，请重试！</value>
+  </data>
+  <data name="M00003E" xml:space="preserve">
+    <value>请至少选择一行记录！</value>
+  </data>
+  <data name="M00004E" xml:space="preserve">
+    <value>最多只能选择一行记录！</value>
+  </data>
+  <data name="M00005A" xml:space="preserve">
+    <value>确认要删除么？</value>
+  </data>
+  <data name="M00006E" xml:space="preserve">
+    <value>删除操作失败，请去确认该数据是否正在被使用！</value>
+  </data>
+  <data name="M00007E" xml:space="preserve">
+    <value>修改失败，请确认信息是否正确！</value>
+  </data>
+  <data name="M00008E" xml:space="preserve">
+    <value>报废失败，此意向合同已是待缴费状态！</value>
+  </data>
+  <data name="M00009I" xml:space="preserve">
+    <value>取消操作成功！</value>
+  </data>
+  <data name="M00010E" xml:space="preserve">
+    <value>选择失败，请稍后再试！</value>
+  </data>
+  <data name="M00011E" xml:space="preserve">
+    <value>取消选择失败，请稍后再试！</value>
+  </data>
+  <data name="M10001E" xml:space="preserve">
+    <value>用户名不存在！</value>
+  </data>
+  <data name="M10002E" xml:space="preserve">
+    <value>密码错误！</value>
+  </data>
+  <data name="M10003E" xml:space="preserve">
+    <value>该用户当前状态不可登录！</value>
+  </data>
+  <data name="M10004I" xml:space="preserve">
+    <value>请输入用户名！</value>
+  </data>
+  <data name="M10005I" xml:space="preserve">
+    <value>请选择需要编辑的角色！</value>
+  </data>
+  <data name="M10006I" xml:space="preserve">
+    <value>请选择需要删除的角色！</value>
+  </data>
+  <data name="M10007E" xml:space="preserve">
+    <value>此企业下已有个人用户信息，无法做删除操作；请确保此企业下无个人用户信息后，再做删除操作！</value>
+  </data>
+  <data name="M10008E" xml:space="preserve">
+    <value>您所要删除的企业中至少有一个企业已有个人用户信息；无法做删除操作，请删除该企业下的所有个人用户信息！</value>
+  </data>
+  <data name="M10009E" xml:space="preserve">
+    <value>此部门下已有用户信息，无法做删除操作；请确保此部门下无用户信息后，再做删除操作！</value>
+  </data>
+  <data name="M10010E" xml:space="preserve">
+    <value>删除失败，请检查此角色是否已经被使用！</value>
+  </data>
+  <data name="M10011E" xml:space="preserve">
+    <value>请输入查询证件号码！</value>
+  </data>
+  <data name="M10012E" xml:space="preserve">
+    <value>验证码错误！</value>
+  </data>
+  <data name="M10013E" xml:space="preserve">
+    <value>原密码错误！</value>
+  </data>
+  <data name="M10014E" xml:space="preserve">
+    <value>有菜单正在被使用，不能移出！</value>
+  </data>
+  <data name="M20001E" xml:space="preserve">
+    <value>采购明细单存在供应商信息不能删除</value>
+  </data>
+  <data name="M20002E" xml:space="preserve">
+    <value>本次变更申请已经确认了！</value>
+  </data>
+  <data name="M20003E" xml:space="preserve">
+    <value>房间{0},已经被占用，无法进行户型变更，请确认！</value>
+  </data>
+  <data name="M20004E" xml:space="preserve">
+    <value>采购单已经确认，无需重复确认！</value>
+  </data>
+  <data name="M20005E" xml:space="preserve">
+    <value>采购单确认失败，请重试！</value>
+  </data>
+  <data name="M20006E" xml:space="preserve">
+    <value>请先添加采购单明细！</value>
+  </data>
+  <data name="M20007E" xml:space="preserve">
+    <value>动资产添置失败，请重试！</value>
+  </data>
+  <data name="M20008E" xml:space="preserve">
+    <value>动资产替换失败，请重试！</value>
+  </data>
+  <data name="M20009E" xml:space="preserve">
+    <value>动资产移除失败，请重试！</value>
+  </data>
+  <data name="M20010E" xml:space="preserve">
+    <value>项目动资产添加失败，请重试！</value>
+  </data>
+  <data name="M20011E" xml:space="preserve">
+    <value>幢动资产添加失败，请重试！</value>
+  </data>
+  <data name="M20012E" xml:space="preserve">
+    <value>批量删除室失败，请重试！</value>
+  </data>
+  <data name="M20013E" xml:space="preserve">
+    <value>资产数量不足，无法进行分配！</value>
+  </data>
+  <data name="M20014E" xml:space="preserve">
+    <value>请在生成意向合同后,再缴费,最后签章！</value>
+  </data>
+  <data name="M20014I" xml:space="preserve">
+    <value>请先选择部位信息。</value>
+  </data>
+  <data name="M20015E" xml:space="preserve">
+    <value>每层最大房间数量不能超过100间，请更改 “单元数”或 “每单元最大室数！</value>
+  </data>
+  <data name="M20016I" xml:space="preserve">
+    <value>请先保存室基本信息。</value>
+  </data>
+  <data name="M20017E" xml:space="preserve">
+    <value>只能选择一条记录！</value>
+  </data>
+  <data name="M20018I" xml:space="preserve">
+    <value>请先新增采购单明细！</value>
+  </data>
+  <data name="M20019I" xml:space="preserve">
+    <value>请先保存户型基本信息！</value>
+  </data>
+  <data name="M20020I" xml:space="preserve">
+    <value>请先选择部位信息！</value>
+  </data>
+  <data name="M20021I" xml:space="preserve">
+    <value>请先新增或修改票据！</value>
+  </data>
+  <data name="M20022E" xml:space="preserve">
+    <value>删除失败，请检查此动资产是否已经被使用！</value>
+  </data>
+  <data name="M20023E" xml:space="preserve">
+    <value>删除失败，请检查此幢是否已经包含室！</value>
+  </data>
+  <data name="M20024E" xml:space="preserve">
+    <value>删除失败，此室下面已经有动资产，无法删除！</value>
+  </data>
+  <data name="M20025E" xml:space="preserve">
+    <value>删除失败，此部位下面已经有动资产，无法删除！</value>
+  </data>
+  <data name="M20026E" xml:space="preserve">
+    <value>删除失败，请检查此室是否已经被使用！</value>
+  </data>
+  <data name="M20027E" xml:space="preserve">
+    <value>删除失败，此采购单下已有采购明细！</value>
+  </data>
+  <data name="M20028E" xml:space="preserve">
+    <value>删除失败，请检查此采购单是否存在采购明细！</value>
+  </data>
+  <data name="M20029E" xml:space="preserve">
+    <value>删除失败，请检查此房源类型是否已经被使用！</value>
+  </data>
+  <data name="M20030E" xml:space="preserve">
+    <value>删除失败，请检查此户型是否已经被使用！</value>
+  </data>
+  <data name="M20031E" xml:space="preserve">
+    <value>删除失败，请检查此部位资产是否已经被使用！</value>
+  </data>
+  <data name="M20032E" xml:space="preserve">
+    <value>删除失败，请检查此部位是否已经被使用！</value>
+  </data>
+  <data name="M20033E" xml:space="preserve">
+    <value>采购单已经确认，无法删除！</value>
+  </data>
+  <data name="M20034E" xml:space="preserve">
+    <value>此规格型号已经存在！</value>
+  </data>
+  <data name="M20035E" xml:space="preserve">
+    <value>此品牌已经存在！</value>
+  </data>
+  <data name="M20036E" xml:space="preserve">
+    <value>删除失败，请检查此区域是否已经包含停车位！</value>
+  </data>
+  <data name="M30001E" xml:space="preserve">
+    <value>生成合同失败，请重试！</value>
+  </data>
+  <data name="M30002E" xml:space="preserve">
+    <value>合同无法进行作废！</value>
+  </data>
+  <data name="M30003E" xml:space="preserve">
+    <value>合同作废失败，请稍后再试！</value>
+  </data>
+  <data name="M30004E" xml:space="preserve">
+    <value>删除申请信息失败，合同已经生成！</value>
+  </data>
+  <data name="M30005E" xml:space="preserve">
+    <value>删除申请信息失败，请稍后再试！</value>
+  </data>
+  <data name="M30006E" xml:space="preserve">
+    <value>操作失败，请先选择要预订的房间！</value>
+  </data>
+  <data name="M30007E" xml:space="preserve">
+    <value>预订金收取失败，请稍后再试！</value>
+  </data>
+  <data name="M30008E" xml:space="preserve">
+    <value>对不起，此合同暂时无法作废。</value>
+  </data>
+  <data name="M30009E" xml:space="preserve">
+    <value>此合同{0}房间未使用，需要扣除预订金{1}元，是否确认作废？</value>
+  </data>
+  <data name="M30010E" xml:space="preserve">
+    <value>此企业存在正在结转的租户合同，无法进行作废！</value>
+  </data>
+  <data name="M30011E" xml:space="preserve">
+    <value>审核失败，请重试！</value>
+  </data>
+  <data name="M30012E" xml:space="preserve">
+    <value>分配房间失败，请重试！</value>
+  </data>
+  <data name="M30013E" xml:space="preserve">
+    <value>生成合同失败，请重试！</value>
+  </data>
+  <data name="M30014E" xml:space="preserve">
+    <value>选择的房间已经被使用，请重新选择房间！</value>
+  </data>
+  <data name="M30015E" xml:space="preserve">
+    <value>费用收取失败，请稍后再试！</value>
+  </data>
+  <data name="M30016E" xml:space="preserve">
+    <value>合同作废失败，请稍后重试！</value>
+  </data>
+  <data name="M30017E" xml:space="preserve">
+    <value>提交合同审核失败，请稍后再试！</value>
+  </data>
+  <data name="M30018E" xml:space="preserve">
+    <value>入住登记失败，请重试！</value>
+  </data>
+  <data name="M30019E" xml:space="preserve">
+    <value>续签合同生成失败，请重试！</value>
+  </data>
+  <data name="M30020E" xml:space="preserve">
+    <value>续签合同作废失败，请重试！</value>
+  </data>
+  <data name="M30021E" xml:space="preserve">
+    <value>合同尚未分配房间，请先分配房间！</value>
+  </data>
+  <data name="M30022E" xml:space="preserve">
+    <value>合同信息尚不完全，请填写完整的合同信息！</value>
+  </data>
+  <data name="M30023E" xml:space="preserve">
+    <value>退租受理失败，请重试！</value>
+  </data>
+  <data name="M30024E" xml:space="preserve">
+    <value>退租登记信息不全，请先填写退租登记！</value>
+  </data>
+  <data name="M30025E" xml:space="preserve">
+    <value>提交退租申请失败，请重试！</value>
+  </data>
+  <data name="M30026E" xml:space="preserve">
+    <value>补缴费用保存失败，请重试！</value>
+  </data>
+  <data name="M30027E" xml:space="preserve">
+    <value>费用收取失败，请重试！</value>
+  </data>
+  <data name="M30028E" xml:space="preserve">
+    <value>退租退房失败，请重试！</value>
+  </data>
+  <data name="M30029E" xml:space="preserve">
+    <value>退费失败，请重试！</value>
+  </data>
+  <data name="M30030E" xml:space="preserve">
+    <value>取消退租失败，请重试！</value>
+  </data>
+  <data name="M30031E" xml:space="preserve">
+    <value>申请已成功提交，5个工作日内将给您通知。</value>
+  </data>
+  <data name="M30032E" xml:space="preserve">
+    <value>调整租金失败，请重试！</value>
+  </data>
+  <data name="M30033E" xml:space="preserve">
+    <value>该个人信息已经提交，请不要重复提交！</value>
+  </data>
+  <data name="M30034E" xml:space="preserve">
+    <value>上传的图片不能超过2M,请重新选择！</value>
+  </data>
+  <data name="M30035E" xml:space="preserve">
+    <value>在合同的合同期内，合同对应的房间已经被分配或者出租，暂时无法进行续签，请调整合同时间。</value>
+  </data>
+  <data name="M30036E" xml:space="preserve">
+    <value>在合同的合同期内，合同对应的房间已经被分配或者出租，暂时无法进行合同生成，请调整合同时间。</value>
+  </data>
+  <data name="M30037E" xml:space="preserve">
+    <value>请核实此合同编号的有效性和此合同已经是待签章状态。</value>
+  </data>
+  <data name="M40001E" xml:space="preserve">
+    <value>日常费用收取失败！</value>
+  </data>
+  <data name="M40002E" xml:space="preserve">
+    <value>没有需要汇总的记录！</value>
+  </data>
+  <data name="M40003E" xml:space="preserve">
+    <value>汇总失败，请重试！</value>
+  </data>
+  <data name="M40004E" xml:space="preserve">
+    <value>没有需要提交的记录！</value>
+  </data>
+  <data name="M40005E" xml:space="preserve">
+    <value>提交失败，请重试！</value>
+  </data>
+  <data name="M40006E" xml:space="preserve">
+    <value>没有需要审核的记录！</value>
+  </data>
+  <data name="M40007E" xml:space="preserve">
+    <value>审核失败，请重试！</value>
+  </data>
+  <data name="M40008E" xml:space="preserve">
+    <value>没有需要退回的记录！</value>
+  </data>
+  <data name="M40009E" xml:space="preserve">
+    <value>退回失败，请重试！</value>
+  </data>
+  <data name="M40010E" xml:space="preserve">
+    <value>请对上个月进行封帐！</value>
+  </data>
+  <data name="M40011E" xml:space="preserve">
+    <value>当月还有未核帐的数据，请全部核帐后，在进行封帐操作！</value>
+  </data>
+  <data name="M40012E" xml:space="preserve">
+    <value>封帐失败，请重试！</value>
+  </data>
+  <data name="M40013E" xml:space="preserve">
+    <value>没有需要封帐的记录！</value>
+  </data>
+  <data name="M50001E" xml:space="preserve">
+    <value>请选择一个正常使用的票据进行作废！</value>
+  </data>
+  <data name="M50002E" xml:space="preserve">
+    <value>票据作废失败！</value>
+  </data>
+  <data name="M50003E" xml:space="preserve">
+    <value>请对已作废的进行红冲！</value>
+  </data>
+  <data name="M50004E" xml:space="preserve">
+    <value>该票据已经被红冲过！</value>
+  </data>
+  <data name="M50005E" xml:space="preserve">
+    <value>目前没有可用于红冲的票据本，请领用新的票据！</value>
+  </data>
+  <data name="M50006E" xml:space="preserve">
+    <value>请选择已作废的票据进行更正！</value>
+  </data>
+  <data name="M50007E" xml:space="preserve">
+    <value>该票据已经被更正过，不能重复更正！</value>
+  </data>
+  <data name="M50008E" xml:space="preserve">
+    <value>目前没有可用于更正的票据本，请领用新的票据！</value>
+  </data>
+  <data name="M50009E" xml:space="preserve">
+    <value>请检查此税控卡是否使用完毕！</value>
+  </data>
+  <data name="M50010E" xml:space="preserve">
+    <value>删除失败，请检查票据是否被使用！</value>
+  </data>
+  <data name="M50011E" xml:space="preserve">
+    <value>该税控卡所维护的发票本已达上限，不能再维护了！</value>
+  </data>
+  <data name="M50012E" xml:space="preserve">
+    <value>该发票本还未使用完！</value>
+  </data>
+  <data name="M50013E" xml:space="preserve">
+    <value>超过租用时长！</value>
+  </data>
+  <data name="M50014E" xml:space="preserve">
+    <value>租用时长期限不匹配！</value>
+  </data>
+  <data name="M50015E" xml:space="preserve">
+    <value>目前没有可用于红冲的票据本，请领用新的票据！</value>
+  </data>
+  <data name="M50016E" xml:space="preserve">
+    <value>请填写相应的租用时间和租用费用！</value>
+  </data>
+  <data name="M50017E" xml:space="preserve">
+    <value>请先红冲后在更正票据！</value>
+  </data>
+  <data name="M50018E" xml:space="preserve">
+    <value>不能对未使用票据进行红冲！</value>
+  </data>
+  <data name="M60001E" xml:space="preserve">
+    <value>该审批人已经存在，不能重复添加！</value>
+  </data>
+  <data name="M60002E" xml:space="preserve">
+    <value>该关卡不可会签，不能添加多个审批人！</value>
+  </data>
+  <data name="M60003E" xml:space="preserve">
+    <value>该关卡有多个审批人，不能改成非会签！</value>
+  </data>
+  <data name="M60004E" xml:space="preserve">
+    <value>请检查合同相关信息是否填写完整！</value>
+  </data>
+  <data name="M60005E" xml:space="preserve">
+    <value>此意向合同存在正在结转的商铺合同，无法进行作废！</value>
+  </data>
+  <data name="M60006E" xml:space="preserve">
+    <value>您所要删除的商铺中至少有一个商铺正在被使用，无法做删除操作！</value>
+  </data>
+  <data name="M60007E" xml:space="preserve">
+    <value>请检查房间是否选择！</value>
+  </data>
+  <data name="M60008E" xml:space="preserve">
+    <value>请检查该合同是否有忘记已出租！</value>
+  </data>
+  <data name="M60009E" xml:space="preserve">
+    <value>生成合同失败，请先分配房间！</value>
+  </data>
+  <data name="M60010E" xml:space="preserve">
+    <value>删除操作失败，请确认该项目下是否有幢信息！</value>
+  </data>
+  <data name="M60011E" xml:space="preserve">
+    <value>此菜单下已有菜单信息，无法做删除操作；请确保此菜单下无菜单信息后，再做删除操作！</value>
+  </data>
+  <data name="M60012E" xml:space="preserve">
+    <value>此菜单在角色权限中已分配，无法做删除操作；请确保此菜单没被使用，再做删除操作！</value>
+  </data>
+  <data name="M60013E" xml:space="preserve">
+    <value>此菜单在用户权限中已分配，无法做删除操作；请确保此菜单没被使用，再做删除操作！</value>
+  </data>
+  <data name="M70001E" xml:space="preserve">
+    <value>请确认该企业下所有申请人审核完成！</value>
+  </data>
+  <data name="M70002E" xml:space="preserve">
+    <value>此申请单的主申请人审核不通过，无法继续审核共同申请人！</value>
+  </data>
+  <data name="M70003E" xml:space="preserve">
+    <value>请先设置该小区该房间类型的预定金，在进行操作！</value>
+  </data>
+  <data name="M70004E" xml:space="preserve">
+    <value>该类型房间已经分配满！</value>
+  </data>
+  <data name="M70005E" xml:space="preserve">
+    <value>先分配人员后在设置房间管理员！</value>
+  </data>
+  <data name="M70006E" xml:space="preserve">
+    <value>请全部审核完成后在确认审核结果！</value>
+  </data>
+  <data name="M70007E" xml:space="preserve">
+    <value>请选择所有房间审核数量！</value>
+  </data>
+  <data name="M70008E" xml:space="preserve">
+    <value>请先审核未审核的家庭成员！然后在确认审核结果！</value>
+  </data>
+  <data name="M70009E" xml:space="preserve">
+    <value>请先给每个房间设置银行卡号，在进行操作！</value>
+  </data>
+  <data name="M70010E" xml:space="preserve">
+    <value>请先确认是否还有未验的房间，在进行操作！</value>
+  </data>
+  <data name="M70011E" xml:space="preserve">
+    <value>请先生成合同后再打印！</value>
+  </data>
+  <data name="M70012E" xml:space="preserve">
+    <value>该企业已经确认复审结果完成！</value>
+  </data>
+  <data name="M70013E" xml:space="preserve">
+    <value>请选择需要退租的房间!</value>
+  </data>
+  <data name="M70014E" xml:space="preserve">
+    <value>上传的图片不能超过300K,请重新选择！</value>
+  </data>
+  <data name="M70015E" xml:space="preserve">
+    <value>您已预定过房源信息，请不要重复预定。</value>
+  </data>
+</root>

@@ -1,0 +1,68 @@
+﻿@{
+	ViewBag.Title = "OrgCompany";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model FoodSys.Web.Areas.ModuleSys.Models.ModelOrgCompanySelect
+<script type="text/javascript">
+    function confirmSelect() {
+        var selectId = defaultTable.forceSelectOne();
+        if (selectId == null)
+            return;
+        var selectedTrs = defaultTable.listSelectedTrs();
+        var company = new Object();
+        company.CompanyName = selectedTrs[0].children()[1].getAttribute("title");
+        company.CompanyCode = selectedTrs[0].children()[2].innerHTML;
+        company.Corporation = $.trim(selectedTrs[0].children()[6].innerHTML);
+        company.CompanyType = $.trim(selectedTrs[0].children()[7].innerHTML);
+        company.CompanyID = selectId;
+        (window.top.getCallBackFun()(company));
+        window.top.closePageDialogTwo();
+    }
+
+</script>
+@using (Html.BeginForm())
+{
+	<div class="toolbar">
+		<div class="toolbar-left">
+			@Html.Button(ButtonType.确认选择, "confirmSelect()")
+			@Html.Button(ButtonType.条件查询, "commonPage.scan()")
+		</div>
+		<div class="toolbar-right">
+			@Html.TextBoxFor(x => x.SearchEntity._CommonSearchCondition, new { @class = "common-search-condition" })
+			<input type="submit" class="common-search-submit" value="" />
+		</div>
+	</div>
+	<div class="search-container">
+		<table>
+			<tr>
+				<th>
+					组织机构代码：
+				</th>
+				<td>
+					@Html.TextBoxFor(x => x.SearchEntity._CompanyCode)
+				</td>
+				<th>
+					企业名称：
+				</th>
+				<td>
+					@Html.TextBoxFor(x => x.SearchEntity._CompanyName)
+				</td>
+				<td class="search-button">
+					<input type="submit" value="" class="button-search" />
+					<input type="button" value="" class="button-clear" />
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="search-clue">
+		您可通过该功能，选择相关的企业
+	</div>
+        
+    /* 表格数据显示
+      ----------------------------------------------------------*/
+	<div class="replace-container">
+			@{
+	Html.RenderPartial("Select_Partial");
+			}
+		</div>
+}

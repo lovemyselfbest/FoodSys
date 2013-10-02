@@ -1,0 +1,173 @@
+﻿@model SelectList
+@{
+	ViewBag.Title = "SysRoleManageIndex";
+    Layout = "~/Views/Shared/_LayoutEmbeddedFrame.cshtml";
+}
+<style type="text/css">
+	#tree
+	{
+		float: left;
+		height: 100%;
+		margin: 1px 0 0 0;
+		width: 160px;
+		background: url("/Content/images/treebg.jpg") no-repeat scroll 0 0 #FFFFFF;
+		border: 1px solid #83AAD3;
+		vertical-align: top;
+		font-family: "font-family:Verdana, Arial, Helvetica, sans-serif";
+		font-size: 12px;
+	}
+	.user-role-title
+	{
+		width: 100%;
+		font-weight: bold;
+		color: Black;
+		height: 20px;
+		border-bottom: 1px solid #83AAD3;
+		padding-top: 6px;
+	}
+	.user-role-title .user-role-img
+	{
+		background: url("/Content/images/users.gif") no-repeat;
+		padding-left: 20px;
+		height: 15px;
+	}
+	.user-role-toolbar
+	{
+		border-bottom: 1px solid #83AAD3;
+		background: #DFECF9;
+		height: 28px;
+		padding-top: 10px;
+	}
+	.user-role-toolbar a
+	{
+		height: 28px;
+		float: left;
+		padding-left: 5px;
+		color: #592C27;
+	}
+	.user-role-toolbar a:hover
+	{
+		color: #717070;
+	}
+	.user-role-toolbar .user-role-toolbar-add span
+	{
+		background: url("/Content/images/tool-Bar/Add.png") no-repeat;
+		padding-left: 20px;
+		height: 20px;
+		float: left;
+		line-height: 20px;
+		vertical-align: middle;
+	}
+	.user-role-toolbar .user-role-toolbar-edit span
+	{
+		background: url("/Content/images/tool-Bar/edit.png") no-repeat;
+		padding-left: 20px;
+		height: 20px;
+		float: left;
+		line-height: 20px;
+		vertical-align: middle;
+	}
+	.user-role-toolbar .user-role-toolbar-delete span
+	{
+		background: url("/Content/images/tool-Bar/delete.gif") no-repeat;
+		padding-left: 20px;
+		height: 20px;
+		float: left;
+		line-height: 20px;
+		vertical-align: middle;
+	}
+
+</style>
+<script type="text/javascript">
+    $(function () {
+        $("#tree").height($("html").outerHeight());
+        $("#roleList").height($("html").outerHeight() - 70);
+
+        //如果select存在option  默认选中第一项
+        if ($("#roleList option").length > 0) {
+            var id = $("#roleList option:eq(0)").val();
+            $("#pageRightFrame").attr("src", "/ModuleSys/SysRoleManage/Index/?id=" + id);
+            $("#roleList option:eq(0)").focus();
+        }
+
+    });
+
+    //角色切换
+    function roleChange() {
+        if ($("#roleList").val() == null)
+            return;
+        $("#embeddedFrame").attr("src", "/ModuleSys/SysRoleManage/Index/?id=" + $("#roleList").val());
+    }
+
+    //根据页面状态 创建与编辑用户角色
+    function create(pageState) {
+        if (pageState == '@Project.Common.EnumPageState.新增')
+            window.top.openDialog({ Url: "/ModuleSys/SysRoleManage/Create/?pageState=" + pageState, Title: "新增用户角色", Width: 650, Height: 400 });
+        else if (pageState == '@Project.Common.EnumPageState.编辑') {
+            var id = $("#roleList").val();
+            if (id == null) {
+                //请选择需要编辑的角色！
+                window.top.sysAlert('@(FoodSys.Resources.Properties.Resources.M10005I)');
+                return;
+            }
+            window.top.openDialog({ Url: "/ModuleSys/SysRoleManage/Create/?pageState=" + pageState + "&id=" + id, Title: "修改用户角色", Width: 650, Height: 400 });
+        }
+    }
+
+    function deleteUserRole() {
+        var id = $("#roleList").val();
+        if (id == null) {
+            //请选择需要删除的角色！
+            window.top.sysAlert('@(FoodSys.Resources.Properties.Resources.M10006I)');
+            return;
+        }
+
+        top.window.$("#sysConfirm").html("确定要删除？");
+        top.window.$("#sysConfirm").dialog({
+            resizable: false,
+            height: 200,
+            title: "系统提示",
+            modal: true,
+            buttons: {
+                "是": function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "/ModuleSys/SysRoleManage/Delete",
+                        data: "id=" + id,
+                        success: function (msg) {
+                            msg = eval("(" + msg + ")");
+                            if (msg.result == "") {
+                                window.location = commonPage.getCurrentUrl();
+                                window.top.sysMessage();
+                            }
+                            else {
+                                window.top.sysAlert(msg.result);
+                            }
+                        }
+                    });
+                    top.window.$("#sysConfirm").dialog("close");
+                },
+                "否": function () {
+                    top.window.$("#sysConfirm").dialog("close");
+                }
+            }
+        });
+    }
+</script>
+<div id="tree">
+	<div class="user-role-title">
+		<span class="user-role-img">用户</span></div>
+	<div class="clear">
+	</div>
+	<div class="user-role-toolbar">
+		<a href="javascript:void(0)" class="user-role-toolbar-add" onclick="create('@Project.Common.EnumPageState.新增')">
+			<span>新增</span></a> <a href="javascript:void(0)" class="user-role-toolbar-edit" onclick="create('@Project.Common.EnumPageState.编辑')">
+				<span>修改</span></a> <a href="javascript:void(0)" class="user-role-toolbar-delete"
+					onclick="deleteUserRole()"><span>删除</span></a>
+	</div>
+	<div class="clear">
+	</div>
+	<div class="user-role-content">
+		@Html.DropDownList("RoleID", Model, new { size = "30", id = "roleList", style = "width: 160px;font-size: 12px;", onchange = "roleChange();" })
+	</div>
+</div>

@@ -1,0 +1,92 @@
+﻿@{
+	Layout = null;
+}
+@model FoodSys.Web.Areas.ModuleSys.Models.ModelSysUserManageIndex
+<div class="common-table-container">
+	<table class="common-table" id="common-table">
+		<colgroup>
+			<col width="30" />
+			<col width="30" />
+			<col width="30" />
+			<col width="30" />
+			<col width="30" />
+			<col width="80" />
+			<col width="130" />
+			<col width="100" />
+			<col width="150" />
+			<col width="100" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th>
+					<input type="checkbox" class="common-table-checkbox-all" />
+				</th>
+				<th colspan="4">
+					操作
+				</th>
+				@Html.HiddenFor(x => x.SearchEntity._OrderName, new { data_order_name = "" })
+				@Html.HiddenFor(x => x.SearchEntity._OrderDirection, new { data_order_direction = "" })
+				@(Html.ThOrderHelper<FoodSys.Entity.SysUser>(x => x.UserAccount, "用户账号"))
+				@(Html.ThOrderHelper<FoodSys.Entity.SysUser>(x => x.UserName, "姓名"))
+				@(Html.ThOrderHelper<FoodSys.Entity.SysUser>(x => x.Mobile, "手机"))
+				@(Html.ThOrderHelper<FoodSys.Entity.SysUser>(x => x.Email, "邮箱"))
+				@(Html.ThOrderHelper<FoodSys.Entity.SysUser>(x => x.Status, "状态"))
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model.GridDataSources)
+   {
+				<tr ondblclick="javascript:show('@item.ID');">
+					<td>
+						@Html.CheckBox("checkboxItem", new { @class = "checkboxItem", value = item.ID })
+					</td>
+					<td>
+						<a href="javascript:editSysUser('@item.ID')" class="a-edit" title="修改">&nbsp</a>
+					</td>
+					<td>
+						@if (item.Status == (int)FoodSys.Enum.EnumUserStatus.已激活)
+	  {
+							<a href="javascript:void(0)" onclick="sysUserIsLock('@item.ID','@((int)FoodSys.Enum.EnumUserStatus.已锁定)')" class="a-toolBarLock" title="锁定">
+								&nbsp</a>
+	  }
+					</td>
+					<td>
+						@if (item.Status == (int)FoodSys.Enum.EnumUserStatus.已激活)
+	  {
+							<a href="javascript:void(0)" class="a-toolBarActive-disable" title="激活">&nbsp</a>
+	  }
+	  else
+	  {
+							<a href="javascript:void(0)"  onclick="sysUserIsLock('@item.ID','@((int)FoodSys.Enum.EnumUserStatus.已激活)')" class="a-toolBaractive" title="激活">
+								&nbsp</a>
+	  }
+					</td>
+					<td>
+						<a href="javascript:deleteSysUser('@item.ID')" class="a-delete" title="删除">&nbsp</a>
+					</td>
+					<td>
+						@item.UserAccount
+					</td>
+					<td>
+						@item.UserName
+					</td>
+					<td>
+						@item.Mobile
+					</td>
+					<td>
+						@item.Email
+					</td>
+					<td>
+						@(item.Status == (int)FoodSys.Enum.EnumUserStatus.已激活 ? FoodSys.Enum.EnumUserStatus.已激活.ToString() : FoodSys.Enum.EnumUserStatus.待激活.ToString())
+					</td>
+				</tr>
+   }
+		</tbody>
+	</table>
+</div>
+<!--分页显示-->
+<div>
+	@{
+		Html.RenderPartial("/Views/Controls/Paginate.cshtml", Model.PaginateHelperObject);
+	}
+</div>

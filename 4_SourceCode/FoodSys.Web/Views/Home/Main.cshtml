@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+@model FoodSys.Web.Models.ModelHomeMain
+@{
+	Layout = null;
+}
+<html>
+@RazorWidget.ViewStart()
+<head>
+	<title title="首页"></title>
+	<base target="mainFrame" />
+	<link href="/Content/Main.css" rel="stylesheet" type="text/css" />
+	<script src="/Scripts/base/main.js" type="text/javascript"></script>
+</head>
+<body>
+	@using (Html.BeginForm())
+ {
+		<div>
+			<ul class="function-container">
+
+				<li  shortcut="2" onclick="top.setframeUrl('','')">
+					
+						<em class="number">2</em>
+					<div class="function-background">
+						<img alt="" src="" />
+					</div>
+					<span>name</span>
+				</li>
+			</ul>
+		</div>
+ }
+</body>
+</html>
+<script type="text/javascript">
+	$("#navigation").html("首页");
+</script>

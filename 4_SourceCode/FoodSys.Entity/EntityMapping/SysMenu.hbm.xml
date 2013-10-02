@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="FoodSys.Entity" namespace="FoodSys.Entity" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="SysMenu" table="Sys_Menu" lazy="true" >
+					<id name="ID">
+			  <generator class="guid.comb" />
+			</id>
+					<version name="Version" unsaved-value="null" generated="always"  type="BinaryBlob"/>
+        
+				<property name="Name"  >
+			<column name="Name" sql-type="nvarchar" not-null="true" />
+		</property>
+				<property name="ParentID"  >
+			<column name="ParentID" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+				<property name="OrderIndex"  >
+			<column name="OrderIndex" sql-type="int" not-null="false" />
+		</property>
+				<property name="TargetURL"  >
+			<column name="TargetURL" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="Icon"  >
+			<column name="Icon" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="Level"  >
+			<column name="Level" sql-type="int" not-null="false" />
+		</property>
+			</class>
+</hibernate-mapping>
+		

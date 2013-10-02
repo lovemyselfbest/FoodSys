@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="FoodSys.Entity" namespace="FoodSys.Entity" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="UTOrgCompany" table="UT_Org_Company" lazy="true" >
+					<id name="ID">
+			  <generator class="guid.comb" />
+			</id>
+					<version name="Version" unsaved-value="null" generated="always"  type="BinaryBlob"/>
+        
+				<property name="Name"  >
+			<column name="Name" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="Address"  >
+			<column name="Address" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="LegalPersonRegNO"  >
+			<column name="LegalPersonRegNO" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="OrganizationCode"  >
+			<column name="OrganizationCode" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="TaxRegNO"  >
+			<column name="TaxRegNO" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="LicenseNo"  >
+			<column name="LicenseNo" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="SocialInsuranceRegNO"  >
+			<column name="SocialInsuranceRegNO" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="HousingFundNO"  >
+			<column name="HousingFundNO" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="LinkMan"  >
+			<column name="LinkMan" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="Mobile"  >
+			<column name="Mobile" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="Tel"  >
+			<column name="Tel" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="Fax"  >
+			<column name="Fax" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="Email"  >
+			<column name="Email" sql-type="nvarchar" not-null="false" />
+		</property>
+			</class>
+</hibernate-mapping>
+		

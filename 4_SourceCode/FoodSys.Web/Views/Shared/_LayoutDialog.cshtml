@@ -1,0 +1,127 @@
+﻿@{
+	Layout = null;
+}
+<html>
+<head>
+	<base target="_self" />
+	<title>@ViewBag.Title</title>
+	@RazorWidget.ViewStart()
+	@{
+		string error = Convert.ToString(TempData["Error"]);
+		string message = Convert.ToString(TempData["Message"]);
+	}
+	<script type="text/javascript">
+		$(function () {
+
+			/* 系统提示 或者 系统错误
+			----------------------------------------------------------*/
+			if ('@error' != "")
+				window.top.sysAlert("@Html.Raw(error)");
+			//window.setTimeout("window.top.sysAlert('@error')", 500);
+			if ('@message' != "")
+				window.top.sysMessage("@(Html.Raw(message))");
+
+			/* 导航内容
+			----------------------------------------------------------*/
+			var navigation = $.trim($(window.top.document).find(".menu-active").text()) + ">>" + $.trim($(window.top.document).find(".navigation").text());
+			$("form").append("<input type='hidden' name='navigation' id='navigation' value='" + navigation + "' />");
+
+			/* 计算页面高度与top window 高度
+			----------------------------------------------------------*/
+			var dialogInstances = [];
+			var uiDialog = $(window.top.document).find("div.ui-dialog");
+			for (var i = 0; i < uiDialog.length; i++) {
+				if ($(uiDialog[i]).css("z-index") == undefined || $(uiDialog[i]).css("z-index") == null)
+					continue;
+				dialogInstances[dialogInstances.length] = $(uiDialog[i]);
+			}
+			if (dialogInstances.length > 0) {
+				_sortByZIndex(dialogInstances);
+				var conentHeight = $(document).height();
+				var iframeHeight = dialogInstances[dialogInstances.length - 1].find("iframe").height();
+				if ((conentHeight - 6) > iframeHeight) {
+					$("body").css("overflow-y", "auto");
+					$("html").css("overflow-y", "auto");
+				}
+			}
+
+		});
+
+		function _sortByZIndex(a) {
+			var k, i;
+			for (i = 0; i < a.length - 1; i++) {
+				k = i;
+				for (j = i + 1; j < a.length; j++)
+					if (a[k].css("z-index") > a[j].css("z-index"))
+						k = j;
+				if (k != i) {
+					t = a[i];
+					a[i] = a[k];
+					a[k] = t;
+				}
+			}
+		}
+
+	</script>
+</head>
+<body style="display: none;">
+	<div>
+		@RenderBody()
+	</div>
+	<div id="alert" style="display: none">
+	</div>
+</body>
+<script type="text/javascript">
+	$("body").fadeIn("slow");
+	var edit = @((int)Project.Common.EnumPageState.编辑);
+	var create = @((int)Project.Common.EnumPageState.新增);
+	var detail = @((int)Project.Common.EnumPageState.查看);
+</script>
+@if (ViewBag.PageState != null && ((Project.Common.EnumPageState)ViewBag.PageState).ToString() == Project.Common.EnumPageState.查看.ToString())
+{
+	<script type="text/javascript">
+		$(function () {
+			$("input[type='submit'][class='button']").each(
+				function () {
+					if ($(this).attr("except-detail") != undefined)
+						return;
+					$(this).css("display", "none");
+				}
+			);
+
+
+			$("input[type='button'][value!='关闭']").each(function () {
+				if ($(this).attr("except-detail") != undefined)
+					return;
+				$(this).attr("disabled", "disabled");
+			});
+
+			$("input[type='checkbox']").attr("disabled", "disabled");
+			$("input[type='radio']").attr("disabled", "disabled");
+			$("input[type='text']").each(function () {
+				var textValue = $(this).val();
+				$(this).replaceWith(textValue);
+			});
+			$("input[type='file']").each(function () {
+				var textValue = $(this).val();
+				$(this).remove();
+			});
+			$("textarea").each(function () {
+
+				var textValue = $(this).val();
+				$(this).replaceWith(textValue);
+			});
+			$("select").each(function () {
+				var selectValue = $(this).find("option:selected").text();
+				if (selectValue == "-- 请选择 --")
+					selectValue = "";
+				$(this).replaceWith(selectValue);
+			});
+			$("input[type='password']").each(function () {
+				$(this).parent().html("**********");
+			});
+		}
+		);
+	</script>
+}
+</html>

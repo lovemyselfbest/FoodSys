@@ -1,0 +1,1630 @@
+﻿body {
+    color: #393939;
+    font-size: 9pt;
+}
+form {
+    margin: 0;
+    padding: 0;
+}
+img {
+    border: 0 none;
+}
+a img {
+    border: 0 none;
+}
+table {
+    border-collapse: collapse;
+}
+a {
+    outline: medium none;
+}
+a:link {
+    color: #0466CB;
+    text-decoration: none;
+}
+a:visited {
+    color: #0466CB;
+    text-decoration: none;
+}
+a:hover {
+    color: #0466CB;
+    text-decoration: none;
+}
+a:active {
+    color: #0466CB;
+    text-decoration: none;
+}
+A.A1:link {
+    color: #207BD6 !important;
+    text-decoration: underline;
+}
+A.A1:visited {
+    color: #207BD6 !important;
+    text-decoration: underline;
+}
+A.A1:active {
+    color: #124164;
+    text-decoration: underline;
+}
+A.A1:hover {
+    color: #124164;
+    text-decoration: underline;
+}
+A.orgAdd:link, A.orgAdd:visited {
+    background: url("images/org_select.png") no-repeat scroll 0 0 transparent;
+    color: #207BD6;
+    padding-left: 12px;
+}
+A.orgAdd:hover, A.orgAdd:active {
+    color: #207BD6;
+    text-decoration: underline;
+}
+A.orgClear:link, A.orgClear:visited {
+    background: url("images/org_select.png") no-repeat scroll 0 -60px transparent;
+    color: #9AA9B8;
+    margin-left: 5px;
+    padding-left: 12px;
+}
+A.orgClear:hover, A.orgClear:active {
+    background-position: 0 -40px;
+    color: #207BD6;
+    text-decoration: underline;
+}
+a.addfile {
+    background: url("images/org_select.png") no-repeat scroll 0 4px transparent;
+    color: #207BD6;
+    display: inline-block;
+    padding-left: 12px;
+    position: relative;
+    text-decoration: none;
+}
+a.addfile:hover {
+    background-position: 0 -16px;
+    color: #9AA9B8;
+    text-decoration: underline;
+}
+input.addfile {
+    cursor: pointer;
+    left: -5px;
+    opacity: 0;
+    position: absolute;
+    width: 1px;
+}
+a.selfile:link, a.selfile:visited {
+    color: #207BD6;
+    text-decoration: none;
+}
+a.selfile:hover, a.selfile:active {
+    color: #9AA9B8;
+    text-decoration: underline;
+}
+a.addimage {
+    background: url("images/org_select.png") no-repeat scroll 0 4px transparent;
+    color: #207BD6;
+    display: inline-block;
+    padding-left: 12px;
+    position: relative;
+    text-decoration: none;
+}
+a.addimage:hover {
+    background-position: 0 -16px;
+    color: #9AA9B8;
+    text-decoration: underline;
+}
+a.dropdown:link, a.dropdown:hover, a.dropdown:active, a.dropdown:visited {
+    background: url("images/btn_dropdown_l.png") no-repeat scroll left top transparent;
+    color: #373737;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+a.dropdown:hover {
+    text-decoration: none;
+}
+a.dropdown span {
+    background: url("images/btn_dropdown_r.png") no-repeat scroll right top transparent;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    margin: 0;
+    padding: 0 15px 0 0;
+    white-space: nowrap;
+}
+a.ToolBtn {
+    background: url("images/tool_btn.png") no-repeat scroll left 0 transparent;
+    display: inline-block;
+    padding-left: 5px;
+    text-decoration: none;
+}
+a.ToolBtn span {
+    background: url("images/tool_btn.png") no-repeat scroll right -50px transparent;
+    color: #373737 !important;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 13px 0 8px;
+}
+a.ToolBtn:hover, a.ToolBtn-active {
+    background-position: left -25px;
+}
+a.ToolBtn:hover span, a.ToolBtn-active span {
+    background-position: right -75px;
+    color: #FFFFFF !important;
+}
+a.ToolBtn2 {
+    background: url("images/tool_btn.png") no-repeat scroll left 0 transparent;
+    display: inline-block;
+    padding-left: 5px;
+    text-decoration: none !important;
+}
+a.ToolBtn2 span {
+    background: url("images/tool_btn.png") no-repeat scroll right -50px transparent;
+    color: #36434E !important;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    overflow: hidden;
+    padding: 0 13px 0 8px;
+}
+a.ToolBtn2:hover {
+    background-position: left -25px;
+}
+a.ToolBtn2:hover span {
+    background-position: right -75px;
+    color: #FFFFFF !important;
+    font-weight: bold;
+}
+a.BigBtn {
+    background: url("images/big_btn.png") no-repeat scroll left 0 transparent;
+    display: inline-block;
+    padding-left: 10px;
+    text-decoration: none;
+}
+a.BigBtn span {
+    background: url("images/big_btn.png") no-repeat scroll right -60px transparent;
+    color: #373737 !important;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 18px 0 5px;
+}
+a.BigBtn:hover {
+    background-position: left -30px;
+}
+a.BigBtn:hover span {
+    background-position: right -90px;
+    color: #373737 !important;
+}
+.loading {
+    background: url("/images/loading.gif") no-repeat scroll center top transparent;
+    margin-top: 10px;
+    padding-top: 50px;
+    text-align: center;
+}
+.loading_16 {
+    background: url("/images/loading_16.gif") no-repeat scroll center top transparent;
+    margin-top: 10px;
+    padding-top: 25px;
+    text-align: center;
+}
+.loading_gray_16 {
+    background: url("/images/loading_gray_16.gif") no-repeat scroll center top transparent;
+    margin-top: 10px;
+    padding-top: 25px;
+    text-align: center;
+}
+.bodycolor {
+    background: none repeat scroll 0 0 #F6F7F9;
+}
+.loginbodycolor {
+    background: none repeat scroll 0 0 #6BA2D8;
+}
+.topbar {
+    background: url("images/topbar.gif") repeat scroll 0 0 #C4D9EF;
+    font-size: 9pt;
+}
+.topbar2 {
+    background: url("images/menubg.gif") repeat scroll 0 0 #C4D9EF;
+    font-size: 9pt;
+}
+.panel {
+    background: none repeat scroll 0 0 #C4D9EF;
+    color: #654125;
+}
+.timebar {
+    background: none repeat scroll 0 0 #CEDFF1;
+}
+.menu_tr1 {
+    background-image: url("images/topbar.gif");
+    color: #000000;
+    cursor: pointer;
+    font-size: 9pt;
+}
+.menu_tr2 {
+    background: none repeat scroll 0 0 #CEDFF1;
+    color: #000000;
+    cursor: pointer;
+    font-size: 9pt;
+}
+.small {
+    font-size: 9pt;
+}
+.small1 {
+    color: #000000;
+    font-size: 9pt;
+}
+.big {
+    font-size: 12pt;
+}
+.big1 {
+    color: #000000;
+    font-size: 12pt;
+}
+.big2 {
+    font-size: 18pt;
+}
+.big3 {
+    color: #124164;
+    font-size: 12pt;
+    font-weight: bold;
+}
+.big4 {
+    color: #FF0000;
+}
+.verybig {
+    font-size: 24pt;
+}
+.ArrowButtonL {
+    background: url("images/pagebar_bg.png") no-repeat scroll -5px -38px transparent;
+    height: 16px;
+    width: 20px;
+}
+.ArrowButtonR {
+    background: url("images/pagebar_bg.png") no-repeat scroll -5px -158px transparent;
+    height: 16px;
+    width: 20px;
+}
+.ArrowButtonLL {
+    background: url("images/pagebar_bg.png") no-repeat scroll -5px -308px transparent;
+    height: 16px;
+    width: 20px;
+}
+.ArrowButtonRR {
+    background: url("images/pagebar_bg.png") no-repeat scroll -5px -338px transparent;
+    height: 16px;
+    width: 20px;
+}
+input.SmallButton, input.ArrowButton {
+    background: url("images/button_bg.gif") repeat scroll 0 0 #F4FBE1;
+    border: 1px solid #6E91C7;
+    font-size: 9pt;
+    height: 20px;
+    text-decoration: none;
+}
+input.SmallButton:hover, input.ArrowButton:hover {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: url("images/bg_input_btn_hover.png") repeat scroll 0 0 #F4FADF;
+    border-color: #99CC00 #80AA00 #80AA00 #99CC00;
+    border-right: 1px solid #80AA00;
+    border-style: solid;
+    border-width: 1px;
+    color: #395500;
+    font-size: 9pt;
+}
+input.BigButton {
+    background: url("images/button_bg.gif") repeat scroll 0 0 #F4FBE1;
+    border: 1px solid #6E91C7;
+    font-size: 12pt;
+    height: 24px;
+    margin: 1px;
+    text-decoration: none;
+}
+input.BigButton:hover {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: url("images/bg_input_btn_hover.png") repeat scroll 0 0 #F4FADF;
+    border-color: #99CC00 #80AA00 #80AA00 #99CC00;
+    border-right: 1px solid #80AA00;
+    border-style: solid;
+    border-width: 1px;
+    color: #395500;
+    font-size: 12pt;
+}
+input.SmallButtonAHover {
+    background: url("images/btn_a.png") no-repeat scroll 0 -21px transparent;
+    border: 0 none;
+    color: #000000;
+    cursor: pointer;
+    height: 21px;
+    width: 50px;
+}
+input.SmallButtonA {
+    background: url("images/btn_a.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #36434E;
+    cursor: pointer;
+    height: 21px;
+    width: 50px;
+}
+input.SmallButtonA:hover {
+    background-position: 0 -21px;
+}
+input.SmallButtonBHover {
+    background: url("images/btn_b.png") no-repeat scroll 0 -21px transparent;
+    border: 0 none;
+    color: #000000;
+    cursor: pointer;
+    height: 21px;
+    width: 74px;
+}
+input.SmallButtonB {
+    background: url("images/btn_b.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #36434E;
+    cursor: pointer;
+    height: 21px;
+    width: 74px;
+}
+input.SmallButtonB:hover {
+    background-position: 0 -21px;
+}
+input.SmallButtonCHover {
+    background: url("images/btn_c.png") no-repeat scroll 0 -21px transparent;
+    border: 0 none;
+    color: #000000;
+    cursor: pointer;
+    height: 21px;
+    width: 105px;
+}
+input.SmallButtonC {
+    background: url("images/btn_c.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #36434E;
+    cursor: pointer;
+    height: 21px;
+    width: 105px;
+}
+input.SmallButtonC:hover {
+    background-position: 0 -21px;
+}
+input.SmallButtonDHover {
+    background: url("images/btn_d.png") no-repeat scroll 0 -21px transparent;
+    border: 0 none;
+    color: #000000;
+    cursor: pointer;
+    height: 21px;
+    width: 160px;
+}
+input.SmallButtonD {
+    background: url("images/btn_d.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #36434E;
+    cursor: pointer;
+    height: 21px;
+    width: 160px;
+}
+input.SmallButtonD:hover {
+    background-position: 0 -21px;
+}
+input.SmallButtonEHover {
+    background: url("images/btn_e.png") no-repeat scroll 0 -21px transparent;
+    border: 0 none;
+    color: #000000;
+    cursor: pointer;
+    height: 21px;
+    width: 245px;
+}
+input.SmallButtonE {
+    background: url("images/btn_e.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #36434E;
+    cursor: pointer;
+    height: 21px;
+    width: 245px;
+}
+input.SmallButtonE:hover {
+    background-position: 0 -21px;
+}
+input.BigButtonAHover {
+    background: url("images/big_btn_a.png") no-repeat scroll 0 -30px transparent;
+    border: 0 none;
+    color: #000000;
+    cursor: pointer;
+    font-size: 12pt;
+    height: 27px !important;
+    padding-bottom: 3px;
+    width: 60px;
+}
+input.BigButtonA {
+    background: url("images/big_btn_a.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #36434E;
+    cursor: pointer;
+    font-size: 12pt;
+    height: 27px !important;
+    padding-bottom: 3px;
+    width: 60px;
+}
+input.BigButtonA:hover {
+    background-position: 0 -30px;
+}
+input.BigButtonBHover {
+    background: url("images/big_btn_b.png") no-repeat scroll 0 -30px transparent;
+    border: 0 none;
+    color: #000000;
+    cursor: pointer;
+    font-size: 12pt;
+    height: 27px !important;
+    padding-bottom: 3px;
+    width: 84px;
+}
+input.BigButtonB {
+    background: url("images/big_btn_b.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #36434E;
+    cursor: pointer;
+    font-size: 12pt;
+    height: 27px !important;
+    padding-bottom: 3px;
+    width: 84px;
+}
+input.BigButtonB:hover {
+    background-position: 0 -30px;
+}
+input.BigButtonCHover {
+    background: url("images/big_btn_c.png") no-repeat scroll 0 -30px transparent;
+    border: 0 none;
+    color: #000000;
+    cursor: pointer;
+    font-size: 12pt;
+    height: 27px !important;
+    padding-bottom: 3px;
+    width: 125px;
+}
+input.BigButtonC {
+    background: url("images/big_btn_c.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #36434E;
+    cursor: pointer;
+    font-size: 12pt;
+    height: 27px !important;
+    padding-bottom: 3px;
+    width: 125px;
+}
+input.BigButtonC:hover {
+    background-position: 0 -30px;
+}
+input.BigButtonDHover {
+    background: url("images/big_btn_d.png") no-repeat scroll 0 -30px transparent;
+    border: 0 none;
+    color: #000000;
+    cursor: pointer;
+    font-size: 12pt;
+    height: 27px !important;
+    padding-bottom: 3px;
+    width: 195px;
+}
+input.BigButtonD {
+    background: url("images/big_btn_d.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #36434E;
+    cursor: pointer;
+    font-size: 12pt;
+    height: 27px !important;
+    padding-bottom: 3px;
+    width: 195px;
+}
+input.BigButtonD:hover {
+    background-position: 0 -30px;
+}
+input.BigButtonEHover {
+    background: url("images/big_btn_e.png") no-repeat scroll 0 -30px transparent;
+    border: 0 none;
+    color: #000000;
+    cursor: pointer;
+    font-size: 12pt;
+    height: 27px !important;
+    padding-bottom: 3px;
+    width: 305px;
+}
+input.BigButtonE {
+    background: url("images/big_btn_e.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #36434E;
+    cursor: pointer;
+    font-size: 12pt;
+    height: 27px !important;
+    padding-bottom: 3px;
+    width: 305px;
+}
+input.BigButtonE:hover {
+    background-position: 0 -30px;
+}
+input.ToolButtonAHover {
+    background: url("images/tool_btn_a.png") no-repeat scroll 0 -25px transparent;
+    border: 0 none;
+    color: #000000;
+    cursor: pointer;
+    height: 25px;
+    width: 50px;
+}
+input.ToolButtonA {
+    background: url("images/tool_btn_a.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #36434E;
+    cursor: pointer;
+    height: 25px;
+    width: 50px;
+}
+input.ToolButtonA:hover {
+    background-position: 0 -25px;
+}
+input.ToolButtonBHover {
+    background: url("images/tool_btn_b.png") no-repeat scroll 0 -25px transparent;
+    border: 0 none;
+    color: #000000;
+    cursor: pointer;
+    height: 25px;
+    width: 74px;
+}
+input.ToolButtonB {
+    background: url("images/tool_btn_b.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #36434E;
+    cursor: pointer;
+    height: 25px;
+    width: 74px;
+}
+input.ToolButtonB:hover {
+    background-position: 0 -25px;
+}
+input.ToolButtonCHover {
+    background: url("images/tool_btn_c.png") no-repeat scroll 0 -25px transparent;
+    border: 0 none;
+    color: #000000;
+    cursor: pointer;
+    height: 25px;
+    width: 105px;
+}
+input.ToolButtonC {
+    background: url("images/tool_btn_c.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #36434E;
+    cursor: pointer;
+    height: 25px;
+    width: 105px;
+}
+input.ToolButtonC:hover {
+    background-position: 0 -25px;
+}
+input.ToolButtonDHover {
+    background: url("images/tool_btn_d.png") no-repeat scroll 0 -25px transparent;
+    border: 0 none;
+    color: #000000;
+    cursor: pointer;
+    height: 25px;
+    width: 160px;
+}
+input.ToolButtonD {
+    background: url("images/tool_btn_d.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #36434E;
+    cursor: pointer;
+    height: 25px;
+    width: 160px;
+}
+input.ToolButtonD:hover {
+    background-position: 0 -25px;
+}
+input.ToolButtonEHover {
+    background: url("images/tool_btn_e.png") no-repeat scroll 0 -25px transparent;
+    border: 0 none;
+    color: #000000;
+    cursor: pointer;
+    height: 25px;
+    width: 245px;
+}
+input.ToolButtonE {
+    background: url("images/tool_btn_e.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #36434E;
+    cursor: pointer;
+    height: 25px;
+    width: 245px;
+}
+input.ToolButtonE:hover {
+    background-position: 0 -25px;
+}
+input.BigInput, textarea.BigInput {
+    background: url("images/bg_input_text.png") repeat-x scroll 0 -1px white;
+    border: 1px solid #C0BBB4;
+    font-size: 10pt;
+    padding: 1px 5px;
+}
+input.BigInput:hover, textarea.BigInput:hover {
+    background: url("images/bg_input_text_hover.png") repeat-x scroll left top white;
+    border: 1px solid #99CC00;
+    font-size: 10pt;
+}
+input.SmallInput, textarea.SmallInput {
+    background: url("images/bg_input_text.png") repeat-x scroll 0 -1px white;
+    border: 1px solid #C0BBB4;
+    font-size: 9pt;
+    padding: 1px 5px;
+}
+input.SmallInput:hover, textarea.SmallInput:hover {
+    background: url("images/bg_input_text_hover.png") repeat-x scroll left top white;
+    border: 1px solid #99CC00;
+    font-size: 9pt;
+}
+input.BigInputMoney {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #F8F8F8;
+    border-color: black black -moz-use-text-color;
+    border-style: solid solid double;
+    border-width: 1px;
+    color: #000066;
+    font-size: 12pt;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    height: 22px;
+    line-height: normal;
+    text-align: right;
+}
+input.BigStatic, textarea.BigStatic {
+    background: none repeat scroll 0 0 #E0E0E0;
+    border: 1px solid #C0BBB4;
+    font-size: 10pt;
+    padding: 1px 5px;
+}
+input.SmallStatic, textarea.SmallStatic {
+    background: none repeat scroll 0 0 #E0E0E0;
+    border: 1px solid #C0BBB4;
+    font-size: 9pt;
+    padding: 1px 5px;
+}
+select.BigSelect {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: url("images/bg_input_text.png") repeat-x scroll left top white;
+    border-color: #C0BBB4 #C0BBB4 -moz-use-text-color;
+    border-style: solid solid double;
+    border-width: 1px;
+    color: #000066;
+    font-size: 12pt;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    height: 22px;
+    line-height: normal;
+}
+select.BigSelect:hover {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: url("images/bg_input_text_hover.png") repeat-x scroll left top white;
+    border-color: #C0BBB4 #C0BBB4 -moz-use-text-color;
+    border-style: solid solid double;
+    border-width: 1px;
+    color: #000066;
+    font-size: 12pt;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    height: 22px;
+    line-height: normal;
+}
+select.SmallSelect {
+    background: url("images/bg_input_text.png") repeat-x scroll left top white;
+    border: 1px solid #C0BBB4;
+    color: #000066;
+    font-size: 9pt;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    height: 18px;
+    line-height: normal;
+}
+select.SmallSelect:hover {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: url("images/bg_input_text_hover.png") repeat-x scroll left top white;
+    border-color: #C0BBB4 #C0BBB4 -moz-use-text-color;
+    border-style: solid solid double;
+    border-width: 1px;
+    color: #000066;
+    font-size: 9pt;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    height: 18px;
+    line-height: normal;
+}
+select.BigStatic {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #E0E0E0;
+    border-color: black black -moz-use-text-color;
+    border-style: solid solid double;
+    border-width: 1px;
+    color: #000066;
+    font-size: 12pt;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    height: 22px;
+    line-height: normal;
+}
+select.SmallStatic {
+    background: none repeat scroll 0 0 #E0E0E0;
+    border: 1px solid black;
+    color: #000066;
+    font-size: 9pt;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    height: 18px;
+    line-height: normal;
+}
+.TableControl {
+    background: none repeat scroll 0 0 #E7F0FB;
+}
+.TableHeader {
+    background: none repeat scroll 0 0 #5D99DA;
+    color: #FFFFFF;
+    font-size: 9pt;
+    font-weight: bold;
+    line-height: 21px;
+}
+.TableContent {
+    background: none repeat scroll 0 0 #F2F8FF;
+}
+.TableData {
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #000000;
+}
+.TableLine1 {
+    background: none repeat scroll 0 0 #F3F3F3;
+}
+.TableLine2 {
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+.TableRed {
+    background: none repeat scroll 0 0 #F2F8FF;
+}
+.TextColor1 {
+    color: #FF6600;
+}
+.TextColor2 {
+    color: #FF0000;
+}
+.TextColor3 {
+    color: #808080;
+}
+.top {
+    color: #FF0000;
+    font-weight: bold;
+}
+.TableHeader a:link, .TableHeader a:hover, .TableHeader a:active, .TableHeader a:visited {
+    color: #FFFFFF;
+}
+.TableCorner a:link, .TableCorner a:hover, .TableCorner a:active, .TableCorner a:visited {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.TableControl a:link, .TableControl a:hover, .TableControl a:active, .TableControl a:visited, .TableFooter a:link, .TableFooter a:hover, .TableFooter a:active, .TableFooter a:visited {
+    color: #383838;
+}
+.percent {
+    border: 1px solid #666666;
+    float: left;
+    height: 12px;
+    margin-top: 3px;
+    padding: 0;
+}
+.percent div {
+    background-color: #00FF40;
+    float: left;
+    font-size: 0;
+    height: 8px;
+    margin: 1px;
+}
+.percenttxt {
+    float: left;
+    font-size: 9pt;
+    margin-top: 1px;
+}
+.s_on {
+    background: url("/images/topmenubg2.gif") repeat scroll 0 0 transparent;
+    font-size: 9pt;
+}
+.s_of {
+    background: url("/images/topmenubg1.gif") repeat scroll 0 0 transparent;
+    font-size: 9pt;
+}
+.m_on {
+    background: url("/images/topmenubg2.gif") repeat scroll 0 0 transparent;
+    font-size: 9pt;
+}
+.border14-1 {
+    border: 1px solid #2E2E5A;
+    font-size: 14px;
+}
+.border14-2 {
+    border-bottom: 1px solid #2E2E5A;
+    border-right: 1px solid #2E2E5A;
+    font-size: 14px;
+}
+.border14-3 {
+    border-bottom: 1px solid #98BBD6;
+    border-style: none none solid;
+    font-size: 14px;
+}
+.border14-4 {
+    border-right: 1px solid #98BBD6;
+    font-size: 14px;
+}
+.title_text {
+    color: #0A5FA2;
+    font-size: 14px;
+    font-weight: bold;
+}
+.table_border {
+    border-color: #98BBD6 #98BBD6 black;
+    border-style: solid;
+    border-width: 1px 1px 0;
+}
+.table_bg {
+    background-attachment: fixed;
+    background-image: url("images/bg_header.png");
+    background-position: left center;
+    background-repeat: repeat;
+    border-color: #2E2E5A black;
+    border-style: solid;
+    border-width: 1px 1px 0;
+}
+.table_left {
+    background-attachment: fixed;
+    background-image: url("table_left.gif");
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+.attach_name:link, .attach_name:hover, .attach_name:active, .attach_name:visited {
+    color: #0D3A73;
+}
+.attach_div {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    display: none;
+    padding: 0;
+    position: absolute;
+    width: 110px;
+    z-index: 10001;
+}
+.attach_div a {
+    color: #393939;
+    display: block !important;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    text-decoration: none;
+}
+.attach_div a:hover {
+    background: none repeat scroll 0 0 #5D99DA;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.attach_div img.ImgHover {
+    border: 1px solid #98BBD6;
+    cursor: pointer;
+}
+.attach_div img.ImgNormal {
+    border: 1px solid #FFFFFF;
+    cursor: pointer;
+}
+.PageHeader {
+    color: #666666;
+    height: 32px !important;
+    padding-top: 47px;
+}
+.PageHeader .title {
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 20px;
+    margin-top: 8px;
+}
+.PageHeader .header-left {
+    float: left;
+}
+.PageHeader .header-right {
+    float: right;
+}
+.BlockTop {
+    border: 0 none;
+    font-size: 12px;
+}
+.BlockTop td {
+    background: url("images/block_top_bg.png") no-repeat scroll 0 -32px transparent;
+    color: #FFFFFF;
+    font-weight: bold;
+    height: 32px;
+    text-align: center;
+}
+.BlockTop td.left {
+    background-position: left 0;
+    width: 5px;
+}
+.BlockTop td.center {
+    background-position: 0 -32px;
+    background-repeat: repeat-x;
+}
+.BlockTop td.right {
+    background-position: right -64px;
+    width: 5px;
+}
+.BlockTopInactive {
+    border: 0 none;
+    font-size: 12px;
+}
+.BlockTopInactive td {
+    background: url("images/block_top_inactive_bg.png") no-repeat scroll 0 -32px transparent;
+    color: #FFFFFF;
+    font-weight: bold;
+    height: 32px;
+    text-align: center;
+}
+.BlockTopInactive td.left {
+    background-position: left 0;
+    width: 5px;
+}
+.BlockTopInactive td.center {
+    background-position: 0 -32px;
+    background-repeat: repeat-x;
+}
+.BlockTopInactive td.right {
+    background-position: right -64px;
+    width: 5px;
+}
+.BlockBottom {
+    border: 0 none;
+    font-size: 12px;
+}
+.BlockBottom td {
+    background: url("images/block_bottom_bg.png") no-repeat scroll 0 -32px transparent;
+    color: #FFFFFF;
+    font-weight: bold;
+    height: 32px;
+    text-align: center;
+}
+.BlockBottom td.left {
+    background-position: left 0;
+    width: 5px;
+}
+.BlockBottom td.center {
+    background-position: 0 -32px;
+    background-repeat: repeat-x;
+}
+.BlockBottom td.right {
+    background-position: right -64px;
+    width: 5px;
+}
+.BlockBottomInactive {
+    border: 0 none;
+    font-size: 12px;
+}
+.BlockBottomInactive td {
+    background: url("images/block_bottom_inactive_bg.png") no-repeat scroll 0 -32px transparent;
+    color: #FFFFFF;
+    font-weight: bold;
+    height: 32px;
+    text-align: center;
+}
+.BlockBottomInactive td.left {
+    background-position: left 0;
+    width: 5px;
+}
+.BlockBottomInactive td.center {
+    background-position: 0 -32px;
+    background-repeat: repeat-x;
+}
+.BlockBottomInactive td.right {
+    background-position: right -64px;
+    width: 5px;
+}
+.BlockTop2 {
+    border: 0 none;
+    height: 5px;
+    overflow-y: hidden;
+    width: 100%;
+}
+.BlockTop2 td {
+    background: url("images/block_top2_bg.png") no-repeat scroll 0 -5px transparent;
+    font-size: 1px;
+}
+.BlockTop2 td.left {
+    background-position: left 0;
+    width: 5px;
+}
+.BlockTop2 td.center {
+    background-position: left -5px;
+    background-repeat: repeat-x;
+}
+.BlockTop2 td.right {
+    background-position: right -10px;
+    width: 5px;
+}
+.BlockBottom2 {
+    border: 0 none;
+    height: 5px;
+    overflow-y: hidden;
+    width: 100%;
+}
+.BlockBottom2 td {
+    background: url("images/block_top2_bg.png") no-repeat scroll 0 -20px transparent;
+    font-size: 1px;
+}
+.BlockBottom2 td.left {
+    background-position: left -15px;
+    width: 5px;
+}
+.BlockBottom2 td.center {
+    background-position: left -20px;
+    background-repeat: repeat-x;
+}
+.BlockBottom2 td.right {
+    background-position: right -25px;
+    width: 5px;
+}
+.TableTop {
+    border: 0 none;
+    font-size: 12px;
+}
+.TableTop td {
+    background: url("images/table_top_bg.png") no-repeat scroll 0 -32px transparent;
+    color: #FFFFFF;
+    font-weight: bold;
+    height: 32px;
+}
+.TableTop td.left {
+    background-position: left 0;
+    width: 5px !important;
+}
+.TableTop td.center {
+    background-position: 0 -32px;
+    background-repeat: repeat-x;
+    text-align: center;
+}
+.TableTop td.right {
+    background-position: right -64px;
+    width: 5px !important;
+}
+.TableList {
+    border: 1px solid #4686C6;
+    border-collapse: collapse;
+    font-size: 9pt;
+    line-height: 21px;
+    padding: 3px;
+}
+.TableList td {
+    height: 30px;
+    padding: 3px;
+}
+.TableList .TableHeader td, .TableList td.TableHeader {
+    background: none repeat scroll 0 0 #5D99DA;
+    border-bottom: 1px solid #4686C6;
+    border-right: 1px solid #4686C6;
+    color: #FFFFFF;
+    font-weight: bold;
+    height: 30px !important;
+    padding: 0;
+    text-align: center;
+}
+.TableList .TableHeader td.TableCorner {
+    background: none repeat scroll 0 0 #5D99DA;
+}
+.TableList .TableLine1 td, .TableList td.TableLine1 {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #CCCCCC;
+}
+.TableList .TableLine2 td, .TableList td.TableLine2 {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #CCCCCC;
+}
+.TableList .TableData td, .TableList td.TableData {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #CCCCCC;
+}
+.TableList .TableContent td, .TableList td.TableContent {
+    background: none repeat scroll 0 0 #F2F8FF;
+    border-bottom: 1px solid #CFCFCF;
+}
+.TableList .TableFooter td, .TableList .TableControl td, .TableList td.TableFooter, .TableList td.TableControl {
+    background: none repeat scroll 0 0 #E7F0FB;
+    border: 1px solid #CECECE;
+}
+.TableList .TableRed td, .TableList td.TableRed {
+    background: none repeat scroll 0 0 #F2F8FF;
+}
+.TableList .TextColor1 td, .TableList td.TextColor1 {
+    color: #FF6600;
+}
+.TableList .TextColor2 td, .TableList td.TextColor2 {
+    color: #FF0000;
+}
+.TableList .TableLeft td, .TableList td.TableLeft {
+    background: none repeat scroll 0 0 #F2F8FF;
+    border-bottom: 1px solid #A7BD74;
+}
+.TableList .TableRowHover td, .TableList td.TableRowHover {
+    background: none repeat scroll 0 0 #F2F8FF;
+}
+.TableList .TableRowActive td, .TableList td.TableRowActive {
+    background: none repeat scroll 0 0 #E5E5E5;
+}
+.TableBlock {
+    border: 1px solid #4686C6;
+    border-collapse: collapse;
+    font-size: 9pt;
+    line-height: 20px;
+}
+.TableBlock td {
+    height: 30px;
+    padding: 3px;
+}
+.TableBlock .TableHeader td, .TableBlock td.TableHeader {
+    background: none repeat scroll 0 0 #5D99DA;
+    border: 1px solid #4686C6;
+    color: #FFFFFF;
+    font-weight: bold;
+    height: 30px !important;
+    line-height: 23px;
+    padding: 0 0 0 5px;
+}
+.TableBlock .TableHeader td.TableCorner {
+    background: none repeat scroll 0 0 #5D99DA;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.TableBlock .TableLine1 td, .TableBlock td.TableLine1 {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+}
+.TableBlock .TableLine2 td, .TableBlock td.TableLine2 {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+}
+.TableBlock .TableData td, .TableBlock td.TableData {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+}
+.TableBlock .TableContent td, .TableBlock td.TableContent {
+    background: none repeat scroll 0 0 #F2F8FF;
+    border-bottom: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+}
+.TableBlock .TableFooter td, .TableBlock .TableControl td, .TableBlock td.TableFooter, .TableBlock td.TableControl {
+    background: none repeat scroll 0 0 #E7F0FB;
+    border: 1px solid #CECECE;
+}
+.TableBlock .TableRed td, .TableBlock td.TableRed {
+    background: none repeat scroll 0 0 #F2F8FF;
+}
+.TableBlock .TableLeft td, .TableBlock td.TableLeft {
+    background: none repeat scroll 0 0 #F2F8FF;
+    border-bottom: 1px solid #A7BD74;
+}
+.Content {
+    line-height: normal;
+    word-wrap: break-word;
+}
+.TableBlock .TableRowHover td, .TableBlock td.TableRowHover {
+    background: none repeat scroll 0 0 #F2F8FF;
+}
+.TableBlock .TableRowActive td, .TableBlock td.TableRowActive {
+    background: none repeat scroll 0 0 #E5E5E5;
+}
+.no-left-border {
+    border-left: 0 none !important;
+}
+.no-top-border {
+    border-top: 0 none !important;
+}
+.no-right-border {
+    border-right: 0 none !important;
+}
+.no-bottom-border {
+    border-bottom: 0 none !important;
+}
+.MessageBox {
+}
+.MessageBox .head {
+    height: 32px;
+    overflow: hidden;
+}
+.MessageBox .head .left {
+    background: url("images/message_bg.png") no-repeat scroll left 0 transparent;
+    width: 20px;
+}
+.MessageBox .head .center {
+    background: url("images/message_bg.png") repeat-x scroll 0 -32px transparent;
+    padding: 0;
+}
+.MessageBox .head .center .title {
+    color: #FFFFFF;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.MessageBox .head .right {
+    background: url("images/message_bg.png") no-repeat scroll right 0 transparent;
+    width: 20px;
+}
+.MessageBox .head-no-title {
+    height: 16px;
+}
+.MessageBox .head-no-title .left {
+    background: url("images/message_bg.png") no-repeat scroll left -96px transparent;
+    width: 20px;
+}
+.MessageBox .head-no-title .center {
+    background: url("images/message_bg.png") repeat-x scroll 0 -112px transparent;
+}
+.MessageBox .head-no-title .right {
+    background: url("images/message_bg.png") no-repeat scroll right -96px transparent;
+    width: 20px;
+}
+.MessageBox .control {
+    height: 40px;
+    vertical-align: top;
+}
+.MessageBox .control .left {
+    background: url("images/message_center_bg.png") repeat-y scroll left top transparent;
+    width: 20px;
+}
+.MessageBox .control .center {
+    background-color: #7BAFE6;
+    text-align: center;
+}
+.MessageBox .control .right {
+    background: url("images/message_center_bg.png") repeat-y scroll right top transparent;
+    width: 20px;
+}
+.MessageBox .foot {
+    height: 16px;
+}
+.MessageBox .foot .left {
+    background: url("images/message_bg.png") no-repeat scroll left -64px transparent;
+    width: 20px;
+}
+.MessageBox .foot .center {
+    background: url("images/message_bg.png") repeat-x scroll 0 -80px transparent;
+}
+.MessageBox .foot .right {
+    background: url("images/message_bg.png") no-repeat scroll right -64px transparent;
+    width: 20px;
+}
+.MessageBox .msg {
+    height: 90px;
+}
+.MessageBox .msg .left {
+    background: url("images/message_center_bg.png") repeat-y scroll left top transparent;
+    width: 20px;
+}
+.MessageBox .msg .center {
+    background-color: #7BAFE6;
+    font-size: 16px;
+    padding-left: 90px;
+}
+.MessageBox .msg .center .msg-content {
+    color: #FFFFFF;
+    margin: 20px 12px 20px 6px;
+}
+.MessageBox .msg .right {
+    background: url("images/message_center_bg.png") repeat-y scroll right top transparent;
+    width: 20px;
+}
+.MessageBox .msg .error {
+    background-image: url("images/icon64_error.png");
+    background-position: 0 10px;
+    background-repeat: no-repeat;
+}
+.MessageBox .msg .info {
+    background-image: url("images/icon64_info.png");
+    background-position: 0 10px;
+    background-repeat: no-repeat;
+}
+.MessageBox .msg .warning {
+    background-image: url("images/icon64_warning.png");
+    background-position: 0 10px;
+    background-repeat: no-repeat;
+}
+.MessageBox .msg .forbidden {
+    background-image: url("images/icon64_forbidden.png");
+    background-position: 0 10px;
+    background-repeat: no-repeat;
+}
+.MessageBox .msg .stop {
+    background-image: url("images/icon64_stop.png");
+    background-position: 0 10px;
+    background-repeat: no-repeat;
+}
+.MessageBox .msg .blank {
+    height: 40px;
+    padding: 10px 20px;
+    text-align: center;
+}
+.dialog {
+}
+.dialog .head {
+    height: 32px;
+    overflow: hidden;
+}
+.dialog .head .left {
+    background: url("images/dialog_bg.png") no-repeat scroll left 0 transparent;
+    width: 20px;
+}
+.dialog .head .center {
+    background: url("images/dialog_bg.png") repeat-x scroll 0 -32px transparent;
+}
+.dialog .head .center .title {
+    color: #FFFFFF;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.dialog .head .center .close {
+    background: url("images/dialog_close_bg.png") no-repeat scroll center top transparent;
+    float: right;
+    height: 24px;
+    margin-right: -5px;
+    margin-top: -1px;
+    position: relative;
+    width: 49px;
+}
+.dialog .head .center .close:hover {
+    background-position: center -24px;
+}
+.dialog .head .right {
+    background: url("images/dialog_bg.png") no-repeat scroll right 0 transparent;
+    width: 20px;
+}
+.dialog .top {
+    height: 16px;
+}
+.dialog .top .left {
+    background: url("images/dialog_bg.png") no-repeat scroll left -96px transparent;
+    width: 20px;
+}
+.dialog .top .center {
+    background: url("images/dialog_bg.png") repeat-x scroll 0 -112px transparent;
+}
+.dialog .top .right {
+    background: url("images/dialog_bg.png") no-repeat scroll right -96px transparent;
+    width: 20px;
+}
+.dialog .body {
+    height: 90px;
+}
+.dialog .body .left {
+    background: url("images/dialog_center_bg.png") repeat-y scroll left top transparent;
+    width: 20px;
+}
+.dialog .body .center {
+    background-color: #FFFFFF;
+    text-align: center;
+}
+.dialog .body .center .msg-content {
+    margin: 10px 6px 10px 0;
+}
+.dialog .body .right {
+    background: url("images/dialog_center_bg.png") repeat-y scroll right top transparent;
+    width: 20px;
+}
+.dialog .control {
+    height: 40px;
+    vertical-align: top;
+}
+.dialog .control .left {
+    background: url("images/dialog_center_bg.png") repeat-y scroll left top transparent;
+    width: 20px;
+}
+.dialog .control .center {
+    background-color: #FFFFFF;
+    text-align: center;
+}
+.dialog .control .right {
+    background: url("images/dialog_center_bg.png") repeat-y scroll right top transparent;
+    width: 20px;
+}
+.dialog .foot {
+    height: 16px;
+}
+.dialog .foot .left {
+    background: url("images/dialog_bg.png") no-repeat scroll left -64px transparent;
+    width: 20px;
+}
+.dialog .foot .center {
+    background: url("images/dialog_bg.png") repeat-x scroll 0 -80px transparent;
+}
+.dialog .foot .right {
+    background: url("images/dialog_bg.png") no-repeat scroll right -64px transparent;
+    width: 20px;
+}
+.hightlight {
+    background: none repeat scroll 0 0 #FFFF00;
+    padding-left: 3px;
+    padding-right: 3px;
+    text-decoration: underline;
+}
+.banned {
+    color: #FF0000;
+}
+.mod {
+    color: #000000;
+}
+.filter {
+    color: #0000FF;
+}
+.pageArea {
+    color: #4E4E4E;
+    display: inline;
+    padding: 5px;
+    text-align: right;
+    width: 330px;
+}
+.pageArea img {
+    cursor: pointer;
+}
+.pageArea a {
+    background: url("images/pagebar_bg.png") no-repeat scroll center center transparent;
+    display: inline-block;
+    height: 15px;
+    width: 30px;
+}
+.pageArea .pageFirst {
+    background-position: center -8px;
+}
+.pageArea .pagePrevious {
+    background-position: center -38px;
+}
+.pageArea .pageFirstDisable {
+    background-position: center -68px;
+}
+.pageArea .pagePreviousDisable {
+    background-position: center -98px;
+}
+.pageArea .pageLast {
+    background-position: center -128px;
+}
+.pageArea .pageNext {
+    background-position: center -158px;
+}
+.pageArea .pageLastDisable {
+    background-position: center -188px;
+}
+.pageArea .pageNextDisable {
+    background-position: center -218px;
+}
+.pageArea .pageGoto {
+    background-position: center -240px;
+    height: 25px;
+}
+.pageArea .pageGoto:hover {
+    background-position: center -270px;
+}
+.ColorTable {
+    background: none repeat scroll 0 0 #F5FBFF;
+    border: 1px solid #BBBBBB;
+    margin: 0;
+}
+.ColorTable td {
+    border-bottom: 1px solid #F5FBFF;
+    border-right: 1px solid #F5FBFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px;
+}
+.ColorTable td.Selected {
+    background: none repeat scroll 0 0 #DFF1FF;
+    border: 1px solid #316AC5;
+    cursor: pointer;
+}
+.ColorTable td div {
+    border: 1px solid #BBBBBB;
+    cursor: pointer;
+}
+#overlay {
+    background: none repeat scroll 0 0 #000000;
+    display: none;
+    height: 100%;
+    left: 0;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+.dialogContainer {
+    display: none;
+    left: 200px;
+    position: absolute;
+    top: 60px;
+    z-index: 65535;
+}
+.scroll-left {
+    background: url("images/hscroll_arrow.png") no-repeat scroll -1px center transparent;
+    cursor: pointer;
+    width: 16px;
+}
+.scroll-left-active {
+    background: url("images/hscroll_arrow.png") no-repeat scroll -34px center transparent;
+    cursor: pointer;
+    width: 16px;
+}
+.scroll-right {
+    background: url("images/hscroll_arrow.png") no-repeat scroll -16px center transparent;
+    cursor: pointer;
+    width: 16px;
+}
+.scroll-right-active {
+    background: url("images/hscroll_arrow.png") no-repeat scroll -48px center transparent;
+    cursor: pointer;
+    width: 16px;
+}
+.red {
+    color: red;
+}
+table.card .info .offline {
+    color: #A0A0A0;
+    padding-left: 0;
+}
+.online-0 {
+    background: url("/images/client_type_0.png") no-repeat scroll left center transparent;
+}
+.online-1 {
+    background: url("/images/client_type_1.png") no-repeat scroll left center transparent;
+}
+.online-2 {
+    background: url("/images/client_type_2.png") no-repeat scroll left center transparent;
+}
+.online-5 {
+    background: url("/images/client_type_5.png") no-repeat scroll left center transparent;
+}
+.online-6 {
+    background: url("/images/client_type_6.png") no-repeat scroll left center transparent;
+}

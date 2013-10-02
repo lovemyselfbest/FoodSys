@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="FoodSys.Entity" namespace="FoodSys.Entity" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="SysLogs" table="Sys_Logs" lazy="true" >
+					<id name="ID">
+			  <generator class="guid.comb" />
+			</id>
+					<version name="Version" unsaved-value="null" generated="always"  type="BinaryBlob"/>
+        
+				<property name="LogTypeID"  >
+			<column name="LogTypeID" sql-type="int" not-null="false" />
+		</property>
+				<property name="UserTypeID"  >
+			<column name="UserTypeID" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+				<property name="CompID"  >
+			<column name="CompID" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+				<property name="LogContent"  >
+			<column name="LogContent" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="UserAccount"  >
+			<column name="UserAccount" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="OperatorName"  >
+			<column name="OperatorName" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="OperationTime"  >
+			<column name="OperationTime" sql-type="datetime" not-null="false" />
+		</property>
+				<property name="MachineName"  >
+			<column name="MachineName" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="MachineIP"  >
+			<column name="MachineIP" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="ExceptionMsg"  type="StringClob"  >
+			<column name="ExceptionMsg" sql-type="nvarchar" not-null="false" />
+		</property>
+			</class>
+</hibernate-mapping>
+		

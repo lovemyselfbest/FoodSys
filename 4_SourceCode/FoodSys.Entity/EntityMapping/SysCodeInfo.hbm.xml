@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="FoodSys.Entity" namespace="FoodSys.Entity" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="SysCodeInfo" table="Sys_Code_Info" lazy="true" >
+					<id name="ID">
+			  <generator class="guid.comb" />
+			</id>
+					<version name="Version" unsaved-value="null" generated="always"  type="BinaryBlob"/>
+        
+				<property name="Type"  >
+			<column name="Type" sql-type="nvarchar" not-null="true" />
+		</property>
+				<property name="Name"  >
+			<column name="Name" sql-type="nvarchar" not-null="true" />
+		</property>
+				<property name="Code"  >
+			<column name="Code" sql-type="nvarchar" not-null="true" />
+		</property>
+				<property name="ParentCode"  >
+			<column name="ParentCode" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="SortOrder"  >
+			<column name="SortOrder" sql-type="int" not-null="false" />
+		</property>
+				<property name="IsActive"  >
+			<column name="IsActive" sql-type="bit" not-null="false" />
+		</property>
+				<property name="Memo"  >
+			<column name="Memo" sql-type="nvarchar" not-null="false" />
+		</property>
+			</class>
+</hibernate-mapping>
+		

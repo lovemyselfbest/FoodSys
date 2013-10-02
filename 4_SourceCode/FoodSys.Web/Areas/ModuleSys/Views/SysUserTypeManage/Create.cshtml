@@ -1,0 +1,31 @@
+﻿@{
+	ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutDialog.cshtml";
+}
+@model FoodSys.Web.Areas.ModuleSys.Models.ModelSysUserTypeManageCreate
+
+@using (Html.BeginForm())
+{
+	@Html.HiddenFor(x => x.SysUserType.ID)
+    @Html.HiddenFor(x => x.SysUserType.Version)
+	<div>
+		<table cellpadding="0" cellspacing="0" align="center" class="table-detail-nostyle">
+			<tbody>
+				<tr>
+					<th>
+						角色类型名称：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.SysUserType.Name)
+						@Html.ValidationMessageFor(x => x.SysUserType.Name)
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="center wfill">
+			<input type="submit" value="保存" class="button" />
+			<input type="button" value="关闭" class="button" onclick="javascript:window.parent.closeDialog();" />
+		</div>
+	</div>
+
+}

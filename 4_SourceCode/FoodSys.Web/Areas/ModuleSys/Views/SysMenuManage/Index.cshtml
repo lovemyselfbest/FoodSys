@@ -1,0 +1,105 @@
+﻿@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model FoodSys.Web.Areas.ModuleSys.Models.ModelSysMenuManageIndex
+<script type="text/javascript">
+	//添加菜单
+	function addSysMenu(menuId) {
+		window.top.openDialog({ Url: "/ModuleSys/SysMenuManage/Create/?menuId=" + menuId + "&pageState=" + create, Title: "新增菜单信息", Width: 450, Height: 430 });
+	}
+	//根据ID删除菜单
+	function deleteSysMenu(SysMenuID) {
+		top.window.$("#sysConfirm").html("确定要删除？");
+		top.window.$("#sysConfirm").dialog({
+			resizable: false,
+			height: 200,
+			title: "系统提示",
+			modal: true,
+			buttons: {
+				"是": function () {
+					$.ajax({
+						type: "POST",
+						url: "/ModuleSys/SysMenuManage/Delete",
+						data: "id=" + SysMenuID,
+						success: function (msg) {
+							msg = eval("(" + msg + ")");
+							if (msg.result == "") {
+								window.top.refreshEmbeddedFrame();
+								window.top.sysMessage();
+							}
+							else {
+								window.top.sysAlert(msg.result);
+							}
+						}
+					});
+					top.window.$("#sysConfirm").dialog("close");
+				},
+				"否": function () {
+					top.window.$("#sysConfirm").dialog("close");
+				}
+			}
+		});
+	}
+
+	//批量删除菜单
+	function deleteSysMenuBatch() {
+		if (!defaultTable.isSelect()) {
+			return;
+		}
+		top.window.$("#sysConfirm").html("确定要删除？");
+		top.window.$("#sysConfirm").dialog({
+			resizable: false,
+			height: 200,
+			title: "系统提示",
+			modal: true,
+			buttons: {
+				"是": function () {
+					$("form").ajaxFormUnbind();
+					$("form").attr("action", "/ModuleSys/SysMenuManage/DeleteBatch/?RetUrl=" + escape(commonPage.getCurrentUrl())).submit();
+					top.window.$("#sysConfirm").dialog("close");
+				},
+				"否": function () {
+					top.window.$("#sysConfirm").dialog("close");
+				}
+			}
+		});
+	}
+
+	//根据编号修改菜单信息
+	function editSysMenu(SysMenuID) {
+		window.top.openDialog({ Url: "/ModuleSys/SysMenuManage/Create/?sysMenuID=" + SysMenuID + "&pagestate=" + edit, Title: "修改菜单信息", Width: 450, Height: 430 });
+	}
+	function show(SysMenuID) {
+	    window.top.openDialog({ Url: "/ModuleSys/SysMenuManage/Create/?sysMenuID=" + SysMenuID + "&pagestate=" + detail, Title: "菜单信息查看", Width: 450, Height: 430 });
+	}
+</script>
+<!--右边内容页-->
+<div>
+	@using (Html.BeginForm())
+ {
+	 //工具栏
+
+		<div class="toolbar">
+			<div class="toolbar-left">
+				@Html.Button(ButtonType.新增, "addSysMenu('" + @Model.MenuId + "')")
+				@Html.Button(ButtonType.删除, "deleteSysMenuBatch()")
+			</div>
+			<div class="toolbar-right">
+				@Html.TextBoxFor(x => x.SearchEntity._CommonSearchCondition, new { @class = "common-search-condition" })
+				<input type="submit" class="common-search-submit" value="" />
+			</div>
+		</div>
+     
+	 //说明文字
+		<div class="search-clue">
+			您可通过该功能，维护管理系统菜单信息等相关操作
+		</div>
+	 <div class="replace-container">
+			@{
+	 Html.RenderPartial("Index_Partial");
+			}
+		</div>
+
+ }
+</div>

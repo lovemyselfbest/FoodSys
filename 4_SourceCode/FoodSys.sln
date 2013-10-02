@@ -1,0 +1,118 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSys.Entity", "foodsys.Entity\FoodSys.Entity.csproj", "{60A45F4D-9149-4DE6-BCC6-2A299994F31F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSys.Enum", "foodsys.Enum\FoodSys.Enum.csproj", "{01406234-6DF5-4134-9B02-8CD48390A09F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSys.Dal", "foodsys.Dal\FoodSys.Dal.csproj", "{BA4F8458-7ED4-4F41-9A78-2B2DC209257B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSys.Biz", "foodsys.Biz\FoodSys.Biz.csproj", "{CB20242E-2A5B-4AD5-8395-809FD49934B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Schema", "Schema", "{4149CAD3-76BF-4C66-A496-A7CDD48E0843}"
+	ProjectSection(SolutionItems) = preProject
+		Project.References\Aspose.Cells.dll = Project.References\Aspose.Cells.dll
+		Project.References\CrystalDecisions.CrystalReports.Engine.dll = Project.References\CrystalDecisions.CrystalReports.Engine.dll
+		Project.References\nhibernate-configuration.xsd = Project.References\nhibernate-configuration.xsd
+		Project.References\nhibernate-mapping.xsd = Project.References\nhibernate-mapping.xsd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", "{80B69A6B-EEB1-43B1-8AC0-7517B92D1C65}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\Ben\Desktop\Aspose.BarCode.dll = C:\Users\Ben\Desktop\Aspose.BarCode.dll
+		C:\Users\huangjf.HYDOMAIN\Desktop\Aspose.Cells.dll = C:\Users\huangjf.HYDOMAIN\Desktop\Aspose.Cells.dll
+		Project.References\Aspose.Cells.dll = Project.References\Aspose.Cells.dll
+		Project.References\Aspose.Words.dll = Project.References\Aspose.Words.dll
+		C:\Users\huangjf.HYDOMAIN\Desktop\CrystalDecisions.CrystalReports.Engine.dll = C:\Users\huangjf.HYDOMAIN\Desktop\CrystalDecisions.CrystalReports.Engine.dll
+		Project.References\CrystalDecisions.CrystalReports.Engine.dll = Project.References\CrystalDecisions.CrystalReports.Engine.dll
+		Project.References\CrystalDecisions.ReportSource.dll = Project.References\CrystalDecisions.ReportSource.dll
+		Project.References\CrystalDecisions.Shared.dll = Project.References\CrystalDecisions.Shared.dll
+		Project.References\Iesi.Collections.dll = Project.References\Iesi.Collections.dll
+		C:\Users\huangjf.HYDOMAIN\Desktop\Libero.FusionCharts.dll = C:\Users\huangjf.HYDOMAIN\Desktop\Libero.FusionCharts.dll
+		Project.References\Libero.FusionCharts.dll = Project.References\Libero.FusionCharts.dll
+		Project.References\log4net.dll = Project.References\log4net.dll
+		Project.References\Remotion.Linq.dll = Project.References\Remotion.Linq.dll
+		Project.References\System.Data.SQLite.DLL = Project.References\System.Data.SQLite.DLL
+		Project.References\System.Web.Mvc.dll = Project.References\System.Web.Mvc.dll
+		Project.References\System.Web.Razor.dll = Project.References\System.Web.Razor.dll
+		Project.References\System.Web.WebPages.Deployment.dll = Project.References\System.Web.WebPages.Deployment.dll
+		Project.References\System.Web.WebPages.dll = Project.References\System.Web.WebPages.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Common", "Project.Common\Project.Common.csproj", "{8684770C-FE2A-4B2D-910C-B88D5E2EF353}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSys.Web", "foodsys.Web\FoodSys.Web.csproj", "{91DAEAE9-DB40-4BB3-A846-2A2B8EE3E65C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project.Base", "Project.Base", "{DE7F7D57-A483-42FB-9AC7-344077819CED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Biz.Base", "Project.Biz.Base\Project.Biz.Base.csproj", "{D8038A75-7355-4E97-BB22-77366BA7239C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Dal.Base", "Project.Dal.Base\Project.Dal.Base.csproj", "{C487053F-C28D-41B4-93F4-EA4397B0CB53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Entity.Base", "Project.Entity.Base\Project.Entity.Base.csproj", "{08B4FECA-C7F9-405D-A876-A3BA087F891A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Web.Base", "Project.Web.Base\Project.Web.Base.csproj", "{75824D46-819E-4425-B968-262938FC16CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSys.Resources", "foodsys.Resources\FoodSys.Resources.csproj", "{A4B687D9-39C3-495A-8A25-0169B911492E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60A45F4D-9149-4DE6-BCC6-2A299994F31F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60A45F4D-9149-4DE6-BCC6-2A299994F31F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60A45F4D-9149-4DE6-BCC6-2A299994F31F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60A45F4D-9149-4DE6-BCC6-2A299994F31F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01406234-6DF5-4134-9B02-8CD48390A09F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01406234-6DF5-4134-9B02-8CD48390A09F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01406234-6DF5-4134-9B02-8CD48390A09F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01406234-6DF5-4134-9B02-8CD48390A09F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA4F8458-7ED4-4F41-9A78-2B2DC209257B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA4F8458-7ED4-4F41-9A78-2B2DC209257B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA4F8458-7ED4-4F41-9A78-2B2DC209257B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA4F8458-7ED4-4F41-9A78-2B2DC209257B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB20242E-2A5B-4AD5-8395-809FD49934B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB20242E-2A5B-4AD5-8395-809FD49934B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB20242E-2A5B-4AD5-8395-809FD49934B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB20242E-2A5B-4AD5-8395-809FD49934B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8684770C-FE2A-4B2D-910C-B88D5E2EF353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8684770C-FE2A-4B2D-910C-B88D5E2EF353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8684770C-FE2A-4B2D-910C-B88D5E2EF353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8684770C-FE2A-4B2D-910C-B88D5E2EF353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91DAEAE9-DB40-4BB3-A846-2A2B8EE3E65C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91DAEAE9-DB40-4BB3-A846-2A2B8EE3E65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91DAEAE9-DB40-4BB3-A846-2A2B8EE3E65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91DAEAE9-DB40-4BB3-A846-2A2B8EE3E65C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8038A75-7355-4E97-BB22-77366BA7239C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8038A75-7355-4E97-BB22-77366BA7239C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8038A75-7355-4E97-BB22-77366BA7239C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8038A75-7355-4E97-BB22-77366BA7239C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C487053F-C28D-41B4-93F4-EA4397B0CB53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C487053F-C28D-41B4-93F4-EA4397B0CB53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C487053F-C28D-41B4-93F4-EA4397B0CB53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C487053F-C28D-41B4-93F4-EA4397B0CB53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08B4FECA-C7F9-405D-A876-A3BA087F891A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08B4FECA-C7F9-405D-A876-A3BA087F891A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08B4FECA-C7F9-405D-A876-A3BA087F891A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08B4FECA-C7F9-405D-A876-A3BA087F891A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75824D46-819E-4425-B968-262938FC16CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75824D46-819E-4425-B968-262938FC16CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75824D46-819E-4425-B968-262938FC16CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75824D46-819E-4425-B968-262938FC16CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4B687D9-39C3-495A-8A25-0169B911492E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4B687D9-39C3-495A-8A25-0169B911492E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4B687D9-39C3-495A-8A25-0169B911492E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4B687D9-39C3-495A-8A25-0169B911492E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8684770C-FE2A-4B2D-910C-B88D5E2EF353} = {DE7F7D57-A483-42FB-9AC7-344077819CED}
+		{D8038A75-7355-4E97-BB22-77366BA7239C} = {DE7F7D57-A483-42FB-9AC7-344077819CED}
+		{C487053F-C28D-41B4-93F4-EA4397B0CB53} = {DE7F7D57-A483-42FB-9AC7-344077819CED}
+		{08B4FECA-C7F9-405D-A876-A3BA087F891A} = {DE7F7D57-A483-42FB-9AC7-344077819CED}
+		{75824D46-819E-4425-B968-262938FC16CC} = {DE7F7D57-A483-42FB-9AC7-344077819CED}
+	EndGlobalSection
+EndGlobal

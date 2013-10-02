@@ -1,0 +1,87 @@
+﻿@{
+	Layout = null;
+}
+@model FoodSys.Web.Areas.ModuleSys.Models.MdoelOrgCompanyIndex
+<div class="common-table-container">
+	<table class="common-table" id="common-table">
+		<colgroup>
+			<col width="40" />
+			<col width="45" />
+			<col width="45" />
+			<col width="100" />
+			<col width="150" />
+			<col width="150" />
+			<col width="200" />
+			<col width="220" />
+			<col width="100" />
+			<col width="150" />
+			<col width="220" />
+			<col width="80" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th>
+					<input type="checkbox" class="common-table-checkbox-all" />
+				</th>
+				<th colspan="2">
+					操作
+				</th>
+				@Html.HiddenFor(x => x.SearchEntity._OrderName, new { data_order_name = "" })
+				@Html.HiddenFor(x => x.SearchEntity._OrderDirection, new { data_order_direction = "" })
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrgCompany>(x => x.OrganizationCode, "组织机构代码"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrgCompany>(x => x.LicenseNo, "营业执照代码"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrgCompany>(x => x.TaxRegNO, "税务登记证号"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrgCompany>(x => x.Name, "企业名称"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrgCompany>(x => x.Address, "企业地址"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrgCompany>(x => x.LinkMan, "联系人"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrgCompany>(x => x.Mobile, "联系电话"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrgCompany>(x => x.Email, "邮箱"))
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model.UTOrgCompanyCollection)
+   {
+				<tr ondblclick="javascript:show('@item.ID');">
+					<td>
+						<input type="checkbox" name="checkboxItem" class="checkboxItem" value="@item.ID" />
+					</td>
+					<td>
+						<a href="javascript:editOrgCompany('@item.ID')" class="a-edit" title="修改">&nbsp</a>
+					</td>
+					<td>
+						<a href="javascript:deleteOrgCompany('@item.ID')" class="a-delete" title="删除">&nbsp</a>
+					</td>
+					<td title="@item.OrganizationCode">
+						@item.OrganizationCode
+					</td>
+					<td title="@item.LicenseNo">
+						@item.LicenseNo
+					</td>
+					<td title="@item.TaxRegNO">
+						@item.TaxRegNO
+					</td>
+					<td title="@item.Name">
+						@Project.Common.StringUtility.CutString(item.Name, 14)
+					</td>
+					<td title="@item.Address">
+						@Project.Common.StringUtility.CutString(item.Address, 15)
+					</td>
+					<td title="@item.LinkMan">
+						@item.LinkMan
+					</td>
+					<td title="@item.Mobile">
+						@item.Mobile
+					</td>
+					<td title="@item.Email">
+						@Project.Common.StringUtility.CutString(item.Email, 15)
+					</td>
+				</tr>
+   }
+		</tbody>
+	</table>
+</div>
+<div>
+	@{
+		Html.RenderPartial("/Views/Controls/Paginate.cshtml", Model.PaginateHelperObject);
+	}
+</div>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="FoodSys.Entity" namespace="FoodSys.Entity" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="UTOrgDepartment" table="UT_Org_Department" lazy="true" >
+					<id name="ID">
+			  <generator class="guid.comb" />
+			</id>
+					<version name="Version" unsaved-value="null" generated="always"  type="BinaryBlob"/>
+        
+				<property name="OrganizationID"  >
+			<column name="OrganizationID" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+				<property name="DepartmentName"  >
+			<column name="DepartmentName" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="DutyUser"  >
+			<column name="DutyUser" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="Mobile"  >
+			<column name="Mobile" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="Email"  >
+			<column name="Email" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="DepartmentType"  >
+			<column name="DepartmentType" sql-type="int" not-null="false" />
+		</property>
+				<property name="OrderIndex"  >
+			<column name="OrderIndex" sql-type="int" not-null="false" />
+		</property>
+				<property name="ParentID"  >
+			<column name="ParentID" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+				<property name="Remark"  >
+			<column name="Remark" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="InputUser"  >
+			<column name="InputUser" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+				<property name="InputDate"  >
+			<column name="InputDate" sql-type="datetime" not-null="false" />
+		</property>
+				<property name="UpdateUser"  >
+			<column name="UpdateUser" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+				<property name="UpdateDate"  >
+			<column name="UpdateDate" sql-type="datetime" not-null="false" />
+		</property>
+			</class>
+</hibernate-mapping>
+		

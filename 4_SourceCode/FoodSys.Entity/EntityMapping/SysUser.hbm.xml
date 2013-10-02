@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="FoodSys.Entity" namespace="FoodSys.Entity" xmlns="urn:nhibernate-mapping-2.2">
+	<class name="SysUser" table="Sys_User" lazy="true" >
+		<id name="ID">
+			<generator class="guid.comb" />
+		</id>
+		<version name="Version" unsaved-value="null" generated="always"  type="BinaryBlob"/>
+
+		<property name="UserAccount"  >
+			<column name="UserAccount" sql-type="nvarchar" not-null="false" />
+		</property>
+		<property name="Password"  >
+			<column name="Password" sql-type="nvarchar" not-null="false" />
+		</property>
+		<property name="UserName"  >
+			<column name="UserName" sql-type="nvarchar" not-null="false" />
+		</property>
+		<property name="Mobile"  >
+			<column name="Mobile" sql-type="nvarchar" not-null="false" />
+		</property>
+		<property name="Email"  >
+			<column name="Email" sql-type="nvarchar" not-null="false" />
+		</property>
+		<property name="Memo"  >
+			<column name="Memo" sql-type="nvarchar" not-null="false" />
+		</property>
+		<property name="Status"  >
+			<column name="Status" sql-type="int" not-null="false" />
+		</property>
+		<property name="DepartmentID"  >
+			<column name="DepartmentID" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+		<property name="CreateUserID"  >
+			<column name="CreateUserID" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+		<property name="CreateTime"  >
+			<column name="CreateTime" sql-type="datetime" not-null="false" />
+		</property>
+		<property name="UpdateUser"  >
+			<column name="UpdateUser" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+		<property name="UpdateDate"  >
+			<column name="UpdateDate" sql-type="datetime" not-null="false" />
+		</property>
+	</class>
+</hibernate-mapping>

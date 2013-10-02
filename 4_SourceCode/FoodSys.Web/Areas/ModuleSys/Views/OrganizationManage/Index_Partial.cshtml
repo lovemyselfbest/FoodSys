@@ -1,0 +1,68 @@
+﻿@model FoodSys.Web.Areas.ModuleSys.Models.ModelOrganizationManageIndex
+@{
+	Layout = null;
+}
+<div class="common-table-container">
+	<table class="common-table" id="common-table">
+		<colgroup>
+			<col width="40" />
+			<col width="30" />
+			<col width="30" />
+			<col width="180" />
+			<col width="90" />
+			<col width="60" />
+			<col width="200" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th>
+					<input type="checkbox" class="common-table-checkbox-all" />
+				</th>
+				<th colspan="2">
+					操作
+				</th>
+				@Html.HiddenFor(x => x.SearchEntity._OrderName, new { data_order_name = "" })
+				@Html.HiddenFor(x => x.SearchEntity._OrderDirection, new { data_order_direction = "" })
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrganization>(x => x.Name, "机构名称"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrganization>(x => x.UpdateDate, "修改日期"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrganization>(x => x.UpdateUser, "修改人"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTOrganization>(x => x.Remark, "备注"))
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model.GridDataSources)
+   {
+				<tr ondblclick="javascript:show('@item.ID');">
+					<td>
+						@Html.CheckBox("checkboxItem", new { @class = "checkboxItem", value = item.ID })
+					</td>
+					<td>
+						<a href="javascript:editDepartment('@item.ID')" class="a-edit" title="修改">&nbsp</a>
+					</td>
+					<td>
+						<a href="javascript:deleteDepartment('@item.ID')" class="a-delete" title="删除">&nbsp</a>
+					</td>
+					<td>
+						@item.Name
+					</td>
+					<td>
+						@RazorWidget.RenderDate(item.InputDate, "yyyy-MM-dd")
+					</td>
+					<td>
+						@if (item.UpdateUser != null)
+	  {
+							@(Model.treeDataSourcesAll.FirstOrDefault(x => x.ID == item.UpdateUser) == null ? "" : Model.treeDataSourcesAll.FirstOrDefault(x => x.ID == item.UpdateUser).UserName)                               
+	  }
+	  else
+	  {
+							@("无")
+	  }
+					</td>
+					<td>
+						@Project.Common.StringUtility.CutString(item.Remark, 14)
+					</td>
+				</tr>
+   }
+		</tbody>
+	</table>
+</div>

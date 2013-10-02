@@ -1,0 +1,821 @@
+﻿/* common begin */
+*
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	scrollbar-face-color: #dff9fe;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-3dlight-color: #9adae7;
+	scrollbar-darkshadow-color: #9adae7;
+	scrollbar-shadow-color: #FFFFFF;
+	scrollbar-arrow-color: #006498;
+	scrollbar-track-color: #fff;
+}
+html
+{
+	height: 100%;
+	overflow-y: hidden;
+}
+body
+{
+	overflow: hidden;
+	border-right: 1px solid #a8cce9;
+}
+table
+{
+	border-collapse: collapse;
+}
+
+#Header {
+   height:60px;
+   color:#fff;
+   overflow:hidden;
+   background: url(/content/images/bgpic.jpg) repeat-x;
+}
+
+#Header #banner_text{
+   color:#FFFFFF;
+   font-weight:bold;
+   font-size: 18pt;
+}
+
+#Header #Header_left{
+   float:left;
+}
+#Header #Header_left table{
+   border:0px;
+   height:60px;
+}
+#Header #Header_left table td{
+   
+   vertical-align:middle;
+}
+#Header #Header_right{
+   float:right;
+   padding-top:0px;
+   padding-right:10px;
+}
+#Header #Header_right #datetime{
+   float:right;
+   padding-left:20px;
+   line-height:20px;
+   font-size:14px;
+   font-family:微软雅黑,宋体;
+   cursor:pointer;
+}
+#Header #Header_right #datetime #time_area{
+   font-size:20px;
+   font-weight:bold;
+   font-family:Arial;
+}
+
+#Header #Header_right #weather{
+   float:right;
+   text-align:right;
+   font-size:14px;
+   font-family:微软雅黑,宋体;
+}
+#Header #Header_right #weather span{
+   height:25px;
+   line-height:25px;
+}
+#Header #Header_right #weather .city{
+   font-weight:bold;
+   cursor:pointer;
+}
+#Header #Header_right #weather .wind,
+#Header #Header_right #weather .weather{
+   display:block;
+}
+#Header #Header_right #weather .temperature{
+   display:block;
+   font-size:16px;
+   font-family:Arial;
+}
+#Header #Header_right #weather a{
+   color:#fff;
+}
+#Header #Header_right #area_select{
+   width:120px;
+   float:right;
+   text-align:center;
+   display:none;
+}
+#Header #Header_right #area_select div{
+   height:25px;
+   line-height:25px;
+}
+#Header #Header_right #area_select div select{
+   width:100%;
+}
+
+#start-menu-panel 
+{
+    top: 112px;
+    display: none;
+    left: 3px;
+    position: absolute;
+    width: 404px;
+    z-index: 91000;
+}
+#start-menu-panel .panel-head {
+    background: url("images/Start_Menu/start_menu_panel_bg.png") no-repeat scroll 0 top transparent;
+    height: 16px;
+}
+#start-menu-panel .panel-foot {
+    background: url("images/Start_Menu/start_menu_panel_bg.png") no-repeat scroll -808px bottom transparent;
+    height: 16px;
+}
+#start-menu-panel .panel-user {
+    background: url("images/Start_Menu/start_menu_panel_bg.png") no-repeat scroll 0 bottom transparent;
+    height: 52px;
+    padding-left: 22px;
+    padding-right: 22px;
+}
+#start-menu-panel .panel-user .avatar {
+    background: url("images/Start_Menu/avatar_bg.jpg") no-repeat scroll center center transparent;
+    cursor: pointer;
+    float: left;
+    height: 42px !important;
+    padding-left: 4px;
+    padding-top: 4px;
+    width: 42px !important;
+}
+#start-menu-panel .panel-user .avatar img {
+    height: 38px;
+    width: 38px;
+}
+#start-menu-panel .panel-user .avatar div.status_icon {
+    height: 16px;
+    left: 55px;
+    overflow: hidden;
+    position: absolute;
+    top: 45px;
+    width: 16px;
+}
+#start-menu-panel .panel-user .avatar div.status_icon_1 {
+    background: url("images/Start_Menu/online_status.png") no-repeat scroll 0 -7px transparent;
+}
+#start-menu-panel .panel-user .avatar div.status_icon_2 {
+    background: url("images/Start_Menu/online_status.png") no-repeat scroll 0 -37px transparent;
+}
+#start-menu-panel .panel-user .avatar div.status_icon_3 {
+    background: url("images/Start_Menu/online_status.png") no-repeat scroll 0 -97px transparent;
+}
+#start-menu-panel .panel-user .avatar div.status_icon_4 {
+    background: url("images/Start_Menu/online_status.png") no-repeat scroll 0 -67px transparent;
+}
+#start-menu-panel .panel-user .avatar #on_status {
+    background: url("images/Start_Menu/on_status_bg.png") repeat-y scroll left top #FFFFFF;
+    border: 1px solid #B3B3B3;
+    display: none;
+    left: 25px;
+    position: absolute;
+    top: 60px;
+    width: 100px;
+    z-index: 94000;
+}
+#start-menu-panel .panel-user .avatar #on_status a {
+    background: url("images/Start_Menu/online_status.png") no-repeat scroll left top transparent;
+    color: #393939;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 25px;
+    text-decoration: none;
+}
+#start-menu-panel .panel-user .avatar #on_status a:hover {
+    background-color: #E6EBF1;
+}
+#start-menu-panel .panel-user .avatar #on_status a.on_status_1 {
+    background-position: 4px 0;
+}
+#start-menu-panel .panel-user .avatar #on_status a.on_status_2 {
+    background-position: 4px -30px;
+}
+#start-menu-panel .panel-user .avatar #on_status a.on_status_3 {
+    background-position: 4px -90px;
+}
+#start-menu-panel .panel-user .avatar #on_status a.on_status_4 {
+    background-position: 4px -60px;
+}
+#start-menu-panel .panel-user .name {
+    color: #0E4387;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-top: 24px;
+}
+#start-menu-panel .panel-user .tools {
+    float: right;
+    margin-top: 20px;
+}
+#start-menu-panel .panel-user .tools .logout {
+    background: url("images/Start_Menu/logout.jpg") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 24px;
+    margin-right: 14px;
+    overflow: hidden;
+    width: 58px;
+}
+#start-menu-panel .panel-user .tools .logout:hover {
+    background-position: 0 -24px;
+}
+#start-menu-panel .panel-user .tools .exit {
+    background: url("images/Start_Menu/logout.jpg") no-repeat scroll -62px 0 transparent;
+    display: inline-block;
+    height: 24px;
+    overflow: hidden;
+    width: 55px;
+}
+#start-menu-panel .panel-user .tools .exit:hover {
+    background-position: -62px -24px;
+}
+#start-menu-panel .panel-menu {
+    background: url("images/Start_Menu/start_menu_panel_bg.png") repeat-y scroll -404px top transparent;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+#start-menu-panel .panel-menu #first_panel {
+    padding: 5px 0;
+    width: 200px;
+}
+#start-menu-panel .panel-menu #first_panel .scroll-up, #start-menu-panel .panel-menu #first_panel .scroll-down {
+    background: url("images/Start_Menu/scroll_arrow.png") no-repeat scroll center 0 transparent;
+    cursor: pointer;
+    height: 10px;
+    overflow: hidden;
+}
+#start-menu-panel .panel-menu #first_panel .scroll-up {
+    background-position: center 0;
+}
+#start-menu-panel .panel-menu #first_panel .scroll-down {
+    background-position: center -10px;
+}
+#start-menu-panel .panel-menu #first_panel .scroll-up-hover {
+    background-position: center -20px;
+}
+#start-menu-panel .panel-menu #first_panel .scroll-down-hover {
+    background-position: center -30px;
+}
+#start-menu-panel .panel-menu #first_panel ul {
+    height: 360px;
+    left: 0;
+    list-style-type: none;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    z-index: 93000;
+}
+#start-menu-panel .panel-menu #first_panel ul li {
+}
+#start-menu-panel .panel-menu #first_panel ul li a {
+    background: url("images/Start_Menu/menu_bg.png") no-repeat scroll right top transparent;
+    color: #000000;
+    display: block;
+    font-size: 12px;
+    height: 25px !important;
+    line-height: 20px;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-top: 5px !important;
+    text-decoration: none;
+}
+#start-menu-panel .panel-menu #first_panel ul li a:hover, #start-menu-panel .panel-menu #first_panel ul li a.active {
+    background-position: right -30px;
+    color: #FFFFFF;
+}
+#start-menu-panel .panel-menu #first_panel ul li a img {
+    border: 0 none;
+    height: 20px;
+    width: 20px;
+}
+#overlay_startmenu {
+    background: none repeat scroll 0 0 #FFFFFF;
+    display: none;
+    height: 100%;
+    left: 0;
+    opacity: 0.01;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 90000;
+}
+#start-menu-panel .panel-menu #second_panel {
+    height: 370px;
+    left: 202px;
+    position: absolute;
+    top: 60px;
+    width: 180px;
+    z-index: 92000;
+}
+#start-menu-panel .panel-menu #second_panel .second-panel-head {
+    background: url("images/Start_Menu/second_panel_bg.jpg") no-repeat scroll 0 0 transparent;
+    height: 5px;
+    overflow: hidden;
+}
+#start-menu-panel .panel-menu #second_panel .second-panel-menu {
+    background: url("images/Start_Menu/second_panel_bg.jpg") repeat-y scroll -200px 0 transparent;
+    width: 100%;
+}
+#start-menu-panel .panel-menu #second_panel .second-panel-foot {
+    background: url("images/Start_Menu/second_panel_bg.jpg") no-repeat scroll -400px 0 transparent;
+    height: 5px;
+    overflow: hidden;
+}
+#start-menu-panel .panel-menu #second_panel .second-panel-menu ul {
+    left: 0;
+    list-style-type: none;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    z-index: 94000;
+}
+#start-menu-panel .panel-menu #second_panel .second-panel-menu ul li {
+}
+#start-menu-panel .panel-menu #second_panel .second-panel-menu ul li a {
+    color: #000000;
+    display: block;
+    font-size: 12px;
+    overflow: hidden;
+    padding-left: 10px;
+    text-decoration: none;
+}
+#start-menu-panel .panel-menu #second_panel .second-panel-menu ul li a span {
+    background: url("images/Start_Menu/menu_span_bg.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    padding-left: 20px;
+}
+#start-menu-panel .panel-menu #second_panel .second-panel-menu ul li a:hover {
+    background: url("images/Start_Menu/menu_bg.png") no-repeat scroll left -90px transparent;
+    color: #FFFFFF;
+}
+#start-menu-panel .panel-menu #second_panel .second-panel-menu ul li a:hover span {
+    background: url("images/Start_Menu/menu_span_bg.png") no-repeat scroll 0 -30px transparent;
+}
+#start-menu-panel .panel-menu #second_panel .second-panel-menu ul li a.expand {
+    background: url("images/Start_Menu/menu_bg.png") no-repeat scroll right -60px transparent;
+    margin-right: 0;
+}
+#start-menu-panel .panel-menu #second_panel .second-panel-menu ul li a.expand:hover, #start-menu-panel .panel-menu #second_panel .second-panel-menu ul li a.active {
+    background-position: right -90px;
+    color: #FFFFFF;
+}
+#start-menu-panel .panel-menu #second_panel .second-panel-menu ul li a.expand:hover span, #start-menu-panel .panel-menu #second_panel .second-panel-menu ul li a.active span {
+    background: url("images/Start_Menu/menu_span_bg.png") no-repeat scroll 0 -30px transparent;
+}
+#start-menu-panel .panel-menu #second_panel .second-panel-menu ul li ul {
+    display: none;
+}
+#start-menu-panel .panel-menu #second_panel .second-panel-menu ul li ul li {
+}
+#start-menu-panel .panel-menu #second_panel .second-panel-menu ul li ul li a {
+    background: none repeat scroll 0 0 transparent;
+    overflow: hidden;
+    padding-left: 30px;
+}
+#start-menu-panel .panel-menu #second_panel .second-panel-menu ul li ul li a span {
+    background: url("images/Start_Menu/menu_span_bg.png") no-repeat scroll 0 -60px transparent;
+    cursor: pointer;
+}
+#start-menu-panel .panel-menu #second_panel .second-panel-menu ul li ul li a:hover {
+    background: none repeat scroll 0 0 transparent;
+    color: #2771D0;
+}
+#start-menu-panel .panel-menu #second_panel .second-panel-menu ul li ul li a:hover span {
+    background: url("images/Start_Menu/menu_span_bg.png") no-repeat scroll 0 -90px transparent;
+}
+
+/* 一级标签 */
+#taskbar
+{
+    height:37px;
+    overflow:hidden;
+    background: url(/content/images/bgpic.jpg) repeat-x;
+    background-position:bottom;
+}
+
+.Start-Menu
+{
+    float:left;
+    background: url("images/Start_Menu/start_menu.png") no-repeat scroll center 0 transparent;
+    display: block;
+    height: 37px;
+    width: 97px;
+}
+
+#taskbar #start_menu:hover,
+#taskbar #start_menu.active{
+   background-position:center -40px;
+}
+
+/* 一级标签*/
+#taskbar #taskbar-tabs{
+   padding-top:7px;
+   float:left;
+}
+#taskbar #taskbar-tabs #tabs_left_scroll{
+   float:left;
+	width:30px;
+	height:30px;
+	display:none;
+	cursor:pointer;
+	background:url('images/Start_Menu/tabs_arrow.png') no-repeat 0px center;
+}
+#taskbar #taskbar-tabs #tabs_left_scroll.active{
+	background:url('images/Start_Menu/tabs_arrow.png') no-repeat -60px center;
+}
+#taskbar #taskbar-tabs #tabs_container{
+   height:30px;
+   width:100%;
+   float:left;
+	overflow:hidden;
+	white-space:nowrap;
+}
+#taskbar #taskbar-tabs #tabs_container div{
+   display:inline-block !important;
+   display:inline;
+   margin-right:3px;
+	padding-right:5px;
+	white-space:nowrap;
+	-moz-border-radius-topleft:5px;
+	-moz-border-radius-topright:5px;
+	-webkit-border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px;
+}
+#taskbar #taskbar-tabs #tabs_container div a.tab{
+    display:inline-block;
+	padding-left:10px;
+	padding-right:3px;
+	min-width:64px !important;
+	width:auto !important;
+	width:80px;
+	outline:none;
+	hideFocus:true;
+	text-decoration:none;
+	color:#fff;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	-moz-border-radius-topleft:5px;
+	-moz-border-radius-topright:5px;
+	-webkit-border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px;
+}
+#taskbar #taskbar-tabs #tabs_container div.selected{
+	background:url('images/Start_Menu/tabs_active.png') no-repeat right -30px;
+}
+#taskbar #taskbar-tabs #tabs_container div.selected a.tab{
+	color:#416AA3;
+	font-size:14px;
+	font-weight:bold;
+	background:url('images/Start_Menu/tabs_active.png') no-repeat left 0px;
+}
+#taskbar #taskbar-tabs #tabs_container div a.close{
+   display:none;
+	width:16px;
+	height:16px;
+	margin-bottom:-2px !important;
+	margin-bottom:2px;
+	background:url('images/Start_Menu/tabs_close.png') 0px center no-repeat;
+}
+#taskbar #taskbar-tabs #tabs_container div a:hover.close{
+	cursor:pointer;
+	background-position:-16px center;
+}
+#taskbar #taskbar-tabs #tabs_container div.selected a.close{
+   display:inline-block;
+}
+
+#taskbar #taskbar-tabs #tabs_right_scroll{
+   float:right;
+	width:30px;
+	height:30px;
+	display:none;
+	cursor:pointer;
+	background:url('images/Start_Menu/tabs_arrow.png') no-repeat -30px center;
+}
+#taskbar #taskbar-tabs #tabs_right_scroll.active{
+	background:url('images/Start_Menu/tabs_arrow.png') no-repeat -90px center;
+}
+
+/* 一级标签 右侧 */
+#taskbar #Quick-Bar{
+   float:right;
+   padding-left:10px;
+}
+
+/* 门户切换 */
+#taskbar #Quick-Bar #portal{
+   display:inline-block;
+   width:30px;
+   height:25px;
+   margin-top:10px;
+   background:url('images/Start_Menu/desktop_icons.png') -80px 0px no-repeat;
+}
+#taskbar #Quick-Bar #portal:hover,
+#taskbar #Quick-Bar #portal.active{
+   background-position:-80px -25px;
+}
+
+/* 常用任务 */
+#taskbar #Quick-Bar #shortcut{
+   display:inline-block;
+   width:30px;
+   height:25px;
+   margin-top:10px;
+   background:url('images/Start_Menu/desktop_icons.png') -40px 0px no-repeat;
+}
+#taskbar #Quick-Bar #shortcut:hover,
+#taskbar #Quick-Bar #shortcut.active{
+   background-position:-40px -25px;
+}
+
+/* 控制面板 */
+#taskbar #Quick-Bar #person_info{
+   display:inline-block;
+   width:30px;
+   height:25px;
+   margin-top:10px;
+   background:url('images/Start_Menu/desktop_icons.png') -254px 0px no-repeat;
+}
+#taskbar #Quick-Bar #person_info:hover,
+#taskbar #Quick-Bar #person_info.active{
+   background-position:-254px -25px;
+}
+
+/* 控制面板 */
+#taskbar #Quick-Bar #theme{
+   display:inline-block;
+   width:30px;
+   height:25px;
+   margin-top:10px;
+   background:url('images/Start_Menu/desktop_icons.png') -364px 0px no-repeat;
+}
+#taskbar #Quick-Bar #theme:hover,
+#taskbar #Quick-Bar #theme.active{
+   background-position:-364px -25px;
+}
+
+
+/* 注销 */
+#taskbar #Quick-Bar #logout{
+   display:inline-block;
+   width:30px;
+   height:25px;
+   margin-top:10px;
+   background:url('images/Start_Menu/desktop_icons.png') -288px 0px no-repeat;
+}
+#taskbar #Quick-Bar #logout:hover{
+   background-position:-288px -25px;
+}
+
+/* 隐藏顶部区域 */
+#taskbar #Quick-Bar #hide_topbar{
+   display:inline-block;
+   width:23px;
+   height:25px;
+   margin-top:10px;
+   background:url('images/Start_Menu/desktop_icons.png') -117px 0px no-repeat;
+}
+#taskbar #Quick-Bar #hide_topbar.up{
+   background:url('images/Start_Menu/desktop_icons.png') -144px 0px no-repeat;
+}
+
+.over-mask-layer{
+   display:none;
+   position:absolute;
+   top:-2000px;
+   z-index:1100;
+}
+/*  门户切换面板  */
+#portal_panel{
+   width:792px;
+   height:448px;
+}
+#portal_panel .icon{
+   width:79px;
+   height:79px;
+   background:url('images/Start_Menu/portal_icon.png') center center no-repeat;
+   position:absolute;
+   left:-20px;
+   top:-20px;
+   z-index:1110;
+}
+#portal_panel .left{
+   float:left !important; /* for FF & Safari*/
+   display:inline; /* for IE only */
+   width:35px;
+   height:448px;
+   background:url('images/Start_Menu/shortcut_panel_bg.png') 0px 0px no-repeat;
+   cursor:pointer;
+}
+#portal_panel .left-active{
+   background-position: -35px 0px;
+}
+
+#portal_panel .right{
+   float:left !important;
+   display:inline;
+   width:35px;
+   height:448px;
+   background:url('images/Start_Menu/shortcut_panel_bg.png') 0px -896px no-repeat;
+   cursor:pointer;
+}
+#portal_panel .right-active{
+   background-position: -35px -896px;
+}
+
+#portal_panel .center{
+   float:left !important;
+   display:inline;
+   width:718px;
+   height:448px;
+   overflow:hidden;
+   background:url('images/Start_Menu/shortcut_panel_bg.png') 0px -448px repeat-x;
+   position:relative;
+   left:0px;
+   top:0px;
+}
+#portal_panel .center img{
+	position:absolute;
+   border:0px;
+   cursor:pointer;
+}
+#portal_panel .close{
+   height:27px;
+   position:absolute;
+   right:20px;
+   bottom:20px;
+   z-index:1110;
+}
+#portal_panel .close a{
+   margin-right:10px;
+}
+
+/* A Button */
+a{
+   outline:none;
+}
+a.btn-black-a{
+   padding-top:2px !important;
+   padding-top:4px;
+   width:66px;
+   height:25px !important;
+   height:27px;
+   display:inline-block;
+   color:#fff;
+   font-size:12px;
+   text-align:center;
+   text-decoration:none;
+   background:url('images/Start_Menu/btn_black.png') center top no-repeat;
+}
+a.btn-black-a:hover{
+   background-position:center -27px;
+}
+
+a.btn-white-b{
+   padding-top:2px !important;
+   padding-top:4px;
+   width:82px;
+   height:25px !important;
+   height:27px;
+   display:inline-block;
+   color:#393939;
+   font-size:12px;
+   text-align:center;
+   text-decoration:none;
+   background:url('images/Start_Menu/btn_white.png') center top no-repeat;
+}
+a.btn-white-b:hover{
+   background-position:center -27px;
+}
+
+a.btn-flat-white-a{
+   padding-top:4px;
+   width:53px;
+   height:18px !important;
+   height:22px;
+   display:inline-block;
+   color:#307dd5;
+   font-size:12px;
+   text-align:center;
+   text-decoration:none;
+   background:url('images/Start_Menu/btn_flat_white.png') center top no-repeat;
+}
+
+a.btn-white-big{
+   padding-top:2px;
+   width:95px;
+   height:32px !important;
+   height:35px;
+   display:inline-block;
+   color:#393939;
+   font-size:18px;
+   font-family:微软雅黑,宋体;
+   text-align:center;
+   text-decoration:none;
+   background:url('images/Start_Menu/btn_white_big.png') center top no-repeat;
+}
+a.btn-white-big:hover{
+   background-position:center -35px;
+}
+
+/*  换肤面板  */
+#theme_panel{
+   width:311px;
+   height:auto;
+   position:absolute;
+   right:20px;
+   background:transparent;
+}
+#theme_panel .icon{
+   width:79px;
+   height:79px;
+   background:url('images/Start_Menu/portal_icon.png') center center no-repeat;
+   position:absolute;
+   left:-20px;
+   top:-20px;
+   display:none;
+   z-index:1110;
+}
+
+#theme_panel .center{
+   width:100%;
+   padding: 10px;
+   height:auto;
+   background:transparent url("images/Start_Menu/themeswitch_c.png") repeat-y;
+   padding-bottom:40px;
+}
+#theme_panel .center a.theme_thumb{
+   width:107px;
+   height:74px;
+   float:left;
+   display:block;
+   margin:10px 15px; 
+   cursor:pointer;  
+}
+#theme_panel .center a.theme_thumb img
+{
+   border:1px solid #FFF;   
+}
+
+#theme_panel .center a.theme_thumb span{
+   width:100%;
+   height:25px;
+   line-height:23px;
+   text-align:center;
+   display:block;
+   color:#FFF;
+   margin-top:3px;
+   background:transparent url("images/Start_Menu/theme_title.png") center center no-repeat;   
+}
+
+#theme_panel .center a.current span{
+   font-weight:bold;   
+}
+
+#theme_panel .bottom{
+   width:100%;
+   height:16px;
+   background:transparent url("images/Start_Menu/themeswitch_b.png") left center no-repeat;
+}
+
+#theme_panel .close{
+   height:27px;
+   position:absolute;
+   right:10px;
+   bottom:10px;
+   z-index:1110;
+}
+#theme_panel .close a{
+   margin-right:10px;
+}
+
+/* 主操作区域 */
+#Container {
+   width:100%;
+   height:100%;
+   overflow:hidden;
+   position:relative;
+}
+#Container .tabs-panel{
+   width:100%;
+   height:100%;
+   display:none;
+}
+#Container .selected{
+   display:block;
+}
+#Container .tabs-panel iframe{
+   width:100%;
+   height:100%;
+}

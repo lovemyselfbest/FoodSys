@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="FoodSys.Entity" namespace="FoodSys.Entity" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="SysRenterUser" table="Sys_Renter_User" lazy="true" >
+					<id name="ID">
+			  <generator class="guid.comb" />
+			</id>
+					<version name="Version" unsaved-value="null" generated="always"  type="BinaryBlob"/>
+        
+				<property name="UserAccount"  >
+			<column name="UserAccount" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="Password"  >
+			<column name="Password" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="UserName"  >
+			<column name="UserName" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="CertType"  >
+			<column name="CertType" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="CertNo"  >
+			<column name="CertNo" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="Memo"  >
+			<column name="Memo" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="Status"  >
+			<column name="Status" sql-type="int" not-null="false" />
+		</property>
+			</class>
+</hibernate-mapping>
+		

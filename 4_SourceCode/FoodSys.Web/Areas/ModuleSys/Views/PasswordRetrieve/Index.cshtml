@@ -1,0 +1,129 @@
+﻿@model FoodSys.Web.Areas.ModuleSys.Models.ModelPasswordRetrieveIndex
+@{
+	ViewBag.Title = "SysUserManage";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+
+	//邮件找回
+	function emailRetrieve() {
+		if (!defaultTable.isSelect()) {
+			return;
+		}
+		if ((defaultTable.listSelectedValues()).length > 1) {
+			//只能选择一条记录
+			window.top.sysAlert('@(FoodSys.Resources.Properties.Resources.M20017E)');
+			return;
+		}
+		var userID = defaultTable.listSelectedValues()[0];
+
+		top.window.$("#sysConfirm").html("确定要发送邮件找回？");
+		top.window.$("#sysConfirm").dialog({
+			resizable: false,
+			height: 200,
+			title: "系统提示",
+			modal: true,
+			buttons: {
+				"是": function () {
+					$.ajax({
+						type: "POST",
+						url: "/ModuleSys/PasswordRetrieve/EmailRetrieve",
+						data: "userID=" + userID,
+						success: function (msg) {
+							msg = eval("(" + msg + ")");
+							if (msg.result == "") {
+								window.commonPage.submit();
+								window.top.sysMessage();
+							}
+							else {
+								window.top.sysAlert(msg.result);
+							}
+						}
+					});
+					top.window.$("#sysConfirm").dialog("close");
+				},
+				"否": function () {
+					top.window.$("#sysConfirm").dialog("close");
+				}
+			}
+		});
+	}
+
+	//短信找回
+	function messageRetrieve() {
+		if (!defaultTable.isSelect()) {
+			return;
+		}
+		if ((defaultTable.listSelectedValues()).length > 1) {
+			//只能选择一条记录
+			window.top.sysAlert('@(FoodSys.Resources.Properties.Resources.M20017E)');
+			return;
+		}
+		var userID = defaultTable.listSelectedValues()[0];
+
+		top.window.$("#sysConfirm").html("确定要发送短信找回？");
+		top.window.$("#sysConfirm").dialog({
+			resizable: false,
+			height: 200,
+			title: "系统提示",
+			modal: true,
+			buttons: {
+				"是": function () {
+					$.ajax({
+						type: "POST",
+						url: "/ModuleSys/PasswordRetrieve/MessageRetrieve",
+						data: "userID=" + userID,
+						success: function (msg) {
+							msg = eval("(" + msg + ")");
+							if (msg.result == "") {
+								window.commonPage.submit();
+								window.top.sysMessage();
+							}
+							else {
+								window.top.sysAlert(msg.result);
+							}
+						}
+					});
+					top.window.$("#sysConfirm").dialog("close");
+				},
+				"否": function () {
+					top.window.$("#sysConfirm").dialog("close");
+				}
+			}
+		});
+	}
+
+</script>
+<!--右边内容页-->
+<div>
+	@using (Html.BeginForm())
+ {
+	 /* 工具栏
+	 ----------------------------------------------------------*/
+		<div class="toolbar">
+			<div class="toolbar-left">
+				@Html.Button(ButtonType.新增, "emailRetrieve()", "邮件找回")
+				@Html.Button(ButtonType.新增, "messageRetrieve()", "短信找回")
+			</div>
+			<div class="toolbar-right">
+				@Html.TextBoxFor(x => x.SearchEntity._CommonSearchCondition, new { @class = "common-search-condition" })
+				<input type="submit" class="common-search-submit" value="" />
+			</div>
+		</div>
+     
+	 /* 说明文字
+        ----------------------------------------------------------*/
+		<div class="search-clue">
+			您可通过该功能找回密码。
+		</div>
+     
+	 /* 表格数据显示
+      ----------------------------------------------------------*/
+		<div class="replace-container">
+			@{
+	 Html.RenderPartial("Index_Partial");
+			}
+		</div>
+
+ }
+</div>

@@ -1,0 +1,34 @@
+ModelAsset\Model\ ModelAsset.cs    // 导出查询 参考
+
+guid类型/Guid外键：
+
+condition.Or(x => x.AssetID, SearchEntity._CommonSearchCondition, ExpressionValueRelation.Like)
+
+condition.And(x => x.CommunityID, CommunityID, ExpressionValueRelation.Equal);
+
+
+.Or(x => x.RoomKindsID, ReflectionTools.ListValueByKeyword<UTRoomKinds, Guid?>(SearchEntity._CommonSearchCondition, RoomKindsCollection, x => x.Name, x => x.ID), ExpressionValueRelation.Contains);
+.And(x => x.RoomKindsID, SearchEntity._RoomKindsID, ExpressionValueRelation.Equal)
+性别
+
+.Or<EnumAllowSex>(x => x.AllowSex, SearchEntity._CommonSearchCondition, ExpressionValueRelation.Like)
+采购单状态
+
+.Or<EnumPOStatus>(x=>x.Status,SearchEntity._CommonSearchCondition, ExpressionValueRelation.Like, EnumPart.Text, EnumPart.Value);
+
+
+
+
+decimal类型
+.Or(x => x.UnitsArea, SearchEntity._CommonSearchCondition, ExpressionValueRelation.Equal)
+condition.And(x => x.NeedMoney, decimal.Parse("0"), ExpressionValueRelation.GreaterThan)
+
+===============
+
+.Or(x => x.ContractStatus, (int)EnumContractStatus.未生效, ExpressionValueRelation.Equal
+
+一个时间条件 范围模糊查询 
+模糊查询：Or(x => x.InputDate, SearchEntity._CommonSearchCondition, ExpressionValueRelation.Equal);
+条件查询：
+And(x => x.InputDate, SearchEntity._PInputDateFrom, ExpressionValueRelation.GreaterThanOrEqual).
+					And(x => x.InputDate, SearchEntity._PInputDateTo == null ? DateTime.MaxValue : SearchEntity._PInputDateTo.Value.AddDays(1), ExpressionValueRelation.LessThan);

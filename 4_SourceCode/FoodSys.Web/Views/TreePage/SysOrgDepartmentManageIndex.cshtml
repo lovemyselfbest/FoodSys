@@ -1,0 +1,89 @@
+﻿@model FoodSys.Web.Models.ModelTreePageSysOrganizationManageIndex
+@{
+	ViewBag.Title = "SysOrgDepartmentManageIndex";
+    Layout = "~/Views/Shared/_LayoutEmbeddedFrame.cshtml";
+}
+<style type="text/css">
+	#tree
+	{
+		float: left;
+		height: 100%;
+		margin: 1px 0 0 0;
+		width: 200px;
+		background: url("/Content/images/treebg.jpg") no-repeat scroll 0 0 #FFFFFF;
+		padding: 10px 0 0 0;
+	}
+</style>
+<script type="text/javascript">
+    $(function () {
+        $("#tree").height($("html").height());
+
+        /* 初始化树
+        ----------------------------------------------------------*/
+        var tree = $("#tree").jstree({
+            "types": {
+                "valid_children": ["root"],
+                "types": {
+                    "root": {
+                        "icon": {
+                            "image": "/Content/images/icon/ico0.jpg"
+                        },
+                        "valid_children": ["default"],
+                        "max_depth": 2,
+                        "hover_node": false,
+                        "select_node": function () { }
+                    },
+                    "dept": {
+                        "icon": {
+                            "image": "/Content/images/ico2.jpg"
+                        }
+                    },
+                    "company": {
+                        "icon": {
+                            "image": "/Content/images/ico3.jpg"
+                        }
+                    },
+                    "shop": {
+                        "icon": {
+                            "image": "/Content/images/ico4.jpg"
+                        }
+                    },
+                    "default": {
+                        "valid_children": ["default"],
+                        "icon": {
+                            "image": "/Content/images/ico1.jpg"
+                        }
+                    }
+                }
+            },
+            "plugins": ["themes", "html_data", "ui", "types"]
+        });
+        tree.bind("loaded.jstree", function (event, data) {
+            tree.jstree("open_all");
+        });
+    });
+
+    function setFrameUrl(url) {
+        $("#embeddedFrame").attr("src", url);
+    }
+
+</script>
+<div id="tree">
+    <ul>
+		<li rel="root">
+            <a href="javascript:void(0)" onclick="setFrameUrl('/ModuleSys/OrganizationManage/Index')">
+					组织机构管理</a> 
+			<ul>
+            	@foreach (var item in Model.UTOrganizationCollection)
+             {
+                    <li rel="dept"><a href="javascript:void(0)" onclick="setFrameUrl('/ModuleSys/SysOrgDepartmentManage/Index/?organizationId=@item.ID')">
+					@item.Name</a> 
+                    </li>
+             }
+                    <li rel="dept"><a href="javascript:void(0)" onclick="setFrameUrl('/ModuleSys/OrgCompany/Index')">
+					 所有企业</a> 
+                    </li>
+			</ul>
+		</li>
+	</ul>
+</div>

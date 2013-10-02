@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CB20242E-2A5B-4AD5-8395-809FD49934B4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FoodSys.Biz</RootNamespace>
+    <AssemblyName>FoodSys.Biz</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Project.References\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Project.References\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Biz\BizSysLogs.cs" />
+    <Compile Include="Biz\BizSysLogs.Designer.cs">
+      <DependentUpon>BizSysLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizSysUserXCommuity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Biz\BizSysUserXCommuity.Designer.cs">
+      <DependentUpon>BizSysUserXCommuity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizUTOrganization.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Biz\BizUTOrganization.Designer.cs">
+      <DependentUpon>BizUTOrganization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizUTOrgCompany.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Biz\BizUTOrgCompany.Designer.cs">
+      <DependentUpon>BizUTOrgCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizUTSample.cs" />
+    <Compile Include="Biz\BizUTSample.Designer.cs">
+      <DependentUpon>BizUTSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizUTOrgDepartment.cs" />
+    <Compile Include="Biz\BizUTOrgDepartment.Designer.cs">
+      <DependentUpon>BizUTOrgDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizSysUserTypeMenu.cs" />
+    <Compile Include="Biz\BizSysUserTypeMenu.Designer.cs">
+      <DependentUpon>BizSysUserTypeMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizSysUserType.cs" />
+    <Compile Include="Biz\BizSysUserType.Designer.cs">
+      <DependentUpon>BizSysUserType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizSysUserRight.cs" />
+    <Compile Include="Biz\BizSysUserRight.Designer.cs">
+      <DependentUpon>BizSysUserRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizSysUser.cs" />
+    <Compile Include="Biz\BizSysUser.Designer.cs">
+      <DependentUpon>BizSysUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizSysRoleRight.cs" />
+    <Compile Include="Biz\BizSysRoleRight.Designer.cs">
+      <DependentUpon>BizSysRoleRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizSysRoleMember.cs" />
+    <Compile Include="Biz\BizSysRoleMember.Designer.cs">
+      <DependentUpon>BizSysRoleMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizSysRole.cs" />
+    <Compile Include="Biz\BizSysRole.Designer.cs">
+      <DependentUpon>BizSysRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizSysMenu.cs" />
+    <Compile Include="Biz\BizSysMenu.Designer.cs">
+      <DependentUpon>BizSysMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizSysDate.cs" />
+    <Compile Include="Biz\BizSysDate.Designer.cs">
+      <DependentUpon>BizSysDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizSysCodeType.cs" />
+    <Compile Include="Biz\BizSysCodeType.Designer.cs">
+      <DependentUpon>BizSysCodeType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizSysCodeInfo.cs" />
+    <Compile Include="Biz\BizSysCodeInfo.Designer.cs">
+      <DependentUpon>BizSysCodeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizSysPermissionNotice.cs" />
+    <Compile Include="Biz\BizSysPermissionNotice.Designer.cs">
+      <DependentUpon>BizSysPermissionNotice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizSysRenterUser.cs" />
+    <Compile Include="Biz\BizSysRenterUser.Designer.cs">
+      <DependentUpon>BizSysRenterUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizSysCompanyUser.cs" />
+    <Compile Include="Biz\BizSysCompanyUser.Designer.cs">
+      <DependentUpon>BizSysCompanyUser.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\foodsys.Entity\FoodSys.Entity.csproj">
+      <Project>{60A45F4D-9149-4DE6-BCC6-2A299994F31F}</Project>
+      <Name>FoodSys.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FoodSys.Dal\FoodSys.Dal.csproj">
+      <Project>{BA4F8458-7ED4-4F41-9A78-2B2DC209257B}</Project>
+      <Name>FoodSys.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\foodsys.Enum\FoodSys.Enum.csproj">
+      <Project>{01406234-6DF5-4134-9B02-8CD48390A09F}</Project>
+      <Name>FoodSys.Enum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Biz.Base\Project.Biz.Base.csproj">
+      <Project>{D8038A75-7355-4E97-BB22-77366BA7239C}</Project>
+      <Name>Project.Biz.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Common\Project.Common.csproj">
+      <Project>{8684770C-FE2A-4B2D-910C-B88D5E2EF353}</Project>
+      <Name>Project.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Dal.Base\Project.Dal.Base.csproj">
+      <Project>{C487053F-C28D-41B4-93F4-EA4397B0CB53}</Project>
+      <Name>Project.Dal.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\foodsys.Resources\FoodSys.Resources.csproj">
+      <Project>{A4B687D9-39C3-495A-8A25-0169B911492E}</Project>
+      <Name>FoodSys.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BizView\" />
+    <Folder Include="SPBiz\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

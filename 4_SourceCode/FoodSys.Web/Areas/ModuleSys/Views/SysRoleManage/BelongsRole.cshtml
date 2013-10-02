@@ -1,0 +1,226 @@
+﻿@model FoodSys.Web.Areas.ModuleSys.Models.ModelSysRoleManageBelongsRole
+@{
+	ViewBag.Title = "BelongsRole";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+
+	//所属该角色的用户
+	var assignedUser = SelectListHelper.ComposeSelectListFromCollect(Model.AssignedUser, x => x.ID, x => x.UserName);
+
+	//不属于该角色的用户
+	var nonAssignedUser = SelectListHelper.ComposeSelectListFromCollect(Model.NonAssignedUser, x => x.ID, x => x.UserName);
+}
+<script type="text/javascript">
+	$(function () {
+		$("#nonAssignedUserList,#assignedUserList").height($("html").height() - 80);
+
+		$("#belongs-role-content").height($("html").outerHeight() - $(".tabs-container").outerHeight() - 5).width($("html").outerWidth());
+		$("#tabs-fixed2").height($("html").outerHeight() - 50);
+	})
+
+	//提交
+	function moveUsersSelectItem(operateType) {
+		if (operateType == "Left" && $("#nonAssignedUserList").val() == null) {
+			return;
+		}
+		else if (operateType == "Right" && $("#assignedUserList").val() == null) {
+			return;
+		}
+		$(".moveId").append('<input type="hidden" name="operateType" value="' + operateType + '" />');
+		$("form").attr("action", "/ModuleSys/SysRoleManage/MoveUsers/").submit();
+
+	}
+
+	//提交
+	function moveUsersSelectItem2(operateType) {
+
+		top.window.$("#sysConfirm").html("确定要移动吗？");
+		top.window.$("#sysConfirm").dialog({
+			resizable: false,
+			height: 200,
+			title: "系统提示",
+			modal: true,
+			buttons: {
+				"是": function () {
+					moveUsersSelectItem(operateType);
+
+					top.window.$("#sysConfirm").dialog("close");
+				},
+				"否": function () {
+					top.window.$("#sysConfirm").dialog("close");
+				}
+			}
+		});
+
+	}
+
+	//选中种全部未分配用户角色提交
+	function moveLeftUsersAll(operateType) {
+		top.window.$("#sysConfirm").html("确定要全部移动吗？");
+		top.window.$("#sysConfirm").dialog({
+			resizable: false,
+			height: 200,
+			title: "系统提示",
+			modal: true,
+			buttons: {
+				"是": function () {
+					$("#nonAssignedUserList").find("option").attr("selected", "selected");
+					moveUsersSelectItem(operateType);
+
+					top.window.$("#sysConfirm").dialog("close");
+				},
+				"否": function () {
+					top.window.$("#sysConfirm").dialog("close");
+				}
+			}
+		});
+
+	}
+
+	//选中种全部已分配用户角色提交
+	function moveRightUsersAll(operateType) {
+		top.window.$("#sysConfirm").html("确定要全部移动吗？");
+		top.window.$("#sysConfirm").dialog({
+			resizable: false,
+			height: 200,
+			title: "系统提示",
+			modal: true,
+			buttons: {
+				"是": function () {
+					$("#assignedUserList").find("option").attr("selected", "selected");
+					moveUsersSelectItem(operateType);
+
+					top.window.$("#sysConfirm").dialog("close");
+				},
+				"否": function () {
+					top.window.$("#sysConfirm").dialog("close");
+				}
+			}
+		});
+
+	}
+</script>
+<style>
+	#belongs-role-content
+	{
+		background: #fff;
+		overflow: auto;
+	}
+	#tabs-fixed2
+	{
+		width: 650px;
+	}
+	#nonAssignedUserList, #assignedUserList
+	{
+		width: 250px;
+		font-size: 12px;
+		border-left: 0px;
+		border-right: 0px;
+		border-bottom: 0px;
+		margin-top: 8px;
+	}
+	.tabs-2-left
+	{
+		border: 1px solid #ccc;
+		width: 250px;
+		height: 100%;
+		float: left;
+		text-align: center;
+	}
+	.tabs-2-middle
+	{
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+		width: 110px;
+		height: 100%;
+		float: left;
+		text-align: center;
+	}
+	.tabs-2-right
+	{
+		border: 1px solid #ccc;
+		width: 250px;
+		height: 100%;
+		float: left;
+		text-align: center;
+	}
+	.tabs-content
+	{
+		width: 250px;
+		height: 100%;
+		overflow: auto;
+		text-align: left;
+	}
+	.tabs-2-left .tabs-content #leftTree, .tabs-1-right .tabs-content #rightTree
+	{
+		float: left;
+		margin: 1px 0 0 0;
+		width: 200px;
+		background: #fff;
+		padding: 10px 0 0 0;
+	}
+	
+	.tabs-2-middle input
+	{
+		border: 0px;
+		width: 54px;
+		height: 25px;
+		margin: 10px;
+		cursor: pointer;
+	}
+	.tabs-2-middle .move01
+	{
+		background: url("/Content/Images/move01.jpg") no-repeat;
+		margin-top: 100px;
+	}
+	.tabs-2-middle .move02
+	{
+		background: url("/Content/Images/move02.jpg") no-repeat;
+	}
+	.tabs-2-middle .move03
+	{
+		background: url("/Content/Images/move03.jpg") no-repeat;
+	}
+	.tabs-2-middle .move04
+	{
+		background: url("/Content/Images/move04.jpg") no-repeat;
+	}
+</style>
+@using (Html.BeginForm())
+{
+	/* tab
+----------------------------------------------------------*/
+	<div class="tabs-container">
+		<ul>
+			<li class="tabInactive"><a href="/ModuleSys/SysRoleManage/Index/?id=@Model.SysRoleID">
+				<span>分配权限</span></a></li>
+			<li id="current" class="tabActive"><a><span>所含用户</span></a></li>
+		</ul>
+	</div>
+	<div class="clear">
+	</div>
+	<div id="belongs-role-content">
+		<div id="tabs-fixed2">
+			@Html.HiddenFor(x => x.SysRoleID)
+			<div class="moveId">
+			</div>
+			<div class="tabs-2-left">
+				<img src="/Content/Images/wfq-Role.gif" />
+				<div class="tabs-content">
+					@Html.DropDownList("nonAssignedUserList", nonAssignedUser, new { multiple = "true", size = "20", id = "nonAssignedUserList", style = "" })
+				</div>
+			</div>
+			<div class="tabs-2-middle">
+				<input type="button" value="" class="move01" onclick="moveLeftUsersAll('@Project.Common.EnumDirection.Left');" /><br />
+				<input type="button" value="" class="move02" onclick="moveUsersSelectItem2('@Project.Common.EnumDirection.Left')" /><br />
+				<input type="button" value="" class="move04" onclick="moveUsersSelectItem2('@Project.Common.EnumDirection.Right');" /><br />
+				<input type="button" value="" class="move03" onclick="moveRightUsersAll('@Project.Common.EnumDirection.Right');" />
+			</div>
+			<div class="tabs-2-right">
+				<img src="/Content/Images/yfq-Role.gif" />
+				<div class="tabs-content">
+					@Html.DropDownList("assignedUserList", assignedUser, new { multiple = "true", size = "20", id = "assignedUserList", style = " " })
+				</div>
+			</div>
+		</div>
+	</div>
+}

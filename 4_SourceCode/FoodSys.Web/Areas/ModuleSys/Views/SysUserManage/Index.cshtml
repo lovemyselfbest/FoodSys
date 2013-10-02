@@ -1,0 +1,190 @@
+﻿@{
+	ViewBag.Title = "SysUserManage";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model FoodSys.Web.Areas.ModuleSys.Models.ModelSysUserManageIndex
+<script type="text/javascript">
+    //添加用户
+    function addSysUser(departmentId) {
+        window.top.openDialog({ Url: "/ModuleSys/SysUserManage/Create/?departmentId=" + departmentId + "&pageState=" + create, Title: "新增用户信息", Width: 650, Height: 630 });
+    }
+
+    //根据ID删除用户
+    function deleteSysUser(SysUserID) {
+        top.window.$("#sysConfirm").html("确定要删除？");
+        top.window.$("#sysConfirm").dialog({
+            resizable: false,
+            height: 200,
+            title: "系统提示",
+            modal: true,
+            buttons: {
+                "是": function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "/ModuleSys/SysUserManage/Delete",
+                        data: "id=" + SysUserID,
+                        success: function (msg) {
+                            msg = eval("(" + msg + ")");
+                            if (msg.result == "") {
+                                window.location = commonPage.getCurrentUrl();
+                                window.top.sysMessage();
+                            }
+                            else {
+                                window.top.sysAlert(msg.result);
+                            }
+                        }
+                    });
+                    top.window.$("#sysConfirm").dialog("close");
+                },
+                "否": function () {
+                    top.window.$("#sysConfirm").dialog("close");
+                }
+            }
+        });
+    }
+
+    //批量删除
+    function deleteSysUserBatch() {
+        if (!defaultTable.isSelect()) {
+            return;
+        }
+
+        top.window.$("#sysConfirm").html("确定要删除？");
+        top.window.$("#sysConfirm").dialog({
+            resizable: false,
+            height: 200,
+            title: "系统提示",
+            modal: true,
+            buttons: {
+                "是": function () {
+                    $("form").ajaxFormUnbind();
+                    $("form").attr("action", "/ModuleSys/SysUserManage/DeleteBatch/?RetUrl=" + escape(commonPage.getCurrentUrl())).submit();
+                    top.window.$("#sysConfirm").dialog("close");
+                },
+                "否": function () {
+                    top.window.$("#sysConfirm").dialog("close");
+                }
+            }
+        });
+    }
+
+    //根据编号修改用户信息
+    function editSysUser(SysUserID) {
+        window.top.openDialog({ Url: "/ModuleSys/SysUserManage/Create/?sysUserId=" + SysUserID + "&pagestate=" + edit, Title: "修改用户信息", Width: 650, Height: 580 });
+    }
+
+    //根据编号查看用户信息
+    function show(SysUserID) {
+        window.top.openDialog({ Url: "/ModuleSys/SysUserManage/Create/?sysUserId=" + SysUserID + "&pagestate=" + detail, Title: "用户信息查看", Width: 650, Height: 580 });
+    }
+
+    //是否锁定用户(0为可用1为不可用)
+    function sysUserIsLock(id, status) {
+        var msg;
+        if (status == '@((int)FoodSys.Enum.EnumUserStatus.已激活)') {
+            msg = "是否确认激活?";
+        }
+        else {
+            msg = "是否确认锁定?";
+        }
+
+        top.window.$("#sysConfirm").html(msg);
+        top.window.$("#sysConfirm").dialog({
+            resizable: false,
+            height: 200,
+            title: "系统提示",
+            modal: true,
+            buttons: {
+                "是": function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "/ModuleSys/SysUserManage/SysUserIsLock",
+                        data: "id=" + id + "&status=" + status,
+                        success: function (msg) {
+                            msg = eval("(" + msg + ")");
+                            if (msg.result == "") {
+                                window.location = commonPage.getCurrentUrl();
+                                window.top.sysMessage();
+                            }
+                            else {
+                                window.top.sysAlert(msg.result);
+                            }
+                        }
+                    });
+                    top.window.$("#sysConfirm").dialog("close");
+                },
+                "否": function () {
+                    top.window.$("#sysConfirm").dialog("close");
+                }
+            }
+        });
+    }
+
+    //修改密码
+    function resetPassword() {
+        var id = defaultTable.forceSelectOne();
+        if (id == null) {
+            return;
+        }
+        window.top.openDialog({ Url: "/ModuleSys/SysUserManage/EditPassword/" + id, Title: "重新设置密码", Width: 400, Height: 220 });
+    }
+
+    //批量锁定
+    function lockSysUserBatch() {
+        if (!defaultTable.isSelect())
+            return;
+
+        top.window.$("#sysConfirm").html("是否确认锁定？");
+        top.window.$("#sysConfirm").dialog({
+            resizable: false,
+            height: 200,
+            title: "系统提示",
+            modal: true,
+            buttons: {
+                "是": function () {
+                    $("form").ajaxFormUnbind();
+                    $("form").attr("action", "/ModuleSys/SysUserManage/LockSysUserBatch/?RetUrl=" + escape(commonPage.getCurrentUrl())).submit();
+                    top.window.$("#sysConfirm").dialog("close");
+                },
+                "否": function () {
+                    top.window.$("#sysConfirm").dialog("close");
+                }
+            }
+        });
+    }
+</script>
+<!--右边内容页-->
+<div>
+	@using (Html.BeginForm())
+ {
+	 /* 工具栏
+	 ----------------------------------------------------------*/
+		<div class="toolbar">
+			<div class="toolbar-left">
+				@Html.Button(ButtonType.新增, "addSysUser('" + @Model.DepartmentId + "')")
+                @Html.Button(ButtonType.锁定, "lockSysUserBatch()")
+				@*Html.Button(ButtonType.重置密码, "resetPassword()")*@
+				@Html.Button(ButtonType.删除, "deleteSysUserBatch()")
+			</div>
+			<div class="toolbar-right">
+				@Html.TextBoxFor(x => x.SearchEntity._CommonSearchCondition, new { @class = "common-search-condition" })
+				<input type="submit" class="common-search-submit" value="" />
+			</div>
+		</div>
+     
+	 /* 说明文字
+        ----------------------------------------------------------*/
+		<div class="search-clue">
+			您可通过该功能，维护管理系统登录用户账号信息、修改账号密码以及锁定激活等相关操作
+		</div>
+     
+	 /* 表格数据显示
+      ----------------------------------------------------------*/
+     <div class="replace-container">
+			@{
+	 Html.RenderPartial("Index_Partial");
+			}
+		</div>
+
+ }
+</div>

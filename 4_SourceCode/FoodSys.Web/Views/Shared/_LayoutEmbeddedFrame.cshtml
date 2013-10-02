@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>@ViewBag.Title</title>
+	@RazorWidget.ViewStart()
+	<style type="text/css">
+		body
+		{
+			margin: 0;
+			padding: 0;
+			font-family: "font-family:Verdana, Arial, Helvetica, sans-serif";
+			font-size: 12px;
+			color: #000000;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			scrollbar-3dlight-color: #92A3B0; /*立体滚动条亮边的颜色*/
+			scrollbar-arrow-color: #FFFFFF; /*立体滚动条亮边的颜色*/
+			scrollbar-base-color: #C1D3FB; /*底色*/
+			scrollbar-darkshadow-color: #FFFFFF; /*立体滚动条强阴影的颜色*/
+			scrollbar-face-color: #C1D3FB; /*立体滚动条凸出部分的颜色*/
+			scrollbar-highlight-color: #FFFFFF; /*滚动条空白部分的颜色*/
+			scrollbar-shadow-color: #92A3B0 /*立体滚动条亮边的颜色*/;
+		}
+		body, html
+		{
+			overflow: hidden;
+		}
+		.table-layout
+		{
+			width:100%;
+		}
+		.td-layout-left
+		{
+			width: 150px;
+		}
+	</style>
+</head>
+<body>
+	<table class="table-layout">
+		<tr>
+			<td class="td-layout-left" valign="top">
+				@RenderBody()
+			</td>
+			<td valign="top">
+				<iframe id='embeddedFrame' name='embeddedFrame' frameborder='0' width='100%' src='@ViewBag.FrameUrl'>
+				</iframe>
+			</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		function calculateWindowSize() {
+			$("#embeddedFrame").height(top.globalFrameHeight);
+		}
+		
+		$(function () {
+			calculateWindowSize();
+			$(window).resize(function () { calculateWindowSize(); });
+			$(document).keydown(window.top.menuShortKeydown).keyup(window.top.menuShortKeyup);
+		});
+	</script>
+</body>
+</html>

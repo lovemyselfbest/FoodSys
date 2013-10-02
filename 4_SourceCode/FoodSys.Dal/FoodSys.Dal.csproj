@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BA4F8458-7ED4-4F41-9A78-2B2DC209257B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FoodSys.Dal</RootNamespace>
+    <AssemblyName>FoodSys.Dal</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Project.References\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Project.References\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dal\DalSysLogs.cs" />
+    <Compile Include="Dal\DalSysLogs.Designer.cs">
+      <DependentUpon>DalSysLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalSysUserXCommuity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dal\DalSysUserXCommuity.Designer.cs">
+      <DependentUpon>DalSysUserXCommuity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalUTOrganization.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dal\DalUTOrganization.Designer.cs">
+      <DependentUpon>DalUTOrganization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalUTOrgCompany.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dal\DalUTOrgCompany.Designer.cs">
+      <DependentUpon>DalUTOrgCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalUTSample.cs" />
+    <Compile Include="Dal\DalUTSample.Designer.cs">
+      <DependentUpon>DalUTSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalUTOrgDepartment.cs" />
+    <Compile Include="Dal\DalUTOrgDepartment.Designer.cs">
+      <DependentUpon>DalUTOrgDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalSysUserTypeMenu.cs" />
+    <Compile Include="Dal\DalSysUserTypeMenu.Designer.cs">
+      <DependentUpon>DalSysUserTypeMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalSysUserType.cs" />
+    <Compile Include="Dal\DalSysUserType.Designer.cs">
+      <DependentUpon>DalSysUserType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalSysUserRight.cs" />
+    <Compile Include="Dal\DalSysUserRight.Designer.cs">
+      <DependentUpon>DalSysUserRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalSysUser.cs" />
+    <Compile Include="Dal\DalSysUser.Designer.cs">
+      <DependentUpon>DalSysUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalSysRoleRight.cs" />
+    <Compile Include="Dal\DalSysRoleRight.Designer.cs">
+      <DependentUpon>DalSysRoleRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalSysRoleMember.cs" />
+    <Compile Include="Dal\DalSysRoleMember.Designer.cs">
+      <DependentUpon>DalSysRoleMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalSysRole.cs" />
+    <Compile Include="Dal\DalSysRole.Designer.cs">
+      <DependentUpon>DalSysRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalSysMenu.cs" />
+    <Compile Include="Dal\DalSysMenu.Designer.cs">
+      <DependentUpon>DalSysMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalSysDate.cs" />
+    <Compile Include="Dal\DalSysDate.Designer.cs">
+      <DependentUpon>DalSysDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalSysCodeType.cs" />
+    <Compile Include="Dal\DalSysCodeType.Designer.cs">
+      <DependentUpon>DalSysCodeType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalSysCodeInfo.cs" />
+    <Compile Include="Dal\DalSysCodeInfo.Designer.cs">
+      <DependentUpon>DalSysCodeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalSysPermissionNotice.cs" />
+    <Compile Include="Dal\DalSysPermissionNotice.Designer.cs">
+      <DependentUpon>DalSysPermissionNotice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalSysRenterUser.cs" />
+    <Compile Include="Dal\DalSysRenterUser.Designer.cs">
+      <DependentUpon>DalSysRenterUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalSysCompanyUser.cs" />
+    <Compile Include="Dal\DalSysCompanyUser.Designer.cs">
+      <DependentUpon>DalSysCompanyUser.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project.Common\Project.Common.csproj">
+      <Project>{8684770C-FE2A-4B2D-910C-B88D5E2EF353}</Project>
+      <Name>Project.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\foodsys.Entity\FoodSys.Entity.csproj">
+      <Project>{60A45F4D-9149-4DE6-BCC6-2A299994F31F}</Project>
+      <Name>FoodSys.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\foodsys.Enum\FoodSys.Enum.csproj">
+      <Project>{01406234-6DF5-4134-9B02-8CD48390A09F}</Project>
+      <Name>FoodSys.Enum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Dal.Base\Project.Dal.Base.csproj">
+      <Project>{C487053F-C28D-41B4-93F4-EA4397B0CB53}</Project>
+      <Name>Project.Dal.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\foodsys.Resources\FoodSys.Resources.csproj">
+      <Project>{A4B687D9-39C3-495A-8A25-0169B911492E}</Project>
+      <Name>FoodSys.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DalView\" />
+    <Folder Include="SPDal\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

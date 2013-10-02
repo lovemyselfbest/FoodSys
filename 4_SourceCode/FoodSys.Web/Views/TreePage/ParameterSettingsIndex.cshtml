@@ -1,0 +1,109 @@
+﻿@{
+	ViewBag.Title = "ParameterSettingsIndex";
+    Layout = "~/Views/Shared/_LayoutEmbeddedFrame.cshtml";
+}
+@model IList<FoodSys.Entity.SysCodeType>
+<style type="text/css">
+	#tree
+	{
+		float: left;
+		margin: 1px 0 0 0;
+		width: 200px;
+		background: url("/Content/images/treebg.jpg") no-repeat scroll 0 0 #FFFFFF;
+		padding: 10px 0 0 0;
+	}
+	#content
+	{
+		float: left;
+		height: 100%;
+		margin: 1px 0 0 0;
+		width: 200px;
+		background: url("/Content/images/treebg.jpg") no-repeat scroll 0 0 #FFFFFF;
+		border: 1px solid #83AAD3;
+		vertical-align: top;
+		font-family: "font-family:Verdana, Arial, Helvetica, sans-serif";
+		font-size: 12px;
+	}
+	.user-parameter-title
+	{
+		width: 100%;
+		font-weight: bold;
+		color: Black;
+		height: 23px;
+		border-bottom: 1px solid #83AAD3;
+		padding-top: 6px;
+	}
+	.user-parameter-title .user-parameter-img
+	{
+		background: url("/Content/images/layout/code.gif") no-repeat;
+		padding-left: 20px;
+		height: 20px;
+		display: block;
+		line-height: 20px;
+		vertical-align: middle;
+		margin-left: 5px;
+	}
+	.user-parameter-content
+	{
+		overflow: auto;
+	}
+</style>
+<script type="text/javascript">
+    $(function () {
+        //$("#tree").height($("html").outerHeight());
+        $(".user-parameter-content").outerHeight($("html").outerHeight() - $(".user-parameter-title").outerHeight() - 10);
+
+        /* 初始化树
+        ----------------------------------------------------------*/
+        var tree = $("#tree").jstree({
+            "types": {
+                "valid_children": ["root"],
+                "types": {
+                    "root": {
+                        "icon": {
+                            "image": "/Content/images/all_project.jpg"
+                        },
+                        "hover_node": false,
+                        "select_node": function () { }
+                    },
+                    "node2": {
+                        "icon": {
+                            "image": "/Content/images/icon/tree_document.gif"
+                        }
+                    }
+                }
+            },
+            "plugins": ["themes", "html_data", "ui", "types"]
+        });
+        tree.bind("loaded.jstree", function (event, data) {
+            tree.jstree("open_all");
+        });
+    });
+
+    function setFrameUrl(url) {
+        $("#embeddedFrame").attr("src", url);
+    }
+</script>
+@using (Html.BeginForm())
+{
+	<div id="content">
+		<div class="user-parameter-title">
+			<span class="user-parameter-img">参数类型</span></div>
+		<div class="clear">
+		</div>
+		<div class="user-parameter-content">
+			<div id="tree">
+				<ul>
+					<li rel="root"><a href="javascript:void(0)">参数设置</a>
+						<ul>
+							@foreach (var item in Model)
+	   {
+								<li rel="node2"><a href="javascript:void(0)" onclick="setFrameUrl('/ModuleSys/SysCodeInfo/Index/?SysCodeInfoType=@item.Type')">@item.TypeName</a></li>
+	   }
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+}

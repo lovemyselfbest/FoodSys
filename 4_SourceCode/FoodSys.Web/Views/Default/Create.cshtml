@@ -1,0 +1,110 @@
+﻿@model XAGZFSys.Web.Models.ModelDefaultCreate
+@{
+	Layout = "~/Views/Shared/_LayoutDialog.cshtml";
+}
+<style type="text/css">
+	.table-detail th
+	{
+		width: 100px;
+	}
+	.width-text
+	{
+		width: 200px;
+	}
+</style>
+<div class="wfill hfill center">
+	<p class="p-s1">
+		@(((Project.Common.EnumPageState)ViewBag.PageState).ToString())供应商信息
+	</p>
+	@using (Html.BeginForm())
+ {
+		@Html.HiddenFor(x => x.UTSample.ID)
+		@Html.HiddenFor(x=>x.UTSample.Version)
+		<table cellpadding="0" cellspacing="0"  class="table-detail">
+			<thead>
+				<tr>
+					<td colspan="4">
+						<div>
+							@(((Project.Common.EnumPageState)ViewBag.PageState).ToString())供应商信息</div>
+					</td>
+				</tr>
+			</thead>
+				<tr>
+					<th>
+						<span class="red">*</span>供应商名称：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.UTSample.SupplierName, new { maxlength = 50 })
+						@Html.ValidationMessageFor(x => x.UTSample.SupplierName)
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<span class="red">*</span>地址：
+					</th>
+					<td colspan="3">
+						@Html.TextBoxFor(x => x.UTSample.Address, new { maxlength = 200 })
+						@Html.ValidationMessageFor(x => x.UTSample.Address)
+					</td>
+				</tr>
+				<tr>
+					<th>
+						供货内容：
+					</th>
+					<td colspan="3">
+						@Html.TextAreaForFix(x => x.UTSample.SupplyContent, new { maxlength = 200, cols = "80", rows = "3" })
+						@Html.ValidationMessageFor(x => x.UTSample.SupplyContent)
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<span class="red">*</span>联系人：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.UTSample.ContactName, new { maxlength = 50 })
+						@Html.ValidationMessageFor(x => x.UTSample.ContactName)
+					</td>
+				</tr>
+				<tr>
+					<th>
+						移动电话：
+					</th>
+					<td colspan="3">
+						@Html.TextBoxFor(x => x.UTSample.Mobile, new { maxlength = 50 })						
+					</td>
+				</tr>
+				<tr>
+					<th>
+						固定电话：
+					</th>
+					<td colspan="3">
+						@Html.TextBoxFor(x => x.UTSample.Telephone, new { maxlength = 50 })
+						@Html.ValidationMessageFor(x => x.UTSample.Telephone)
+					</td>
+				</tr>
+				<tr>
+					<th>
+						电子邮箱：
+					</th>
+					<td colspan="3">
+						@Html.TextBoxFor(x => x.UTSample.Email, new { maxlength = 50 })
+						@Html.ValidationMessageFor(x => x.UTSample.Email)
+					</td>
+				</tr>
+				<tr>
+					<th>
+						传真：
+					</th>
+					<td colspan="3">
+						@Html.TextBoxFor(x => x.UTSample.Fax, new { maxlength = 50 })
+						@Html.ValidationMessageFor(x => x.UTSample.Fax)
+					</td>
+				</tr>
+			
+		</table>
+		<div class="center wfill">
+			<input type="submit" value="保存" class="button" />
+			<input type="button" value="关闭" class="button" onclick="javascript:window.parent.closeDialog({});" />
+		</div>
+ }
+</div>

@@ -1,0 +1,86 @@
+.calendarHead
+{
+	border: 1px solid #c3c3c3;
+	width: 100px;
+	
+}
+#calendarHead *
+{
+	/* old-style reset here :) */
+	border: 0px;
+	padding: 0px;
+	font-family: Helvetica;
+}
+.divCalendarHead a
+{
+	font-size: 20px;
+	text-decoration: none;
+	padding: 5px;
+	color: #7c7c7c;
+	width:12px;
+	display:inline-block
+}
+.divCalendarHead a img
+{
+    margin-bottom:4px;
+}
+.divCalendarHead 
+{
+	font-size: 20px;
+	text-decoration: none;
+	padding: 5px;
+	color: #7c7c7c;
+}
+.divCalendarHead #calendarPreYear
+{
+    margin-right:5px;    
+}
+.divCalendarHead #calendarNextYear
+{
+    margin-left:5px;    
+}
+
+#Calendar
+{
+	border-collapse: separate; /*border: 1px solid #9DABCE;*/
+	border-width: 0px 1px 1px 1px;
+	font-size: 18px;
+}
+#Calendar td, th
+{
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	vertical-align: middle; /*background: url(../images/cells.png); 	color: #444;	×ÖÌåÑÕÉ«*/
+	position: relative;
+	
+	border: 0;
+	padding: 1px;
+	display: table-cell;
+	vertical-align: inherit;
+}
+#Calendar td span
+{
+	height: 20px;
+	line-height: 20px;
+	vertical-align: middle;
+	border: 1px solid #CCC;
+	font-weight: bold;
+	display: block; /*background:#fdf6d2;*/
+	cursor: pointer;
+}
+#Calendar td span:hover
+{
+	/*background:#FBCB09*/
+	background: #fdf6d2;
+	font-weight: bold;
+	color: #C77405;
+}
+#Calendar td div
+{
+    height:236px;
+    overflow:hidden; 
+    display:block;
+}
+
+

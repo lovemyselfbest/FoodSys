@@ -1,0 +1,86 @@
+﻿@model FoodSys.Web.Areas.ModuleSys.Models.ModelSysCodeInfoCreate
+@{
+	ViewBag.Title = "ModelSysCodeInfoCreate";
+    Layout = "~/Views/Shared/_LayoutDialog.cshtml";
+	var pageState = Model.PageState;
+}
+<style type="text/css">
+	.table-detail th
+	{
+		width: 150px;
+	}
+</style>
+<script type="text/javascript">
+    $(function () {
+        if ("@pageState" == "@Project.Common.EnumPageState.编辑") {
+            $("input[type='text'][class='isHidden']").each(function () {
+                var textValue = $(this).val();
+                $(this).parent().html(textValue);
+            });
+
+
+        }
+    })
+</script>
+<div class="wfill hfill center">
+	<p class="p-s1">
+		@(Model.PageState)参数信息
+	</p>
+	@using (Html.BeginForm())
+ {
+        @Html.HiddenFor(x => x.SysCodeInfoEntity.Version)
+		<table cellpadding="0" cellspacing="0" align="center" class="table-detail">
+			<thead>
+				<tr>
+					<td colspan="2">
+						<div>
+							参数信息</div>
+					</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>
+						<span class="red">*</span>代码：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.SysCodeInfoEntity.Code, new { maxlength = 20, @class = "isHidden" })
+						@Html.ValidationMessageFor(x => x.SysCodeInfoEntity.Code)
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<span class="red">*</span>名称：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.SysCodeInfoEntity.Name, new { maxlength = 100 })
+						@Html.ValidationMessageFor(x => x.SysCodeInfoEntity.Name)
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<span class="red">*</span>排序：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.SysCodeInfoEntity.SortOrder, new { maxlength = 3 })
+						@Html.ValidationMessageFor(x => x.SysCodeInfoEntity.SortOrder)
+					</td>
+				</tr>
+				<tr>
+					<th>
+						备注：
+					</th>
+					<td>
+						@Html.TextAreaForFix(x => x.SysCodeInfoEntity.Memo, new { style = "height:90px;width:300px;", cols = "20", rows = "5" })
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="center wfill">
+			@Html.HiddenFor(x => x.SysCodeInfoEntity.ID)
+			@Html.HiddenFor(x => x.SysCodeInfoEntity.Type)
+			<input type="submit" value="保存" class="button" />
+			<input type="button" value="关闭" class="button" onclick="javascript:window.parent.closeDialog();" />
+		</div>
+ }
+</div>

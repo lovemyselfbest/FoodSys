@@ -1,0 +1,134 @@
+﻿@{
+	ViewBag.Title = "Details";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model FoodSys.Web.Areas.ModuleSys.Models.ModelSysOrgDepartmentManageDetails
+<script type="text/javascript">
+    $(function () {
+        $("#content").height($("html").outerHeight() - 10);
+    })
+</script>
+<style type="text/css">
+	#content
+	{
+		border: 1px solid #83AAD3;
+		overflow: auto;
+		width: 100%;
+		font-size: 12px;
+	}
+	#content .content-dept
+	{
+		width: 550px;
+		height: 350px;
+		margin: 0 auto;
+		margin-top: 5%;
+		overflow: auto;
+	}
+	#content .content-dept table
+	{
+		width: 100%;
+		height: 100%;
+	}
+	table .table-title td
+	{
+		background: url("/Content/Images/layout/org-department-detailed-title.gif") no-repeat;
+		padding-left: 50px;
+		color: #004C83;
+		font-weight: bold;
+		height: 28px;
+		margin: 0px;
+	}
+	table .table-tr2
+	{
+		height: 10px;
+	}
+	.tabcontrols_titlebg
+	{
+		background: url("/Content/Images/layout/org-department-detailed-titlebg.gif");
+		width: 100%;
+		height: 10px;
+		margin-top: 1px;
+		font-size: 0;
+	}
+	.tabcontrols_titlebgleft
+	{
+		background: url("/Content/Images/layout/org-department-detailed-titleleft.gif") no-repeat;
+		width: 105px;
+		height: 10px;
+		float: left;
+	}
+	.tabcontrols_titlebgright
+	{
+		background: url("/Content/Images/layout/org-department-detailed-titleright.gif") no-repeat;
+		width: 105px;
+		height: 10px;
+		float: right;
+	}
+	table th
+	{
+		text-align: right;
+		font-weight: normal;
+	}
+</style>
+@using (Html.BeginForm())
+{
+	<div id="content">
+		<div class="content-dept">
+			<table border="0" cellpadding="=" cellspacing="0">
+				<tr class="table-title">
+					<td colspan="4">
+						人才公寓中心部门信息表
+					</td>
+				</tr>
+				<tr class="table-tr2">
+					<td colspan="4">
+						<div class="tabcontrols_titlebg">
+							<div class="tabcontrols_titlebgleft">
+							</div>
+							<div class="tabcontrols_titlebgright">
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						部门名称：
+					</th>
+					<td>@Html.TextBoxFor(x => x.UTOrgDepartmentEntity.DepartmentName)
+					</td>
+					<th>
+						负责人：
+					</th>
+					<td>@Html.TextBoxFor(x => x.UTOrgDepartmentEntity.DutyUser)
+					</td>
+				</tr>
+				<tr>
+					<th>
+						联系电话 ：
+					</th>
+					<td>@Html.TextBoxFor(x => x.UTOrgDepartmentEntity.Mobile)
+					</td>
+					<th>
+						邮箱：
+					</th>
+					<td>@Html.TextBoxFor(x => x.UTOrgDepartmentEntity.Email)
+					</td>
+				</tr>
+				<tr>
+					<th>
+						备注：
+					</th>
+					<td colspan="3">@Html.TextAreaForFix(x => x.UTOrgDepartmentEntity.Remark, new { style = "height:90px;width:460px;", cols = "20", rows = "5" })
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4" style="text-align: center;">
+						@Html.HiddenFor(x => x.UTOrgDepartmentEntity.ID)
+						<input type="submit" value="保存" />
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+}

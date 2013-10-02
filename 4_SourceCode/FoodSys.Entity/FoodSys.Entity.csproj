@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{60A45F4D-9149-4DE6-BCC6-2A299994F31F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FoodSys.Entity</RootNamespace>
+    <AssemblyName>FoodSys.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NHibernate, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Project.References\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft ASP.NET\ASP.NET MVC 3\Assemblies\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EntitySearch\CollectPersonalAuditDetailsIndex.cs" />
+    <Compile Include="EntitySearch\SearchAssetCheckIndex.cs" />
+    <Compile Include="EntitySearch\SearchCollectIntentionFeeIndex.cs" />
+    <Compile Include="EntitySearch\SearchCollectPersonalRentBookIndex.cs" />
+    <Compile Include="EntitySearch\SearchCompanyRenewNotifyIndex.cs" />
+    <Compile Include="EntitySearch\SearchCompanyRentalFeeChargeCompanyRoomInfo.cs" />
+    <Compile Include="EntitySearch\SearchIndividualCheckoutFeeBackIndex.cs" />
+    <Compile Include="EntitySearch\SearchCollectApplyIndex.cs" />
+    <Compile Include="EntitySearch\SearchNonAssetRoomLeaveIndex.cs" />
+    <Compile Include="EntitySearch\SearchPersonalRenewIndex.cs" />
+    <Compile Include="EntitySearch\SearchChargeFeeListDeposit.cs" />
+    <Compile Include="EntitySearch\SearchApplyCompanyCoapplicantIndex.cs" />
+    <Compile Include="EntitySearch\SearchApplyCompanyFirstAudit.cs" />
+    <Compile Include="EntitySearch\SearchApplyCompanyIndex.cs" />
+    <Compile Include="EntitySearch\SearchAssetIndex.cs" />
+    <Compile Include="EntitySearch\SearchAssetScrap.cs" />
+    <Compile Include="EntitySearch\SearchAssetScrapIndex.cs" />
+    <Compile Include="EntitySearch\SearchAssetSelect.cs" />
+    <Compile Include="EntitySearch\SearchCheckInIndex.cs" />
+    <Compile Include="EntitySearch\SearchCheckoutFeeBackIndex.cs" />
+    <Compile Include="EntitySearch\SearchCollectContractList.cs" />
+    <Compile Include="EntitySearch\SearchCollectFeeDeposit.cs" />
+    <Compile Include="EntitySearch\SearchCollectIntentionContractList.cs" />
+    <Compile Include="EntitySearch\SearchCollectIntentionFee.cs" />
+    <Compile Include="EntitySearch\SearchCollectIntentionFeeCarryover.cs" />
+    <Compile Include="EntitySearch\SearchComanyContractManageSelectPersonal.cs" />
+    <Compile Include="EntitySearch\SearchCompanyBookContractHandleIndex.cs" />
+    <Compile Include="EntitySearch\SearchCompanyCommon.cs" />
+    <Compile Include="EntitySearch\SearchCompanyRentalFeeChargeIndex.cs" />
+    <Compile Include="EntitySearch\SearchDailyFeeChargeIndex.cs" />
+    <Compile Include="EntitySearch\SearchDailyFeeCostIndex.cs" />
+    <Compile Include="EntitySearch\SearchFeeReceiptNoList.cs" />
+    <Compile Include="EntitySearch\SearchListRentBookContract.cs" />
+    <Compile Include="EntitySearch\SearchListRentBookContractAndRoomType.cs" />
+    <Compile Include="EntitySearch\SearchListRentBookContractRoomType.cs" />
+    <Compile Include="EntitySearch\SearchListRentContract.cs" />
+    <Compile Include="EntitySearch\SearchFeeCheckManageIndex.cs" />
+    <Compile Include="EntitySearch\SearchListRentContractRoom.cs" />
+    <Compile Include="EntitySearch\SearchListRentContractRoomDetail.cs" />
+    <Compile Include="EntitySearch\SearchListRoomCheckIn.cs" />
+    <Compile Include="EntitySearch\SearchListRoomCheckOut.cs" />
+    <Compile Include="EntitySearch\SearchLogs.cs" />
+    <Compile Include="EntitySearch\SearchNonAssetChangeList..cs" />
+    <Compile Include="EntitySearch\SearchNonAssetCommunityAssetIndex.cs" />
+    <Compile Include="EntitySearch\SearchNonAssetCommunityElevatorFeeSetting.cs" />
+    <Compile Include="EntitySearch\SearchNonAssetCommunityFeeSetting.cs" />
+    <Compile Include="EntitySearch\SearchNonAssetConfig.cs" />
+    <Compile Include="EntitySearch\SearchNonAssetRoom.cs" />
+    <Compile Include="EntitySearch\SearchOrgCompany.cs" />
+    <Compile Include="EntitySearch\SearchParingFeeDetail.cs" />
+    <Compile Include="EntitySearch\SearchParkingSpace.cs" />
+    <Compile Include="EntitySearch\SearchPaymentSummary.cs" />
+    <Compile Include="EntitySearch\SearchPaymentSummaryPaymentSumDetail.cs" />
+    <Compile Include="EntitySearch\SearchPersonalCheckOutApplyIndex.cs" />
+    <Compile Include="EntitySearch\SearchPersonalContractSelectContract.cs" />
+    <Compile Include="EntitySearch\SearchPersonalReNewAuditIndex.cs" />
+    <Compile Include="EntitySearch\SearchPersonalRenewNotifyIndex.cs" />
+    <Compile Include="EntitySearch\SearchRefundFeeListDeposit.cs" />
+    <Compile Include="EntitySearch\SearchRentalChargeIndex.cs" />
+    <Compile Include="EntitySearch\SearchRentBookFeeCarryover.cs" />
+    <Compile Include="EntitySearch\SearchRenterNeedRental.cs" />
+    <Compile Include="EntitySearch\SearchRepairApplyInfo.cs" />
+    <Compile Include="EntitySearch\SearchRoomType.cs" />
+    <Compile Include="EntitySearch\SearchSelectPerson.cs" />
+    <Compile Include="EntitySearch\SearchStatisticalRenterDepositIndex.cs" />
+    <Compile Include="EntitySearch\SearchStatisticRenterFeeIndex.cs" />
+    <Compile Include="EntitySearch\SearchStatisticRenterRentalDetail.cs" />
+    <Compile Include="EntitySearch\SearchStatisticRenterRentalIndex.cs" />
+    <Compile Include="EntitySearch\SearchSysMenuManageIndex.cs" />
+    <Compile Include="EntitySearch\SearchTampManageSelect.cs" />
+    <Compile Include="EntitySearch\SearchUTApplyPersonal.cs" />
+    <Compile Include="EntitySearch\SearchUTRoomKinds.cs" />
+    <Compile Include="EntitySearch\SearchUVCollectRental.cs" />
+    <Compile Include="EntitySearch\SearchUVCompanyNotifyForRent.cs" />
+    <Compile Include="EntitySearch\SearchListPersonalAuditIndex.cs" />
+    <Compile Include="EntitySearch\SearchUVParkingSpaceApply.cs" />
+    <Compile Include="EntitySearch\SearchUVPersonalBookContract.cs" />
+    <Compile Include="EntitySearch\SearchIndividualCheckoutIndex.cs" />
+    <Compile Include="Entity\SysCompanyUser.cs" />
+    <Compile Include="Entity\SysCompanyUser.Designer.cs">
+      <DependentUpon>SysCompanyUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SysLogs.cs" />
+    <Compile Include="Entity\SysLogs.Designer.cs">
+      <DependentUpon>SysLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SysRenterUser.cs" />
+    <Compile Include="Entity\SysRenterUser.Designer.cs">
+      <DependentUpon>SysRenterUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SysUserXCommuity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entity\SysUserXCommuity.Designer.cs">
+      <DependentUpon>SysUserXCommuity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UTOrganization.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entity\UTOrganization.Designer.cs">
+      <DependentUpon>UTOrganization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UTOrgCompany.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entity\UTOrgCompany.Designer.cs">
+      <DependentUpon>UTOrgCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UTSample.cs" />
+    <Compile Include="Entity\UTSample.Designer.cs">
+      <DependentUpon>UTSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntitySearch\SearchUTSupplier.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMapping\SysUserXCommuity.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\UTOrganization.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project.Common\Project.Common.csproj">
+      <Project>{8684770C-FE2A-4B2D-910C-B88D5E2EF353}</Project>
+      <Name>Project.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Entity.Base\Project.Entity.Base.csproj">
+      <Project>{08B4FECA-C7F9-405D-A876-A3BA087F891A}</Project>
+      <Name>Project.Entity.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMapping\SysCodeInfo.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\SysCodeType.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\SysDate.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\SysMenu.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\SysRole.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\SysRoleMember.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\SysUserTypeMenu.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMapping\UTSample.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\SysUserType.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\SysUserRight.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\SysUser.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\SysRoleRight.hbm.xml" />
+    <Compile Include="Entity\SysUserType.cs" />
+    <Compile Include="Entity\SysUserType.Designer.cs">
+      <DependentUpon>SysUserType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SysUserRight.cs" />
+    <Compile Include="Entity\SysUserRight.Designer.cs">
+      <DependentUpon>SysUserRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SysUser.cs" />
+    <Compile Include="Entity\SysUser.Designer.cs">
+      <DependentUpon>SysUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SysRoleRight.cs" />
+    <Compile Include="Entity\SysRoleRight.Designer.cs">
+      <DependentUpon>SysRoleRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SysRoleMember.cs" />
+    <Compile Include="Entity\SysRoleMember.Designer.cs">
+      <DependentUpon>SysRoleMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SysRole.cs" />
+    <Compile Include="Entity\SysRole.Designer.cs">
+      <DependentUpon>SysRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SysMenu.cs" />
+    <Compile Include="Entity\SysMenu.Designer.cs">
+      <DependentUpon>SysMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SysDate.cs" />
+    <Compile Include="Entity\SysDate.Designer.cs">
+      <DependentUpon>SysDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SysCodeType.cs" />
+    <Compile Include="Entity\SysCodeType.Designer.cs">
+      <DependentUpon>SysCodeType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SysCodeInfo.cs" />
+    <Compile Include="Entity\SysCodeInfo.Designer.cs">
+      <DependentUpon>SysCodeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SysUserTypeMenu.cs" />
+    <Compile Include="Entity\SysUserTypeMenu.Designer.cs">
+      <DependentUpon>SysUserTypeMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UTOrgDepartment.cs" />
+    <Compile Include="Entity\UTOrgDepartment.Designer.cs">
+      <DependentUpon>UTOrgDepartment.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMapping\UTOrgCompany.hbm.xml" />
+    <Content Include="EntityMapping\UTOrgDepartment.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\SysLogs.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\UTOrgDepartment.hbm.xml" />
+    <Compile Include="Entity\SysPermissionNotice.cs" />
+    <Compile Include="Entity\SysPermissionNotice.Designer.cs">
+      <DependentUpon>SysPermissionNotice.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMapping\SysPermissionNotice.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EntityMapping\SysRenterUser.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\SysCompanyUser.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SPEntityMapping\" />
+    <Folder Include="SPEntity\" />
+    <Folder Include="ViewEntity\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

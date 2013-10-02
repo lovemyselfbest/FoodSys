@@ -1,0 +1,112 @@
+﻿@{
+	ViewBag.Title = "ModelSysCodeInfoIndex";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model FoodSys.Web.Areas.ModuleSys.Models.ModelSysCodeInfoIndex
+<script type="text/javascript">
+    //添加企业信息
+    function addSysCodeInfo(SysCodeInfoType) {
+        window.top.openDialog({ Url: "/ModuleSys/SysCodeInfo/Create/?SysCodeInfoType=" + SysCodeInfoType + "&PageState=" + create, Title: "新增参数信息", Width: 500, Height: 400 });
+    }
+
+    //根据ID删除用户
+    function deleteSysCodeInfo(SysCodeInfoID) {
+        top.window.$("#sysConfirm").html("确定要删除？");
+        top.window.$("#sysConfirm").dialog({
+            resizable: false,
+            height: 200,
+            title: "系统提示",
+            modal: true,
+            buttons: {
+                "是": function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "/ModuleSys/SysCodeInfo/Delete",
+                        data: "id=" + SysCodeInfoID,
+                        success: function (msg) {
+                            msg = eval("(" + msg + ")");
+                            if (msg.result == "") {
+                                window.location = commonPage.getCurrentUrl();
+                                window.top.sysMessage();
+                            }
+                            else {
+                                window.top.sysAlert(msg.result);
+                            }
+                        }
+                    });
+                    top.window.$("#sysConfirm").dialog("close");
+                },
+                "否": function () {
+                    top.window.$("#sysConfirm").dialog("close");
+                }
+            }
+        });
+    }
+
+    //批量删除
+    function deleteSysCodeInfoBatch() {
+        if (!defaultTable.isSelect())
+            return;
+
+        top.window.$("#sysConfirm").html("确定要删除？");
+        top.window.$("#sysConfirm").dialog({
+            resizable: false,
+            height: 200,
+            title: "系统提示",
+            modal: true,
+            buttons: {
+                "是": function () {
+                    $("form").ajaxFormUnbind();
+                    $("form").attr("action", "/ModuleSys/SysCodeInfo/DeleteBatch/?RetUrl=" + escape(commonPage.getCurrentUrl())).submit();
+                    top.window.$("#sysConfirm").dialog("close");
+                },
+                "否": function () {
+                    top.window.$("#sysConfirm").dialog("close");
+                }
+            }
+        });
+    }
+
+    //根据编号修改用户信息
+    function editSysCodeInfo(SysCodeInfoId) {
+        window.top.openDialog({ Url: "/ModuleSys/SysCodeInfo/Create/?SysCodeInfoId=" + SysCodeInfoId + "&PageState=" + edit, Title: "修改参数信息", Width: 500, Height: 400 });
+    }
+
+    //根据编号查看用户信息
+    function show(SysCodeInfoId) {
+        window.top.openDialog({ Url: "/ModuleSys/SysCodeInfo/Create/?SysCodeInfoId=" + SysCodeInfoId + "&PageState=" + detail, Title: "参数信息查看", Width: 500, Height: 400 });
+    }
+
+</script>
+<div>
+	@using (Html.BeginForm())
+ {
+		@Html.HiddenFor(x => x.SysCodeInfoType)
+	 
+	 /* 工具栏
+	 ----------------------------------------------------------*/
+		<div class="toolbar">
+			<div class="toolbar-left">
+				@Html.Button(ButtonType.新增, "addSysCodeInfo('" + @Model.SysCodeInfoType + "')")
+				@Html.Button(ButtonType.批量删除, "deleteSysCodeInfoBatch()")
+			</div>
+			<div class="toolbar-right">
+				@Html.TextBoxFor(x => x.SearchEntity._CommonSearchCondition, new { @class = "common-search-condition" })
+				<input type="submit" class="common-search-submit" value="" />
+			</div>
+		</div>
+     /* 说明文字
+        ----------------------------------------------------------*/
+        <div class="search-clue">
+            您可通过该功能，维护系统中用到的参数类别
+        </div>
+     
+     /* 表格数据显示
+      ----------------------------------------------------------*/
+     <div class="replace-container">
+			@{
+	 Html.RenderPartial("Index_Partial");
+			}
+		</div>
+ }
+</div>

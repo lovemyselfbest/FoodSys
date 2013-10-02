@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="FoodSys.Entity" namespace="FoodSys.Entity" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="SysUserTypeMenu" table="Sys_User_Type_Menu" lazy="true" >
+					<id name="ID">
+			  <generator class="guid.comb" />
+			</id>
+					<version name="Version" unsaved-value="null" generated="always"  type="BinaryBlob"/>
+        
+				<property name="UserTypeID"  >
+			<column name="UserTypeID" sql-type="uniqueidentifier" not-null="true" />
+		</property>
+				<property name="MenuID"  >
+			<column name="MenuID" sql-type="uniqueidentifier" not-null="true" />
+		</property>
+			</class>
+</hibernate-mapping>
+		
