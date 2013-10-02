@@ -30,7 +30,7 @@ namespace FoodSys.Web.Base
 		}
 
 		/// <summary>
-		/// 代码组信息集合
+		/// 代码组信息集合111
 		/// </summary>
 		private Dictionary<EnumSysCodeInfoType, IList<SysCodeInfo>> sysCodeInfoDictionary = new Dictionary<EnumSysCodeInfoType, IList<SysCodeInfo>>();
 		public IList<SysCodeInfo> ListSysCodeInfo(EnumSysCodeInfoType enumSysCodeInfoType)
