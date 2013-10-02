@@ -14,7 +14,7 @@ using Project.Common;
 namespace FoodSys.Web.Base
 {
 	/// <summary>
-	/// Model333
+	/// Model
 	/// </summary>
 	public abstract class Model : Project.Web.Base.BaseModel
 	{
