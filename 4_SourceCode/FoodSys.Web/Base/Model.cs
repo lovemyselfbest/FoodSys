@@ -13,6 +13,9 @@ using Project.Common;
 
 namespace FoodSys.Web.Base
 {
+	/// <summary>
+	/// Model
+	/// </summary>
 	public abstract class Model : Project.Web.Base.BaseModel
 	{
 		private BizSysCodeInfo bizSysCodeInfo = Project.Biz.Base.BizFactory.Get<BizSysCodeInfo>();
