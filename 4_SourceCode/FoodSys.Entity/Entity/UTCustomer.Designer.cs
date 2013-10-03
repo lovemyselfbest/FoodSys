@@ -16,7 +16,7 @@ namespace FoodSys.Entity {
 			/// 
 			/// Length : 
 			/// </summary>
-			public virtual System.Nullable<Guid>	ID{get;set;}
+			public virtual System.Guid	ID{get;set;}
 					 
 			
 			/// <summary>
