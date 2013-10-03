@@ -1,0 +1,453 @@
+﻿/* Home页面样式
+----------------------------------------------------------*/
+
+/* common begin */
+*
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	scrollbar-face-color: #dff9fe;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-3dlight-color: #9adae7;
+	scrollbar-darkshadow-color: #9adae7;
+	scrollbar-shadow-color: #FFFFFF;
+	scrollbar-arrow-color: #006498;
+	scrollbar-track-color: #fff;
+}
+html
+{
+	height: 100%;
+	overflow-y: hidden;
+}
+body
+{
+	overflow: hidden;
+	border-right: 1px solid #a8cce9;
+	background: url(/content/images/bgpic.jpg) repeat-x;
+}
+table
+{
+	border-collapse: collapse;
+}
+
+/* 最外层container */
+.container
+{
+	width: 100%;
+	height: 100%;
+}
+
+/*
+.container td
+{
+	vertical-align: middle;
+}*/
+
+/* 左边主菜单切换 */
+
+.menu-toggle
+{
+	position: absolute;
+	background: url(/content/images/menubar.jpg) no-repeat;
+	top: 65px;
+	height: 30px;
+	width: 65px;
+	cursor: pointer;
+}
+
+/* 容器上部分 */
+.container-top
+{
+	height: 95px;
+	background: url(/content/images/top-background.jpg) no-repeat;
+}
+
+/* 顶级菜单 */
+.top-level-menu
+{
+	position: absolute;
+	left: 175px;
+	top: 63px;
+}
+.top-level-menu li
+{
+	list-style-type:none;
+}
+
+
+/*右边系统菜单效果*/
+
+.short-menu
+{
+	position: absolute;
+	right: 30px;
+	top: 16px;
+	height: 73px;
+}
+
+.short-menu table td
+{
+	width: 49px;
+	cursor: hand;
+}
+
+.short-menu ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+.short-menu li
+{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	float: left;
+	width: 64px;
+	height: 57px;
+}
+
+.short-menu li a
+{
+	display: block;
+	width: 64px;
+	height: 57px;
+	cursor: hand;
+}
+
+.short-menu li .home
+{
+	background: url(/content/images/home.png) no-repeat;
+}
+
+.short-menu li .home:hover, .short-menu li .home_selected
+{
+	background: url(/content/images/home_hover.png) no-repeat;
+}
+
+.short-menu li .password
+{
+	background: url(/content/images/password.png) no-repeat;
+}
+
+.short-menu li .password:hover, .short-menu li .password_selected
+{
+	background: url(/content/images/password_hover.png) no-repeat;
+}
+
+.short-menu li .help
+{
+	background: url(/content/images/help.png) no-repeat;
+}
+
+.short-menu li .help:hover, .short-menu li .help_selected
+{
+	background: url(/content/images/help_hover.png) no-repeat;
+}
+
+.short-menu li .reset
+{
+	background: url(/content/images/reset.png) no-repeat;
+}
+
+.short-menu li .reset:hover, .short-menu li .reset_selected
+{
+	background: url(/content/images/reset_hover.png) no-repeat;
+}
+
+.logo
+{
+	width: 100%;
+	height: 60px;
+}
+
+.logo .logo-left
+{
+	width: 886px;
+}
+
+.logo .logo-right
+{
+	text-align: right;
+	vertical-align: top;
+	padding-top: 12px;
+	padding-right: 12px;
+}
+
+.main-content
+{
+	width: 100%;
+	height:100%;
+}
+
+.main-left
+{
+	width:161px;
+}
+
+.container-menu
+{
+	margin:0px;
+	padding:0px;
+	line-height:0;
+	background: url(/content/images/Layout/bgg.jpg) repeat-y;
+	border-bottom: 1px solid #D0D0D0;
+}
+.container-menu li
+{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+
+
+.main-right
+{
+	vertical-align: top;
+}
+
+/* 菜单样式 
+----------------------------------------------------------*/
+
+.container-menu a
+{
+	color: #165e9e;
+	text-decoration: none;
+}
+
+.container-menu
+{
+	height: 100%;
+}
+.container-menu dl
+{
+	position:absolute;
+	left: 161px;
+	top: 95px;
+	width: 154px;
+	background: #F4F4F4;
+	border: 1px solid #D8D8D8;
+	margin:1px 0 0 0;
+	overflow-y:auto;
+}
+
+.container-menu .second-level-menu
+{
+	cursor: pointer;
+	background: url(/content/images/layout/bgmenu.jpg) no-repeat 0px bottom;
+	color: #444444;
+	width:161px;
+	padding:8px 0 ;
+}
+
+.container-menu .second-level-menu .arrow
+{
+	background: url(/content/images/layout/arrow.gif) no-repeat 30px 18px;
+	padding:10px 15px;
+}
+
+.container-menu .dt-selected
+{
+	background: url(/content/images/layout/bg_hover.jpg) no-repeat 0px bottom;
+}
+
+.container-menu .second-level-menu img
+{
+	margin:0 5px 0 20px;
+}
+
+.container-menu .second-level-menu .mouseon
+{
+	background: #fff url(/content/images/layout/MenuMouseOnBg.gif) no-repeat right top;
+}
+
+.container-menu .second-level-menu .on
+{
+	background: #fff url(/content/images/layout/MenuActiveBg.gif) no-repeat right top;
+}
+
+.container-menu .second-level-menu .on
+{
+	color: #ffffff;
+	font-weight: bold;
+}
+.container-menu .second-level-menu .mouseon
+{
+	color: #ffffff;
+}
+.container-menu dd
+{
+	background: url(/content/images/layout/line0.jpg) no-repeat center bottom;
+	padding:0 0 2px 0;
+}
+.container-menu dd img
+{
+	width: 16px;
+	height: 16px;
+}
+.container-menu a
+{
+	display: block;
+	padding: 10px 0 10px 20px;
+}
+.container-menu a:hover
+{
+	background: #e2ffdb;
+	color: #098b14;
+}
+.container-menu img
+{
+	vertical-align: middle;
+	margin-right: 4px;
+	height: 32px;
+}
+
+.container-menu dd.focus a
+{
+	color: #1f8107;
+	background-color: #c7f8bb;
+	font-weight: bold;
+}
+
+
+/* 顶级menu选中、未选中
+----------------------------------------------------------*/
+.menu-active
+{
+	position: absolute;
+	width: 138px;
+}
+.menu-active .left
+{
+	background: url(/content/images/layout/menu_left_click.png) no-repeat;
+	height: 32px;
+	width: 22px;
+}
+.menu-active .middle
+{
+	height: 27px;
+	padding:5px 15px 0 15px;
+	background: url(/content/images/layout/menu_mid_click.png) repeat-x;
+	color: #0C5998;
+	font-size: 14px;
+	font-weight: bold;
+	cursor:pointer;
+	
+}
+.menu-active .right
+{
+	background: url(/content/images/layout/menu_right_click.png) no-repeat;
+	height: 32px;
+	width: 25px;
+}
+
+.menu-inactive
+{
+	position: absolute;
+	width: 138px;
+	cursor:pointer;
+}
+
+.menu-inactive .left
+{
+	background: url(/content/images/layout/menu_left.png) no-repeat;
+	width: 22px;
+	height: 32px;
+}
+
+.menu-inactive .middle
+{
+	padding-bottom: 0px;
+	padding-left: 15px;
+	padding-right: 15px;
+	background: url(/content/images/layout/menu_mid.png) repeat-x;
+	color: white;
+	font-size: 14px;
+	vertical-align: middle;
+	cursor: hand;
+	font-weight: bold;
+	padding-top: 5px;
+	height: 27px;
+}
+.menu-inactive .right
+{
+	background: url(/content/images/layout/menu_right.png) no-repeat;
+	height: 32px;
+	width: 25px;
+}
+
+/* 导航
+----------------------------------------------------------*/
+.navigation
+{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	background: url(/content/images/layout/bgright.jpg) repeat-x;
+	float: left;
+	clear: both;
+	float: left;
+	height: 37px;
+	line-height: 37px;
+}
+.navigation a
+{
+	display: block;
+	float: right;
+	background: url(/content/images/layout/right_click.jpg) 0 5px no-repeat;
+	width: 37px;
+	height: 37px;
+	padding-right:10px;
+}
+.navigation a:hover
+{
+	display: block;
+	float: right;
+	background: url(/content/images/layout/right_click_hover.jpg) 0 5px no-repeat;
+	width: 37px;
+	height: 37px;
+	padding-right:10px;
+}
+
+.navigation span
+{
+	float: left;
+	padding-left: 30px;
+	background: url(/content/images/layout/home_pic.jpg) 7px 8px no-repeat;
+	color: #1e80c9;
+	font-size: 12px;
+}
+
+/* 系统Alert
+----------------------------------------------------------*/
+#sysAlert
+{
+	display: none;
+	color: #D8000C;
+	font-size: 14px;
+}
+
+#dialog, #dialogTwo
+{
+	padding: 5px 2px;
+}
+.welcome
+{
+	position: absolute;
+	left: 371px;
+	top: 31px;
+	color: #B6EFFD;
+	font-size: 12px;
+}
+
+/* Excel Validation
+----------------------------------------------------------*/
+.valid-sheet
+{
+	padding: 5px 0;
+	margin: 5px 0;
+	border-bottom:1px dotted #D8000C;
+}

@@ -1,0 +1,55 @@
+﻿@helper ViewStart()
+	{
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<script src="/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+	<script src="/Scripts/jquery.validate.min.1.8.1.js" type="text/javascript"></script>
+	<script src="/Scripts/jquery.validate.unobtrusive.js" type="text/javascript"></script>
+	<script src="/Scripts/jquery-ui-1.9.0.js" type="text/javascript"></script>
+	<script src="/Scripts/jquery-ui-1.8.16/i18n/jquery.ui.datepicker-zh-CN.js" type="text/javascript"></script>
+	<script src="/Scripts/jstree/jquery.jstree.js" type="text/javascript"></script>
+	<script src="/Scripts/jquery.dateFormat-1.0.js" type="text/javascript"></script>
+	<script src="/Scripts/jquery.dialogextend.1_0_1.js" type="text/javascript"></script>
+	<script src="/Scripts/jquery.dialogextend.1_0_1.pack.js" type="text/javascript"></script>
+	<script src="/Scripts/jquery.form.js" type="text/javascript"></script>
+	<script src="/Scripts/jquery.highlight-1.1.js" type="text/javascript"></script>
+@* our script files *@
+	<script src="/Scripts/Base/jquery-extension.js" type="text/javascript"></script>
+	<script src="/Scripts/Base/cls-page.js" type="text/javascript"></script>
+	<script src="/Scripts/Base/cls-table-common.js" type="text/javascript"></script>
+	<script src="/Scripts/Base/cls-export.js" type="text/javascript"></script>
+	
+	<script src="/Scripts/Base/cls-utility.js" type="text/javascript"></script>
+	<script src="/Scripts/Base/cls-string.js" type="text/javascript"></script>
+	<script src="/Scripts/Base/cls-overlay.js" type="text/javascript"></script>
+	<script src="/Scripts/Base/global-init.js" type="text/javascript"></script>
+	
+	<link href="/Content/themes/redmond/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+	<link href="/Content/Site.css" rel="stylesheet" type="text/css" />
+	<link href="/Content/tables/default/table-default.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+		var edit = @((int)Project.Common.EnumPageState.编辑);
+		var create = @((int)Project.Common.EnumPageState.新增);
+		var detail = @((int)Project.Common.EnumPageState.查看);
+		
+	</script>
+	<link rel="SHORTCUT ICON" href="/Content/Images/favicon.ico" />
+}
+/* 日期格式化 ----------------------------------------------------------*/
+@helper RenderDate(DateTime? date, string format = null)
+	{
+		if (date == null)
+		{
+	<text/>
+		}
+		else if (format == null)
+		{ 
+	<text>@date.Value.ToString("yyyy-MM-dd")</text>
+		}
+		else
+		{
+	<text>@date.Value.ToString(format)</text>
+		}
+}
+
+
+
