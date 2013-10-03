@@ -1,8 +1,7 @@
 using System.Collections.Generic; 
 using System.Text; 
 using System;
-using System.ComponentModel.DataAnnotations;
-using Project.Common; 
+using System.ComponentModel.DataAnnotations; 
 namespace FoodSys.Entity {
 
 	/// <summary>
@@ -87,8 +86,6 @@ namespace FoodSys.Entity {
 			/// 手机
 			/// Length : 20
 			/// </summary>
-			[Required(ErrorMessage = "请输入手机号码！")]
-			[RegularExpression(RegexHelper.Mobile, ErrorMessage = "请输入正确的手机号码！")]
 			public virtual System.String	Mobile{get;set;}
 					 
 			

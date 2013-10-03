@@ -12,14 +12,10 @@
     <AssemblyName>FoodSys.Entity</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName></SccProjectName>
+    <SccLocalPath></SccLocalPath>
+    <SccAuxPath></SccAuxPath>
+    <SccProvider></SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -265,6 +261,39 @@
   <ItemGroup>
     <EmbeddedResource Include="EntityMapping\SysRenterUser.hbm.xml" />
     <EmbeddedResource Include="EntityMapping\SysCompanyUser.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\UTProductType.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\UTProduct.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\UTOrderDetailSnapshot.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\UTOrderDetailConfirm.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\UTOrderDetail.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\UTOrder.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\UTCustomer.hbm.xml" />
+    <EmbeddedResource Include="EntityMapping\UTSupplier.hbm.xml" />
+    <Compile Include="Entity\UTCustomer.Designer.cs">
+      <DependentUpon>UTCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UTOrderDetailSnapshot.Designer.cs">
+      <DependentUpon>UTOrderDetailSnapshot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UTOrderDetailConfirm.Designer.cs">
+      <DependentUpon>UTOrderDetailConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UTOrderDetail.Designer.cs">
+      <DependentUpon>UTOrderDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UTOrder.Designer.cs">
+      <DependentUpon>UTOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UTSupplier.cs" />
+    <Compile Include="Entity\UTSupplier.Designer.cs">
+      <DependentUpon>UTSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UTProductType.Designer.cs">
+      <DependentUpon>UTProductType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UTProduct.Designer.cs">
+      <DependentUpon>UTProduct.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SPEntityMapping\" />

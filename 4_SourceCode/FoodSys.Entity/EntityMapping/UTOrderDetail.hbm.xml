@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="FoodSys.Entity" namespace="FoodSys.Entity" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="UTOrderDetail" table="UT_Order_Detail" lazy="true" >
+					<id name="ID">
+			  <generator class="guid.comb" />
+			</id>
+					<version name="Version" unsaved-value="null" generated="always"  type="BinaryBlob"/>
+        
+				<property name="OrderID"  >
+			<column name="OrderID" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+				<property name="ProductID"  >
+			<column name="ProductID" sql-type="uniqueidentifier" not-null="true" />
+		</property>
+				<property name="Number"  >
+			<column name="Number" sql-type="int" not-null="false" />
+		</property>
+				<property name="CreateDate"  >
+			<column name="CreateDate" sql-type="datetime" not-null="false" />
+		</property>
+				<property name="CreateID"  >
+			<column name="CreateID" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+				<property name="UpdateDate"  >
+			<column name="UpdateDate" sql-type="datetime" not-null="false" />
+		</property>
+				<property name="UpdateID"  >
+			<column name="UpdateID" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+				<property name="Status"  >
+			<column name="Status" sql-type="int" not-null="false" />
+		</property>
+			</class>
+</hibernate-mapping>
+		

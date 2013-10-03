@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="FoodSys.Entity" namespace="FoodSys.Entity" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="UTCustomer" table="UT_Customer" lazy="true" >
+		
+				<property name="ID"  >
+			<column name="ID" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+				<property name="Account"  >
+			<column name="Account" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="Password"  >
+			<column name="Password" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="ChineseName"  >
+			<column name="ChineseName" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="EnglishName"  >
+			<column name="EnglishName" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="Moblie"  >
+			<column name="Moblie" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="Tel"  >
+			<column name="Tel" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="Address"  >
+			<column name="Address" sql-type="nvarchar" not-null="false" />
+		</property>
+			</class>
+</hibernate-mapping>
+		

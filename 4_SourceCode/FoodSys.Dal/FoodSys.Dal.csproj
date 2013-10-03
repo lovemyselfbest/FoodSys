@@ -12,14 +12,10 @@
     <AssemblyName>FoodSys.Dal</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName></SccProjectName>
+    <SccLocalPath></SccLocalPath>
+    <SccAuxPath></SccAuxPath>
+    <SccProvider></SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -141,6 +137,38 @@
     <Compile Include="Dal\DalSysCompanyUser.cs" />
     <Compile Include="Dal\DalSysCompanyUser.Designer.cs">
       <DependentUpon>DalSysCompanyUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalUTSupplier.cs" />
+    <Compile Include="Dal\DalUTSupplier.Designer.cs">
+      <DependentUpon>DalUTSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalUTProductType.cs" />
+    <Compile Include="Dal\DalUTProductType.Designer.cs">
+      <DependentUpon>DalUTProductType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalUTProduct.cs" />
+    <Compile Include="Dal\DalUTProduct.Designer.cs">
+      <DependentUpon>DalUTProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalUTOrderDetailSnapshot.cs" />
+    <Compile Include="Dal\DalUTOrderDetailSnapshot.Designer.cs">
+      <DependentUpon>DalUTOrderDetailSnapshot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalUTOrderDetailConfirm.cs" />
+    <Compile Include="Dal\DalUTOrderDetailConfirm.Designer.cs">
+      <DependentUpon>DalUTOrderDetailConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalUTOrderDetail.cs" />
+    <Compile Include="Dal\DalUTOrderDetail.Designer.cs">
+      <DependentUpon>DalUTOrderDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalUTOrder.cs" />
+    <Compile Include="Dal\DalUTOrder.Designer.cs">
+      <DependentUpon>DalUTOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\DalUTCustomer.cs" />
+    <Compile Include="Dal\DalUTCustomer.Designer.cs">
+      <DependentUpon>DalUTCustomer.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

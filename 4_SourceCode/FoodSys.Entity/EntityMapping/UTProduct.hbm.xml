@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="FoodSys.Entity" namespace="FoodSys.Entity" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="UTProduct" table="UT_Product" lazy="true" >
+					<id name="ID">
+			  <generator class="guid.comb" />
+			</id>
+					<version name="Version" unsaved-value="null" generated="always"  type="BinaryBlob"/>
+        
+				<property name="SupplierID"  >
+			<column name="SupplierID" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+				<property name="Name"  >
+			<column name="Name" sql-type="varchar" not-null="false" />
+		</property>
+				<property name="Type"  >
+			<column name="Type" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+				<property name="Description"  >
+			<column name="Description" sql-type="varchar" not-null="true" />
+		</property>
+				<property name="UnitID"  >
+			<column name="UnitID" sql-type="varchar" not-null="false" />
+		</property>
+				<property name="PurchasePrice"  >
+			<column name="PurchasePrice" sql-type="decimal" not-null="false" />
+		</property>
+				<property name="SellPrice"  >
+			<column name="SellPrice" sql-type="decimal" not-null="false" />
+		</property>
+				<property name="MaxNumber"  >
+			<column name="MaxNumber" sql-type="int" not-null="false" />
+		</property>
+				<property name="CreateDate"  >
+			<column name="CreateDate" sql-type="datetime" not-null="false" />
+		</property>
+				<property name="CreateID"  >
+			<column name="CreateID" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+				<property name="UpdateDate"  >
+			<column name="UpdateDate" sql-type="datetime" not-null="false" />
+		</property>
+				<property name="UpdateID"  >
+			<column name="UpdateID" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+			</class>
+</hibernate-mapping>
+		

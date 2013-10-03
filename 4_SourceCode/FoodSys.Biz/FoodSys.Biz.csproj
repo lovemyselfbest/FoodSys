@@ -12,14 +12,10 @@
     <AssemblyName>FoodSys.Biz</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName></SccProjectName>
+    <SccLocalPath></SccLocalPath>
+    <SccAuxPath></SccAuxPath>
+    <SccProvider></SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -141,6 +137,38 @@
     <Compile Include="Biz\BizSysCompanyUser.cs" />
     <Compile Include="Biz\BizSysCompanyUser.Designer.cs">
       <DependentUpon>BizSysCompanyUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizUTSupplier.cs" />
+    <Compile Include="Biz\BizUTSupplier.Designer.cs">
+      <DependentUpon>BizUTSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizUTProductType.cs" />
+    <Compile Include="Biz\BizUTProductType.Designer.cs">
+      <DependentUpon>BizUTProductType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizUTProduct.cs" />
+    <Compile Include="Biz\BizUTProduct.Designer.cs">
+      <DependentUpon>BizUTProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizUTOrderDetailSnapshot.cs" />
+    <Compile Include="Biz\BizUTOrderDetailSnapshot.Designer.cs">
+      <DependentUpon>BizUTOrderDetailSnapshot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizUTOrderDetailConfirm.cs" />
+    <Compile Include="Biz\BizUTOrderDetailConfirm.Designer.cs">
+      <DependentUpon>BizUTOrderDetailConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizUTOrderDetail.cs" />
+    <Compile Include="Biz\BizUTOrderDetail.Designer.cs">
+      <DependentUpon>BizUTOrderDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizUTOrder.cs" />
+    <Compile Include="Biz\BizUTOrder.Designer.cs">
+      <DependentUpon>BizUTOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biz\BizUTCustomer.cs" />
+    <Compile Include="Biz\BizUTCustomer.Designer.cs">
+      <DependentUpon>BizUTCustomer.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -5,10 +5,10 @@ using System.ComponentModel.DataAnnotations;
 namespace FoodSys.Entity {
 
 	/// <summary>
-	/// 组织机构表
+	/// 
 	/// </summary>
-	[MetadataType(typeof(UTOrganization_Validation ))]
-	public partial class  UTOrganization 
+	[MetadataType(typeof(UTProductType_Validation ))]
+	public partial class  UTProductType 
 	{
 		
 		
@@ -20,45 +20,52 @@ namespace FoodSys.Entity {
 					 
 			
 			/// <summary>
-			/// 部门名称
-			/// Length : 50
+			/// 类型那个名称
+			/// Length : 10
 			/// </summary>
-			public virtual System.String	Name{get;set;}
+			public virtual System.String	TypeName{get;set;}
+					 
+			
+			/// <summary>
+			/// 父级ID
+			/// Length : 
+			/// </summary>
+			public virtual System.Nullable<Guid>	ParentID{get;set;}
 					 
 			
 			/// <summary>
 			/// 排序
 			/// Length : 
 			/// </summary>
-			public virtual System.Nullable<Int32>	OrderIndex{get;set;}
+			public virtual System.Nullable<Int32>	SortIndex{get;set;}
 					 
 			
 			/// <summary>
-			/// 备注
-			/// Length : 200
-			/// </summary>
-			public virtual System.String	Remark{get;set;}
-					 
-			
-			/// <summary>
-			/// 创建人
+			/// 是否叶子
 			/// Length : 
 			/// </summary>
-			public virtual System.Nullable<Guid>	InputUser{get;set;}
+			public virtual System.Nullable<Boolean>	IsLeaf{get;set;}
+					 
+			
+			/// <summary>
+			/// 是否有效
+			/// Length : 
+			/// </summary>
+			public virtual System.Nullable<Boolean>	Status{get;set;}
 					 
 			
 			/// <summary>
 			/// 创建日期
 			/// Length : 
 			/// </summary>
-			public virtual System.Nullable<DateTime>	InputDate{get;set;}
+			public virtual System.Nullable<DateTime>	CreateDate{get;set;}
 					 
 			
 			/// <summary>
-			/// 修改人
+			/// 创建人ID
 			/// Length : 
 			/// </summary>
-			public virtual System.Nullable<Guid>	UpdateUser{get;set;}
+			public virtual System.Nullable<Guid>	CreateID{get;set;}
 					 
 			
 			/// <summary>
@@ -66,6 +73,13 @@ namespace FoodSys.Entity {
 			/// Length : 
 			/// </summary>
 			public virtual System.Nullable<DateTime>	UpdateDate{get;set;}
+					 
+			
+			/// <summary>
+			/// 修改人ID
+			/// Length : 
+			/// </summary>
+			public virtual System.Nullable<Guid>	UpdateID{get;set;}
 					 
 			
 			/// <summary>
