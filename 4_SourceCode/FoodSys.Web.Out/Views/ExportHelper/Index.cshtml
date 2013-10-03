@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Project.Entity.Base.ExportAttribute>
+@{
+	ViewBag.Title = "导出列选择";
+	Layout = "~/Views/Shared/_LayoutDialog.cshtml";
+}
+
+<script type="text/javascript">
+	function setReturnValue(exportType) {
+		var returnObj = {};
+		returnObj.ExportType = exportType;
+		returnObj.ExportFields = "";
+		$("input[type='checkbox']").each(
+			function (index) {
+				if (this.checked) {
+					returnObj.ExportFields += this.value + "#";
+				}
+			}
+		);
+		window.returnValue = returnObj;
+		window.close();
+	}
+
+</script>
+<style type="text/css">
+ul
+{
+	padding:0px;
+	margin:0px;
+	height:200px;
+}
+ul li
+{
+	list-style-type:none;
+	padding:0px;
+	margin:0px;
+	float:left;
+	width:150px;
+}
+
+</style>
+
+@using (Html.BeginForm())
+{
+	<table cellpadding="0" cellspacing="0" align="center" class="table-detail">
+			<thead>
+				<tr>
+					<td colspan="2">
+						<div>选择导出字段</div>
+					</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<ul>
+							@foreach (var item in Model)
+						 {
+							<li>
+								@Html.CheckBox("property", true, new { value = item.PropertyName })
+								@item.DisplayName
+							</li>
+						 }
+						 </ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" value="导出本页" onclick="setReturnValue(@((int)Project.Web.Base.Utility.ExportType.导出本页))" />
+						<input type="button" value="导出全部" onclick="setReturnValue(@((int)Project.Web.Base.Utility.ExportType.导出全部))" />
+						<input type="button" value="关闭" onclick="window.close();" />
+					</td>
+				</tr>
+			</tbody>
+	</table>
+	
+	
+}

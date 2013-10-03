@@ -1,0 +1,168 @@
+﻿@{
+	ViewBag.Title = "AssetCodesIndex";
+	Layout = "~/Views/Shared/_LayoutEmbeddedFrame.cshtml";
+}
+@model FoodSys.Web.OutModels.ModelAssetCodesIndex
+<style type="text/css">
+	#tree
+	{
+		float: left;
+		margin: 1px 0 0 0;
+		width: 200px;
+		background: #F2F9FF;
+		padding: 10px 0 0 0;
+	}
+	#content
+	{
+		float: left;
+		height: 100%;
+		margin: 1px 0 0 0;
+		width: 200px;
+		background: #F2F9FF;
+		border: 1px solid #83AAD3;
+		vertical-align: top;
+		font-family: "font-family:Verdana, Arial, Helvetica, sans-serif";
+		font-size: 12px;
+	}
+	.user-role-title
+	{
+		width: 100%;
+		font-weight: bold;
+		color: Black;
+		height: 23px;
+		border-bottom: 1px solid #83AAD3;
+		padding-top: 6px;
+	}
+	.user-role-title .user-role-img
+	{
+		background: url("/Content/images/layout/code.gif") no-repeat;
+		padding-left: 20px;
+		height: 20px;
+		display: block;
+		line-height: 20px;
+		vertical-align: middle;
+		margin-left: 5px;
+	}
+	.user-role-content
+	{
+		overflow: auto;
+	}
+</style>
+<script type="text/javascript">
+	$(function () {
+		//$("#tree").height($("html").outerHeight());
+		$(".user-role-content").outerHeight($("html").outerHeight() - $(".user-role-title").outerHeight() - 10);
+
+		/* 初始化树
+		----------------------------------------------------------*/
+		var tree = $("#tree").jstree({
+			"types": {
+				"valid_children": ["root"],
+				"types": {
+					"root": {
+						"icon": {
+							"image": "/Content/images/all_project.jpg"
+						},
+						"hover_node": false,
+						"select_node": function () { }
+					},
+					"node1": {
+						"icon": {
+							"image": "/Content/images/icon/ico2.jpg"
+						}
+					},
+					"node2": {
+						"icon": {
+							"image": "/Content/images/icon/chart_pie.gif"
+						}
+					},
+					"node3": {
+						"icon": {
+							"image": "/Content/images/icon/ico2.jpg"
+						}
+					},
+					"node4": {
+						"icon": {
+							"image": "/Content/images/icon/ico2.jpg"
+						}
+					}
+				}
+			},
+			"plugins": ["themes", "html_data", "ui", "types"]
+		});
+		tree.bind("loaded.jstree", function (event, data) {
+			//tree.jstree("open_all");
+
+			var url = window.top.getCacheValue();
+			if (url == undefined || url == null) {
+				setFrameUrl("")
+			} else {
+				setFrameUrl(url);
+
+
+				$("a").each(function () {
+					if ($(this).attr("onclick").indexOf(url) != -1) {
+						$(this).addClass("jstree-clicked");
+						//						var selectNode = $.query.get('SelectNode');
+						//						alert(selectNode);
+						tree.jstree("open_node", "#SystemAndDeviceClasses");
+					}
+				});
+			}
+		});
+	});
+
+	function setFrameUrl(url) {
+		$("#embeddedFrame").attr("src", url);
+		window.top.setCacheValue(url);
+	}
+</script>
+@using (Html.BeginForm())
+{
+	<div id="content">
+		<div class="user-role-title">
+			<span class="user-role-img">资产编码项</span></div>
+		<div class="clear">
+		</div>
+		<div class="user-role-content">
+			<div id="tree">
+				<ul>
+					<li rel="root"><a href="javascript:void(0)" onclick="setFrameUrl('/ModuleAsset/ProjectName/Index')">
+						小区名称</a> </li>
+					<li rel="root"><a href="javascript:void(0)" onclick="setFrameUrl('/ModuleAsset/FacilitiesSystemNumber/Index')">
+						设施系统编号</a> </li>
+					<li rel="root" id="SystemAndDeviceClasses"><a href="javascript:void(0)" onclick="setFrameUrl('/ModuleAsset/SystemAndDeviceClasses/Index/?SelectNode=1')">
+						系统及设备类别</a>
+						<ul>
+							@foreach (var node1 in Model.SysCodeInfoCollection)
+	   {
+
+		   if (node1.ParentCode == "-1" && node1.Type == FoodSys.Enum.EnumSysCodeInfoType.EquipmentNO.ToString())
+		   { 
+								<li rel="node1"><a href="javascript:void(0)" onclick="setFrameUrl('/ModuleAsset/SystemAndDeviceClasses/Index/?SelectNode=2&SysCodeInfoCode=@node1.Code')">@node1.Code
+									- @node1.Name</a>
+									<ul>
+										@foreach (var node2 in Model.SysCodeInfoCollection)
+		  {
+			  if (node2.ParentCode == node1.Code)
+			  {
+											<li rel="node2"><a href="javascript:void(0)" onclick="setFrameUrl('/ModuleAsset/SystemAndDeviceClasses/Index/?SelectNode=3&SysCodeInfoCode=@node2.Code')">@node2.Code
+												- @node2.Name</a> </li>
+			  }
+		  }
+									</ul>
+								</li>
+		   }
+
+	   }
+						</ul>
+					</li>
+					<li rel="root"><a href="javascript:void(0)" onclick="setFrameUrl('/ModuleAsset/PartNameTypeManage/Index')">
+						部位名称类型</a> </li>
+					<li rel="root"><a href="javascript:void(0)" onclick="setFrameUrl('/ModuleAsset/BrandManage/Index')">
+						品牌</a> </li>
+				</ul>
+			</div>
+		</div>
+	</div>
+}

@@ -1,0 +1,114 @@
+﻿@model Project.Web.Base.Utility.PaginateHelper
+@{
+	//pageSize dropdownlist 生成的name
+	string pageSizeName = string.IsNullOrEmpty(Model.SearchClassObjName) ? "_PageSize" : Model.SearchClassObjName + "._PageSize";
+	string pageIndexName = string.IsNullOrEmpty(Model.SearchClassObjName) ? "_PageIndex" : Model.SearchClassObjName + "._PageIndex";
+
+	int pageNumMin = 0;
+	int pageNumMax = 6;
+	Model.PageIndex = (Model.PageIndex > Model.TotalPages - 1) ? 0 : Model.PageIndex;
+	if (Model.PageIndex <= 3)
+	{
+		pageNumMin = 0;
+		pageNumMax = 6;
+	}
+	else if (Model.PageIndex + 4 >= Model.TotalPages)
+	{
+		pageNumMin = Model.TotalPages - 6;
+		pageNumMax = Model.TotalPages;
+	}
+	else
+	{
+		pageNumMin = Model.PageIndex - 3;
+		pageNumMax = Model.PageIndex + 3;
+	}
+	pageNumMin = pageNumMin > 0 ? pageNumMin : 0;
+}
+<script type="text/javascript">
+	$(document).ready(function () {
+		$(".getPage").click(function () {
+			var pageIndex = $(".jumpto").val();
+			if (pageIndex > parseInt($("#totalPages").html())) {
+				$("#@pageIndexName.Replace('.', '_')").attr("value", parseInt($("#totalPages").html()) - 1);
+			}
+			else {
+				$("#@pageIndexName.Replace('.', '_')").attr("value", pageIndex - 1);
+			}
+			$("form").submit();
+		});
+
+		$(".jumpto").keypress(function (e) {
+			if (e.keyCode == 13) {
+				$(".getPage").click();
+			}
+		});
+
+		$(".pagination-container a").click(
+			function () {
+				var pageIndex = parseInt($(".homepage").html());
+				if ($(this).hasClass("page-prev"))
+					pageIndex = pageIndex - 1;
+				else if ($(this).hasClass("page-next"))
+					pageIndex = pageIndex + 1;
+				else
+					pageIndex = parseInt($(this).html());
+				$(".jumpto").val(pageIndex);
+				$(".getPage").click();
+				return false;
+			}
+		);
+
+		//默认选中pageSize项
+		var pageSize = '@Model.PageSize'
+		$("#pageSize").attr("value", pageSize);
+
+		//跳转文本框只可以输入数字
+		$(".jumpto").forceNumeric();
+	})
+
+	function changePageSize() {
+		$("form").submit();
+	}
+
+</script>
+
+<input type="hidden" name="@pageIndexName" id="@pageIndexName.Replace('.', '_')" value="@Model.PageIndex" />
+<div class="pagination-container">
+	<div class="paging">
+	  @if (Model.HasPreviousPage)
+	  {
+		<a href="@(Model.Url)@(pageIndexName)=@(Model.PageIndex - 1)" class="page-prev">上一页</a>
+	  }
+	  else
+	  {
+			<span class="previous-off">上一页</span>
+	  }
+	  @for (int i = pageNumMin; i < pageNumMax; i++)
+	  {
+		  if (Model.PageIndex == i)
+		  {
+			<a class="homepage" paginate-current-url="@(Model.Url)@(pageIndexName)=@i">@(i + 1)</a>
+		  }
+		  else if (i < Model.TotalPages)
+		  {
+			<a href="@(Model.Url)@(pageIndexName)=@i">@(i + 1)</a>
+		  }
+	  }
+	  @if (Model.HasNextPage)
+	  {
+			<a href="@(Model.Url)@(pageIndexName)=@(Model.PageIndex + 1)" class="page-next">下一页</a>
+	  }
+	  else
+	  {
+			<span class="next-off">下一页</span>
+	  }
+		<div class="page-skip">共 <span class="page-number" id="totalPages" title="总页数">@Model.TotalPages</span>
+			页 总共 <span class="page-number" title="总条数">@Model.TotalCount</span> 条 <span>第</span>
+			<input type="text" maxlength="4" value="@(Model.PageIndex + 1)" class="jumpto" name="pageIndexShow" title="指定页码" onpaste="return false;" />
+			页
+			<input type="button" class="getPage" title="指定页码" value="跳转" />
+			<span>每页</span>
+			@Html.DropDownList(pageSizeName, Model.PageSizeOptions, new { onchange = "changePageSize();", id = "pageSize", @class = "page-number", title = "每页显示多少条", style = " width:50px;" })条
+		</div>
+	</div>
+</div>

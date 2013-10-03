@@ -1,0 +1,109 @@
+﻿@model XAGZFSys.Web.Models.ModelDefaultIndex
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+
+    function addSupplier() {
+        window.top.openDialog({ Url: "/Sample/Create/?pageState=" + create, Title: "新增供应商信息", Width: 600, Height: 570 });
+    }
+
+    function editSupplier(id) {
+        window.top.openDialog({ Url: "/Sample/Create/" + id + "/?pageState=" + edit, Title: "编辑供应商信息", Width: 600, Height: 570 });
+    }
+
+    function deleteSupplier(id) {
+        top.window.$("#sysConfirm").html("确定要删除？");
+        top.window.$("#sysConfirm").dialog({
+            resizable: false,
+            height: 200,
+            title: "系统提示",
+            modal: true,
+            buttons: {
+                "是": function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Sample/Delete",
+                        data: "id=" + id,
+                        success: function (msg) {
+                            msg = eval("(" + msg + ")");
+                            if (msg.result == "") {
+                                window.top.refresh();
+                                window.top.sysMessage();
+                            }
+                            else {
+                                window.top.sysAlert(msg.result);
+                            }
+                        }
+                    });
+                    top.window.$("#sysConfirm").dialog("close");
+                },
+                "否": function () {
+                    top.window.$("#sysConfirm").dialog("close");
+                }
+            }
+        });
+    }
+
+    function show(id) {
+        window.top.openDialog({ Url: "/Sample/Create/" + id + "?pageState=" + detail, Title: "查看供应商信息", Width: 600, Height: 570 });
+    }
+
+
+</script>
+<div>
+    @using (Html.BeginForm())
+    {
+        /* 工具栏
+        ----------------------------------------------------------*/
+        <div class="toolbar">
+            <div class="toolbar-left">
+                @Html.Button(ButtonType.新增, "addSupplier()")
+                @Html.Button(ButtonType.条件查询, "commonPage.scan()")
+                @Html.Button(ButtonType.导出XLS, string.Format("defaultExport.showExportDialog('{0}')", Project.Common.StringUtility.EncodeBase64("XAGZFSys.Entity.UTSample")), "导出")
+            </div>
+            <div class="toolbar-right">
+                @Html.TextBoxFor(x => x.SearchEntity._CommonSearchCondition, new { @class = "common-search-condition" })
+                <input type="submit" class="common-search-submit" value="" />
+            </div>
+        </div>
+	 
+        /* 多条件查询
+     ----------------------------------------------------------*/
+        <div class="search-container">
+            <table>
+                <tr>
+                    <th>
+                        供应商名称：
+                    </th>
+                    <td>@Html.TextBoxFor(x => x.SearchEntity._SupplierName, new { style = "width:150px" })
+                    </td>
+                    <th>
+                        供货内容：
+                    </th>
+                    <td>@Html.TextBoxFor(x => x.SearchEntity._SupplyContent, new { style = "width:200px" })
+                    </td>
+                    <th>
+                        联系人：
+                    </th>
+                    <td>@Html.TextBoxFor(x => x.SearchEntity._ContactName, new { style = "width:100px" })
+                    </td>
+                    <td class="search-button">
+                        <input type="submit" value="" class="button-search" />
+                        <input type="button" value="" class="button-clear" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        /* 说明文字
+     ----------------------------------------------------------*/
+        <div class="search-clue">
+            您可通过该功能维护供应商的相关信息！
+        </div>
+        <div class="replace-container">
+            @{
+        Html.RenderPartial("Index_Partial");
+            }
+        </div>
+    }
+</div>

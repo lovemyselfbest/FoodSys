@@ -4,9 +4,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSys.Entity", "foodsys.E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSys.Enum", "foodsys.Enum\FoodSys.Enum.csproj", "{01406234-6DF5-4134-9B02-8CD48390A09F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSys.Dal", "foodsys.Dal\FoodSys.Dal.csproj", "{BA4F8458-7ED4-4F41-9A78-2B2DC209257B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSys.Dal", "FoodSys.Dal\FoodSys.Dal.csproj", "{BA4F8458-7ED4-4F41-9A78-2B2DC209257B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSys.Biz", "foodsys.Biz\FoodSys.Biz.csproj", "{CB20242E-2A5B-4AD5-8395-809FD49934B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSys.Biz", "FoodSys.Biz\FoodSys.Biz.csproj", "{CB20242E-2A5B-4AD5-8395-809FD49934B4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Schema", "Schema", "{4149CAD3-76BF-4C66-A496-A7CDD48E0843}"
 	ProjectSection(SolutionItems) = preProject
@@ -40,7 +40,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Common", "Project.Common\Project.Common.csproj", "{8684770C-FE2A-4B2D-910C-B88D5E2EF353}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSys.Web", "foodsys.Web\FoodSys.Web.csproj", "{91DAEAE9-DB40-4BB3-A846-2A2B8EE3E65C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSys.Web", "FoodSys.Web\FoodSys.Web.csproj", "{91DAEAE9-DB40-4BB3-A846-2A2B8EE3E65C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project.Base", "Project.Base", "{DE7F7D57-A483-42FB-9AC7-344077819CED}"
 EndProject
@@ -53,6 +53,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Web.Base", "Project.Web.Base\Project.Web.Base.csproj", "{75824D46-819E-4425-B968-262938FC16CC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSys.Resources", "foodsys.Resources\FoodSys.Resources.csproj", "{A4B687D9-39C3-495A-8A25-0169B911492E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSys.Web.Out", "FoodSys.Web.Out\FoodSys.Web.Out.csproj", "{83298A8C-A926-4B04-9431-646D737C9994}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -104,6 +106,10 @@ Global
 		{A4B687D9-39C3-495A-8A25-0169B911492E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4B687D9-39C3-495A-8A25-0169B911492E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4B687D9-39C3-495A-8A25-0169B911492E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83298A8C-A926-4B04-9431-646D737C9994}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83298A8C-A926-4B04-9431-646D737C9994}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83298A8C-A926-4B04-9431-646D737C9994}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83298A8C-A926-4B04-9431-646D737C9994}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
