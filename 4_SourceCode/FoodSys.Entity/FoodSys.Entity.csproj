@@ -269,30 +269,37 @@
     <EmbeddedResource Include="EntityMapping\UTOrder.hbm.xml" />
     <EmbeddedResource Include="EntityMapping\UTCustomer.hbm.xml" />
     <EmbeddedResource Include="EntityMapping\UTSupplier.hbm.xml" />
-    <Compile Include="Entity\UTCustomer.Designer.cs">
-      <DependentUpon>UTCustomer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\UTOrderDetailSnapshot.Designer.cs">
-      <DependentUpon>UTOrderDetailSnapshot.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\UTOrderDetailConfirm.Designer.cs">
-      <DependentUpon>UTOrderDetailConfirm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\UTOrderDetail.Designer.cs">
-      <DependentUpon>UTOrderDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\UTOrder.Designer.cs">
-      <DependentUpon>UTOrder.cs</DependentUpon>
-    </Compile>
     <Compile Include="Entity\UTSupplier.cs" />
     <Compile Include="Entity\UTSupplier.Designer.cs">
       <DependentUpon>UTSupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entity\UTProductType.cs" />
     <Compile Include="Entity\UTProductType.Designer.cs">
       <DependentUpon>UTProductType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entity\UTProduct.cs" />
     <Compile Include="Entity\UTProduct.Designer.cs">
       <DependentUpon>UTProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UTOrderDetailSnapshot.cs" />
+    <Compile Include="Entity\UTOrderDetailSnapshot.Designer.cs">
+      <DependentUpon>UTOrderDetailSnapshot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UTOrderDetailConfirm.cs" />
+    <Compile Include="Entity\UTOrderDetailConfirm.Designer.cs">
+      <DependentUpon>UTOrderDetailConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UTOrderDetail.cs" />
+    <Compile Include="Entity\UTOrderDetail.Designer.cs">
+      <DependentUpon>UTOrderDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UTOrder.cs" />
+    <Compile Include="Entity\UTOrder.Designer.cs">
+      <DependentUpon>UTOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UTCustomer.cs" />
+    <Compile Include="Entity\UTCustomer.Designer.cs">
+      <DependentUpon>UTCustomer.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
