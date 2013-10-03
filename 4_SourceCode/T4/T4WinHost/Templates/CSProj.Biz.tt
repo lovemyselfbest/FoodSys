@@ -1,0 +1,128 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #> 
+<#@ import namespace="T4Common" #>
+<#@ import namespace="T4Common.Domain" #>
+<#@ include file="$(ProjectDir)\Includes\Manager.ttinclude"#>
+<#@ Parameter Name="t4Parameter" Type="T4WinHost.Base.T4Parameters" #>
+<# var manager = Manager.Create(Host, GenerationEnvironment); #>
+<#
+   // insert your template code here the tempalte code will be syntaxhighlighted 
+   // and you will have intellisense for all namespaces in the full edition
+    IList<Table> tables = t4Parameter.Tables;
+#>
+<# manager.StartNewFile(string.Format("{0}.Biz.csproj", t4Parameter.NamespacePrefix), CodeOutputType.CSProjBiz, t4Parameter); #>
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CB20242E-2A5B-4AD5-8395-809FD49934B4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace><#= t4Parameter.NamespacePrefix #>.Biz</RootNamespace>
+    <AssemblyName><#= t4Parameter.NamespacePrefix #>.Biz</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NHibernate, Version=3.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Project.References\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+  <# 
+	foreach(Table entry in tables)
+	{#>
+		<Compile Include="<#=entry.TableType == EnumTableType.Table ? "Biz" : "BizView" #>\Biz<#= entry.Name.Replace("_","") #>.cs" />
+		<Compile Include="<#=entry.TableType == EnumTableType.Table ? "Biz" : "BizView" #>\Biz<#= entry.Name.Replace("_","") #>.Designer.cs">
+			 <AutoGen>True</AutoGen>
+			<DependentUpon>Biz<#= entry.Name.Replace("_","") #>.cs</DependentUpon>
+		</Compile>
+	<#}                                                                                                                                                             
+	 #>
+	 <# 
+	foreach (KeyValuePair<string, List<SpColumn>> entry in t4Parameter.StoreProcedureResultMeta)
+	{#>
+		<Compile Include="SPBiz\Biz<#= entry.Key.Replace("_", "") #>.cs" />
+	<#}#>
+  </ItemGroup>
+<ItemGroup>
+	<ProjectReference Include="..\\<#= t4Parameter.NamespacePrefix #>.Entity\\<#= t4Parameter.NamespacePrefix #>.Entity.csproj">
+      <Project>{60A45F4D-9149-4DE6-BCC6-2A299994F31F}</Project>
+      <Name><#= t4Parameter.NamespacePrefix #>.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\\<#= t4Parameter.NamespacePrefix #>.Dal\\<#= t4Parameter.NamespacePrefix #>.Dal.csproj">
+      <Project>{BA4F8458-7ED4-4F41-9A78-2B2DC209257B}</Project>
+      <Name><#= t4Parameter.NamespacePrefix #>.Dal</Name>
+    </ProjectReference>
+	<ProjectReference Include="..\\<#= t4Parameter.NamespacePrefix #>.Enum\\<#= t4Parameter.NamespacePrefix #>.Enum.csproj">
+      <Project>{01406234-6DF5-4134-9B02-8CD48390A09F}</Project>
+      <Name><#= t4Parameter.NamespacePrefix #>.Enum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Biz.Base\Project.Biz.Base.csproj">
+      <Project>{D8038A75-7355-4E97-BB22-77366BA7239C}</Project>
+      <Name>Project.Biz.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Common\Project.Common.csproj">
+      <Project>{8684770C-FE2A-4B2D-910C-B88D5E2EF353}</Project>
+      <Name>Project.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Dal.Base\Project.Dal.Base.csproj">
+      <Project>{C487053F-C28D-41B4-93F4-EA4397B0CB53}</Project>
+      <Name>Project.Dal.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
+
+
+<# manager.EndBlock(); #>
+
+
+<# manager.Process(true); #>
+
+
+
+

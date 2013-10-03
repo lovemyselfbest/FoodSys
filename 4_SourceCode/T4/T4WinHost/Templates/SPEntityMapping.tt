@@ -1,0 +1,58 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #> 
+<#@ import namespace="T4Common" #> 
+<#@ include file="$(ProjectDir)\Includes\Manager.ttinclude"#>
+<#@ include file="$(ProjectDir)\Includes\Common.ttinclude"#>
+<#@ Parameter Name="t4Parameter" Type="T4WinHost.Base.T4Parameters" #>
+<# var manager = Manager.Create(Host, GenerationEnvironment); #>
+<#
+   // insert your template code here the tempalte code will be syntaxhighlighted 
+   // and you will have intellisense for all namespaces in the full edition
+	Dictionary<string, List<SpColumn>> storeProcedureResultMeta = null;
+	Dictionary<string, List<SpColumn>> storeProcedureParameterMeta = null;
+	storeProcedureResultMeta = t4Parameter.StoreProcedureResultMeta;
+	storeProcedureParameterMeta = t4Parameter.StoreProcedureParametersMeta;
+	int j = 0;
+#>
+
+
+<# 
+	foreach (KeyValuePair<string, List<SpColumn>> entry in storeProcedureResultMeta)
+	{#>
+		<# manager.StartNewFile(string.Format("{0}.hbm.xml",entry.Key.Replace("_","")), CodeOutputType.SPEntityMapping,t4Parameter); #>
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<sql-query name="<#= entry.Key #>">
+		<# for (int i = 0; i < entry.Value.Count; i++){#>
+		<return-scalar type="<#=GetTypeName(entry.Value[i].CType)#>" column="<#=entry.Value[i].CName  #>" />
+		<#} #>
+		exec dbo.<#= entry.Key #>  <#= Common.ListProcParameters(entry.Key,t4Parameter) #>
+	</sql-query>
+</hibernate-mapping>
+		<# manager.EndBlock(); j++;
+ if (j >= 10)
+ {
+	manager.Process(true);
+    j = 0;
+} #>
+	<#}
+#>
+
+<# manager.Process(true); #>
+
+<#+
+	string GetTypeName(Type type)
+	{
+		return type.Name;
+	}
+#>
+
+
+

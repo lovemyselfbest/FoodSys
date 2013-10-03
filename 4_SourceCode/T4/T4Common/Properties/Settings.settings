@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="T4Common.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SqlConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=192.168.155.225;Initial Catalog=LJZGZFWeb;Persist Security Info=True;User ID=ljzgzf;Password=ljzgzf;</Value>
+    </Setting>
+    <Setting Name="NamespacePrefix" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CNRegex</Value>
+    </Setting>
+    <Setting Name="ProjectRootPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E:\CNRegex\</Value>
+    </Setting>
+    <Setting Name="DalFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CNRegex.Dal</Value>
+    </Setting>
+    <Setting Name="BizFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CNRegex.Biz</Value>
+    </Setting>
+    <Setting Name="EntityFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CNRegex.Entity</Value>
+    </Setting>
+    <Setting Name="EnumFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CNRegex.Enum</Value>
+    </Setting>
+    <Setting Name="TFSUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://ip:8080/tfs</Value>
+    </Setting>
+    <Setting Name="TFSName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">user name</Value>
+    </Setting>
+    <Setting Name="TFSPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">user password</Value>
+    </Setting>
+    <Setting Name="TFSChk" Type="System.String" Scope="User">
+      <Value Profile="(Default)">false</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

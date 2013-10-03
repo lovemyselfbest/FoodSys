@@ -1,0 +1,134 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #> 
+<#@ import namespace="T4Common" #> 
+<#@ import namespace="T4Common.Domain" #>
+<#@ include file="$(ProjectDir)\Includes\Manager.ttinclude"#>
+<#@ include file="$(ProjectDir)\Includes\Common.ttinclude"#>
+<#@ Parameter Name="t4Parameter" Type="T4WinHost.Base.T4Parameters" #>
+<# var manager = Manager.Create(Host, GenerationEnvironment); #>
+<#
+   // insert your template code here the tempalte code will be syntaxhighlighted 
+   // and you will have intellisense for all namespaces in the full edition
+    IList<Table> tables = t4Parameter.Tables;
+    int j = 0;
+#>
+
+
+<# 
+	foreach (Table entry in tables)
+	{
+	    IList<Column> normalColumns = entry.Columns.Where(x => !x.IsPrimaryKey).ToList();
+        IList<Column> primaryColumns = entry.PrimaryKey.Columns;
+	#>
+		<#	manager.StartNewFile(string.Format("{0}.hbm.xml", entry.Name.Replace("_", "")), entry.TableType == EnumTableType.Table ? CodeOutputType.EntityMapping : CodeOutputType.ViewEntityMapping, t4Parameter); #>
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="<#= t4Parameter.NamespacePrefix #>.Entity" namespace="<#= t4Parameter.NamespacePrefix #>.Entity" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="<#= entry.Name.Replace("_","") #>" table="<#= entry.Name #>" lazy="true" >
+		<#
+	    if (primaryColumns.Count == 1)
+	   {
+		#>
+			<id name="<#= primaryColumns[0].Name #>">
+			  <generator class="<#= GetGenerator(primaryColumns[0]) #>" />
+			</id>
+		<#
+}
+else if(primaryColumns.Count>1){
+		#>
+		<composite-id class="<#=entry.Name.Replace("_","") #>Identifier" name="<#=entry.Name.Replace("_","") #>Identifier">
+			 <# for (int i = 0; i < primaryColumns.Count; i++)
+			{#>
+				<key-property name="<#=primaryColumns[i].Name  #>" column="<#=primaryColumns[i].Name  #>" type="<#=DataTypeMapper.MapFromDBType(primaryColumns[i].DataType).Name  #>"></key-property>
+			<#} #>
+		</composite-id>
+		<#
+		}
+        else if (entry.TableType== EnumTableType.View)
+        {
+	        var viewKey = normalColumns.FirstOrDefault(x => x.Name.Equals("KeyID"));
+            var viewKeyName = viewKey == null ? "" : viewKey.Name;
+            normalColumns.Remove(viewKey);
+#>
+	<id name="<#= viewKeyName #>">
+	</id>
+<#
+ }
+#>
+<#
+	    if (normalColumns.FirstOrDefault(x => x.Name.Equals("Version", StringComparison.OrdinalIgnoreCase)) != null)
+	    {#>
+			<version name="Version" unsaved-value="null" generated="always"  type="BinaryBlob"/>
+        <#}
+     
+#>
+
+		<# for (int i = 0; i < normalColumns.Count; i++)
+		{
+	        if (normalColumns[i].Name.Equals("Version", StringComparison.OrdinalIgnoreCase))
+	            continue;
+          #>
+		<property name="<#=normalColumns[i].LegalName  #>" <#=ProcessString(normalColumns[i])#> >
+			<column name="<#=normalColumns[i].Name  #>" sql-type="<#=normalColumns[i].DataType  #>" not-null="<#=(!normalColumns[i].IsNullable).ToString().ToLower()  #>" />
+		</property>
+		<#} #>
+	</class>
+</hibernate-mapping>
+		<# manager.EndBlock();
+ j++;
+ if (j >= 10)
+ {
+	 manager.Process(true);
+     j = 0;
+}
+	 #>
+	<#}
+#>
+
+<# manager.Process(true); #>
+
+<#+
+	string GetTypeName(Type type)
+	{
+		return type.Name;
+	}
+
+    string ProcessString(Column column)
+    {
+	    if (column.MappedDataType == typeof(string).ToString())
+	    {
+	        if (column.DataLength == -1 || column.DataLength > 3000)
+	        {
+	            return " type=\"StringClob\" ";
+	     }
+	 }
+        return "";
+   }
+
+    string GetGenerator(Column column)
+    {
+	    if (column.IsIdentity)
+	    {
+	        return "native";
+		}
+        if (DataTypeMapper.MapFromDBType(column.DataType).Name==typeof(Guid).Name)
+        {
+	        return "guid.comb";
+       }
+        if (!column.IsIdentity && !(DataTypeMapper.MapFromDBType(column.DataType).Name == typeof(Guid).Name))
+        {
+	        return "assigned";
+      }
+        return "";
+    }
+	
+#>
+
+
+

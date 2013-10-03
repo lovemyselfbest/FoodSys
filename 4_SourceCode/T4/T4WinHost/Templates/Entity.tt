@@ -1,0 +1,161 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #> 
+<#@ import namespace="T4Common" #>
+<#@ import namespace="T4Common.Domain" #>
+<#@ include file="$(ProjectDir)\Includes\Manager.ttinclude"#>
+<#@ include file="$(ProjectDir)\Includes\Common.ttinclude" #>
+<#@ Parameter Name="t4Parameter" Type="T4WinHost.Base.T4Parameters" #>
+<# var manager = Manager.Create(Host, GenerationEnvironment); #>
+<#
+   // insert your template code here the tempalte code will be syntaxhighlighted 
+   // and you will have intellisense for all namespaces in the full edition
+    IList<Table> tables = t4Parameter.Tables;
+    int j = 0;
+#>
+
+
+<# 
+	foreach(Table entry in tables)
+	{
+	    IList<Column> columns = entry.Columns;
+        IList<Column> normalColumns = null;
+	  IList<Column> primaryColumns = entry.PrimaryKey.Columns;
+      if (primaryColumns.Count <= 1)
+      {
+	      normalColumns = columns;
+          primaryColumns = new List<Column>();
+     }
+      else if (primaryColumns.Count > 1)
+      {
+	      normalColumns = columns.Where(x => !x.IsPrimaryKey).ToList();
+          primaryColumns = columns.Where(x => x.IsPrimaryKey).ToList();
+      }
+	 #>
+
+
+		<# manager.StartNewFile(string.Format("{0}.Designer.cs", entry.Name.Replace("_", "")), entry.TableType == EnumTableType.Table ? CodeOutputType.Entity : CodeOutputType.ViewEntity, t4Parameter); #>
+using System.Collections.Generic; 
+using System.Text; 
+using System;
+using System.ComponentModel.DataAnnotations; 
+namespace <#= t4Parameter.NamespacePrefix #>.Entity {
+
+	/// <summary>
+	/// <#= entry.Remark.Replace(Environment.NewLine, " ") #>
+	/// </summary>
+	[MetadataType(typeof(<#= entry.Name.Replace("_","") #>_Validation ))]
+	public partial class  <#= entry.Name.Replace("_","") #> 
+	{
+		<#if (primaryColumns.Count > 1)
+			{
+	#>
+		private <#= entry.Name.Replace("_","") #>Identifier _<#= entry.Name.Replace("_","") #>Identifier = new  <#= entry.Name.Replace("_","") #>Identifier();
+		public virtual <#= entry.Name.Replace("_","") #>Identifier <#= entry.Name.Replace("_","") #>Identifier
+		{
+			get { return  _<#= entry.Name.Replace("_","") #>Identifier; }
+			set {  _<#= entry.Name.Replace("_","") #>Identifier = value; }
+		}
+	<#
+	   }
+	#>
+
+		<# for (int i = 0; i < normalColumns.Count; i++)
+					{#>
+
+			/// <summary>
+			/// <#=normalColumns[i].Remark.Replace(Environment.NewLine, " ") #>
+			/// Length : <#=normalColumns[i].DataLength == null ? "" : normalColumns[i].DataLength.Value.ToString() #>
+			/// </summary>
+			public virtual <#=GetTypeName(normalColumns[i])#>	<#=normalColumns[i].LegalName  #>{get;set;}
+					 
+			<#} #>
+}
+	<#
+	    if (primaryColumns.Count > 1)
+	    {
+#>
+	public class  <#= entry.Name.Replace("_","") #>Identifier
+	{
+		<# for (int i = 0; i < primaryColumns.Count; i++)
+					{#>
+
+			/// <summary>
+			/// <#=primaryColumns[i].Remark.Replace(Environment.NewLine, " ") #>
+			/// Length: <#=primaryColumns[i].DataLength == null ? "" : primaryColumns[i].DataLength.Value.ToString() #>
+			/// </summary>
+			public virtual <#=GetTypeName(primaryColumns[i])#>	<#=primaryColumns[i].LegalName  #>{get;set;}
+					 
+			<#} #>
+		public override bool Equals(object obj)
+		{
+			return base.Equals(obj);
+		}
+
+		public override int GetHashCode()
+		{
+			return base.GetHashCode();
+		}
+	}
+<#
+   }
+#>
+}
+<# manager.EndBlock(); #>
+
+<# manager.StartNewFile(string.Format("{0}.cs", entry.Name.Replace("_", "")), entry.TableType == EnumTableType.Table ? CodeOutputType.Entity : CodeOutputType.ViewEntity, t4Parameter); #>
+using System.Collections.Generic; 
+using System.Text; 
+using System; 
+namespace <#= t4Parameter.NamespacePrefix #>.Entity {
+
+	/// <summary>
+	/// <#= entry.Remark.Replace(Environment.NewLine, " ") #>
+	/// </summary>
+	public class  <#= entry.Name.Replace("_","") #>_Validation
+	{
+		
+
+		<# for (int i = 0; i < normalColumns.Count; i++)
+					{#>
+			/// <summary>
+			/// <#=normalColumns[i].Remark.Replace(Environment.NewLine, " ") #>
+			/// Length : <#=normalColumns[i].DataLength == null ? "" : normalColumns[i].DataLength.Value.ToString() #>
+			/// </summary>
+			public virtual <#=GetTypeName(normalColumns[i])#>	<#=normalColumns[i].LegalName  #>{get;set;}
+					 
+			<#} #>
+	}
+}
+		<# manager.EndBlock(); #>
+
+		<#
+	    j++;
+        if (j >= 10)
+        {
+	       manager.Process(true);
+           j = 0;
+	    
+        }
+#>
+		
+	<#}
+#>
+
+<# manager.Process(true); #>
+<#+
+	
+    string GetTypeName(Column column)
+	{
+	    Type type = DataTypeMapper.MapFromDBType(column.DataType);
+        if (type.IsValueType && column.IsNullable && type!=typeof(byte[]))
+	        return string.Format("System.Nullable<{0}>",type.Name);
+        return column.MappedDataType;
+    }
+#>

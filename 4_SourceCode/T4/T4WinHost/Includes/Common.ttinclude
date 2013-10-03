@@ -1,0 +1,41 @@
+﻿<#@ assembly name="System.Core"#>
+<#@ assembly name="System.Data.Linq"#>
+<#@ assembly name="EnvDTE"#>
+<#@ assembly name="System.Xml"#>
+<#@ assembly name="System.Xml.Linq"#>
+<#@ assembly name="$(SolutionDir)\Lib\T4Common.dll" #>
+<#@ import namespace="System"#>
+<#@ import namespace="System.CodeDom"#>
+<#@ import namespace="System.CodeDom.Compiler"#>
+<#@ import namespace="System.Collections.Generic"#>
+<#@ import namespace="System.Data.Linq"#>
+<#@ import namespace="System.Data.Linq.Mapping"#>
+<#@ import namespace="System.IO"#>
+<#@ import namespace="System.Linq"#>
+<#@ import namespace="System.Reflection"#>
+<#@ import namespace="System.Text"#>
+<#@ import namespace="System.Xml.Linq"#>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating"#>
+<#@ import namespace="T4Common" #> 
+
+<#+
+
+// Manager class records the various blocks so it can split them up
+class Common 
+{
+	public static string ListProcParameters(string procedureName, T4WinHost.Base.T4Parameters t4Parameter)
+	{
+	    Dictionary<string, List<SpColumn>> paramMeta = t4Parameter.StoreProcedureParametersMeta;
+		List<SpColumn> parameters = paramMeta[procedureName];
+		string result="";
+		for (int i = 0; i < parameters.Count; i++)
+		{
+			if(i!=parameters.Count-1)
+				result=result+string.Format(":{0},",parameters[i].CName.Replace("@",""));
+			else
+				result=result+string.Format(":{0}",parameters[i].CName.Replace("@",""));
+		}
+		return result;
+	}
+}
+#>

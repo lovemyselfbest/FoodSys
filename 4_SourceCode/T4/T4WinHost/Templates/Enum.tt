@@ -1,0 +1,37 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #> 
+<#@ import namespace="T4Common" #>
+<#@ import namespace="T4Common.Domain" #>
+<#@ include file="$(ProjectDir)\Includes\Manager.ttinclude"#>
+<#@ Parameter Name="t4Parameter" Type="T4WinHost.Base.T4Parameters" #>
+<# var manager = Manager.Create(Host, GenerationEnvironment); #>
+
+<# manager.StartNewFile("EnumOrder.cs", CodeOutputType.Enum, t4Parameter); #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace <#= t4Parameter.NamespacePrefix #>.Enum
+{
+	public enum EnumTemp
+	{
+	
+	}
+}
+
+<# manager.EndBlock(); #>
+
+<# manager.Process(true); #>
+
+
+
+
+
