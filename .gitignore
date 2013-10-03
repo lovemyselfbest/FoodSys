@@ -218,3 +218,5 @@ pip-log.txt
 4_SourceCode\FoodSys.Web\Log\Sys*/
 *.s3db
 4_SourceCode\FoodSys.Web\Log\Sys*/
+4_SourceCode/FoodSys.Web/Log/Sys/file
+4_SourceCode/FoodSys.Web/App_Data/errors.s3db
