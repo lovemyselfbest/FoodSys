@@ -1,11 +1,321 @@
 ﻿@model FoodSys.Web.Out.Models.ModelHomeIndex
 @{
-	Layout = null;
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<html>
-<head>
-</head>
-<body>
-	aa
-</body>
-</html>
+<style type="text/css">
+	.layout
+	{
+		margin: 0px auto;
+		padding: 0 0 0 20px;
+	}
+	
+	/* 左侧布局
+	----------------------------------------------------------*/
+	.layout-left
+	{
+		width: 240px;
+		float: left;
+	}
+	
+	/* 中间布局
+	----------------------------------------------------------*/
+	.layout-middle
+	{
+		margin: 0 0 0 250px;
+		width: 630px;
+		background-color: #F1FAED;
+		overflow:hidden;
+	}
+	
+	.product ul
+	{
+		margin: 0 0 0 15px;
+		padding: 0;
+	}
+	
+	.product-item
+	{
+		list-style-type: none;
+		float: left;
+		width: 190px;
+		margin: 0 10px 10px 0;
+		padding:10px 0 0 0;
+		border: 1px solid #EDF7E9;
+		text-align: center;
+		background-color: White;
+	}
+	.product-item:hover{
+		border-color:#ABF7B5;
+		background-color:#C5FACC;
+	}
+	
+	.product-item-title
+	{
+		font-weight: bold;
+		font-size: 14px;
+		color: Black;
+	}
+	.product-item-price
+	{
+		font-weight: bold;
+		font-size: 14px;
+		color: #F57339;
+	}
+	.product-item-sales
+	{
+		color: green;
+		font-weight: bold;
+	}
+	
+	.product-item-description
+	{
+		text-align: left;
+	}
+	
+	.product-item-description li
+	{
+		list-style-type: none;
+		margin: 0 0 0 40px;
+	}
+
+	.search{
+		padding:10px 0 5px 0;
+		margin:0 0 0 10px;
+		color:Black;
+		font-size:14px;
+		font-weight:bold;
+		border-bottom:1px solid #E5EDE1;
+	}
+	.search a{
+		color:White;
+	}
+	.sort{
+		height:30px;
+		
+	}
+	.sort ul{
+		margin:10px;
+		padding:0;
+	}
+	.sort li{
+		list-style-type:none;
+		float:left;
+		width:50px;
+		
+	}
+	
+	/* 右侧布局
+	----------------------------------------------------------*/
+	.layout-right
+	{
+		float:right;
+		width:250px;
+	}
+
+
+
+	li-button a:visited
+	{
+		color: White;
+		text-decoration: none;
+	}
+</style>
+<script type="text/javascript">
+	$(function () {
+		var leftWidth = $(".layout-left").width();
+		var middleWidth = $(".layout-middle").width();
+		$(".layout-right").width(($(".layout").width() - leftWidth - middleWidth-20) + "px");
+	})
+
+</script>
+<h2 class="title-h2">
+	订购蔬菜..
+</h2>
+<div class="layout">
+	<div class="layout-right">
+		<div class="module">
+			<div class="module-title">我的购物车</div>
+			<ul class="module-content">
+				<li>
+					<a href="/RegexHome/index/Email/">白灼生菜 </a>
+					<input value="2" style="width:40px; text-align:center;" />
+					<em>删除</em>
+				</li>
+				<li>
+					<a href="/RegexHome/index/Email/">白灼生菜 </a>
+					<input value="2" style="width:40px; text-align:center;" />
+					<em>删除</em>
+				</li>
+				<li>
+					<a href="/RegexHome/index/Email/">白灼生菜 </a>
+					<input value="2" style="width:40px; text-align:center;" />
+					<em>删除</em>
+				</li>
+				<li>
+					<a href="/RegexHome/index/Email/">白灼生菜 </a>
+					<input value="2" style="width:40px; text-align:center;" />
+					<em>删除</em>
+				</li>
+				<li>
+					<a href="/RegexHome/index/Email/">白灼生菜 </a>
+					<input value="2" style="width:40px; text-align:center;" />
+					<em>删除</em>
+				</li>
+				<li>
+					<a href="/RegexHome/index/Email/">白灼生菜 </a>
+					<input value="2" style="width:40px; text-align:center;" />
+					<em>删除</em>
+				</li>
+			</ul>
+			<div style="margin:0 0 20px 25px">
+				<input type="button" value="去结算" class="button button-rounded button-flat-primary button-small"></input>
+			</div>
+		</div>
+		<div class="module">
+			<div class="module-title">其他顾客买了..</div>
+			<ul class="module-content">
+				<li>
+					<span>6-302</span>
+					<a href="/RegexHome/index/Email/">白灼生菜 </a>
+					<em>6 小时前..</em>
+				</li>
+				<li>
+					<span>6-302</span>
+					<a href="/RegexHome/index/Email/">白灼生菜 </a>
+					<em>6 小时前..</em>
+				</li>
+				<li>
+					<span>6-302</span>
+					<a href="/RegexHome/index/Email/">白灼生菜 </a>
+					<em>6 小时前..</em>
+				</li>
+				<li>
+					<span>6-302</span>
+					<a href="/RegexHome/index/Email/">白灼生菜 </a>
+					<em>6 小时前..</em>
+				</li>
+				<li>
+					<span>6-302</span>
+					<a href="/RegexHome/index/Email/">白灼生菜 </a>
+					<em>6 小时前..</em>
+				</li>
+				<li>
+					<span>6-302</span>
+					<a href="/RegexHome/index/Email/">白灼生菜 </a>
+					<em>6 小时前..</em>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="layout-left">
+		<div class="category-title">
+			菜品分类
+		</div>
+		<ul class="category-content">
+			<li><a href="/RegexHome/index/Email/">新鲜蔬菜 </a><em>提供当季的新鲜蔬菜</em> </li>
+			<li><a href="/RegexHome/index/Uri/">新鲜肉类 </a><em>新鲜肉类，猪肉不注水</em> </li>
+			<li><a href="/RegexHome/index/Numbers/">水产海鲜 </a><em>水产海鲜,鲜香甜美</em> </li>
+			<li><a href="/RegexHome/index/Strings/">凉菜类 </a><em>爽口凉菜，口味合适</em> </li>
+			<li><a href="/RegexHome/index/Dates and Times/">火锅类 </a><em>刷火锅佳品...</em> </li>
+		</ul>
+	</div>
+	<div class="layout-middle">
+		<div class="search">
+			<span>菜品：</span>
+			<input />
+			<a href="#" class="button button-rounded button-flat-primary button-tiny">搜索</a>
+		</div>
+		<div class="sort">
+			<ul>
+				<li><a href="#">最新</a></li>
+				<li><a href="#">销量</a></li>
+				<li><a href="#">价格</a></li>
+			</ul>
+		</div>
+		<div class="product">
+			<ul>
+				<li class="product-item">
+					<img src="http://img.dingcai.com/images/product/2/2/92a8a132-7c72-4a00-b24c-d30c9becf569.png" />
+					<div class="product-item-description">
+						<ul>
+							<li><span class="product-item-title">白灼生菜 </span></li>
+							<li><span class="product-item-price">9.9 /斤 </span></li>
+							<li><em class="product-item-sales">100+ </em>人订购 </li>
+						</ul>
+					</div>
+				</li>
+				<li class="product-item">
+					<img src="http://img.dingcai.com/images/product/2/2/92a8a132-7c72-4a00-b24c-d30c9becf569.png" />
+					<div class="product-item-description">
+						<ul>
+							<li><span class="product-item-title">白灼生菜 </span></li>
+							<li><span class="product-item-price">9.9 /斤 </span></li>
+							<li><em class="product-item-sales">100+ </em>人订购 </li>
+						</ul>
+					</div>
+				</li>
+				<li class="product-item">
+					<img src="http://img.dingcai.com/images/product/2/2/92a8a132-7c72-4a00-b24c-d30c9becf569.png" />
+					<div class="product-item-description">
+						<ul>
+							<li><span class="product-item-title">白灼生菜 </span></li>
+							<li><span class="product-item-price">9.9 /斤 </span></li>
+							<li><em class="product-item-sales">100+ </em>人订购 </li>
+						</ul>
+					</div>
+				</li>
+				<li class="product-item">
+					<img src="http://img.dingcai.com/images/product/2/2/92a8a132-7c72-4a00-b24c-d30c9becf569.png" />
+					<div class="product-item-description">
+						<ul>
+							<li><span class="product-item-title">白灼生菜 </span></li>
+							<li><span class="product-item-price">9.9 /斤 </span></li>
+							<li><em class="product-item-sales">100+ </em>人订购 </li>
+						</ul>
+					</div>
+				</li>
+				<li class="product-item">
+					<img src="http://img.dingcai.com/images/product/2/2/92a8a132-7c72-4a00-b24c-d30c9becf569.png" />
+					<div class="product-item-description">
+						<ul>
+							<li><span class="product-item-title">白灼生菜 </span></li>
+							<li><span class="product-item-price">9.9 /斤 </span></li>
+							<li><em class="product-item-sales">100+ </em>人订购 </li>
+						</ul>
+					</div>
+				</li>
+				<li class="product-item">
+					<img src="http://img.dingcai.com/images/product/2/2/92a8a132-7c72-4a00-b24c-d30c9becf569.png" />
+					<div class="product-item-description">
+						<ul>
+							<li><span class="product-item-title">白灼生菜 </span></li>
+							<li><span class="product-item-price">9.9 /斤 </span></li>
+							<li><em class="product-item-sales">100+ </em>人订购 </li>
+						</ul>
+					</div>
+				</li>
+				<li class="product-item">
+					<img src="http://img.dingcai.com/images/product/2/2/92a8a132-7c72-4a00-b24c-d30c9becf569.png" />
+					<div class="product-item-description">
+						<ul>
+							<li><span class="product-item-title">白灼生菜 </span></li>
+							<li><span class="product-item-price">9.9 /斤 </span></li>
+							<li><em class="product-item-sales">100+ </em>人订购 </li>
+						</ul>
+					</div>
+				</li>
+				<li class="product-item">
+					<img src="http://img.dingcai.com/images/product/2/2/92a8a132-7c72-4a00-b24c-d30c9becf569.png" />
+					<div class="product-item-description">
+						<ul>
+							<li><span class="product-item-title">白灼生菜 </span></li>
+							<li><span class="product-item-price">9.9 /斤 </span></li>
+							<li><em class="product-item-sales">100+ </em>人订购 </li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+</div>

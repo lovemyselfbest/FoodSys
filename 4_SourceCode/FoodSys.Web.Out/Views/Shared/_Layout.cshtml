@@ -2,30 +2,6 @@
 <head>
 	<title>@ViewBag.Title</title>
 	@RazorWidget.ViewStart()
-	<style type="text/css">
-		body
-		{
-			margin: 0;
-			padding: 0;
-			font-family: "font-family:Verdana, Arial, Helvetica, sans-serif";
-			font-size: 12px;
-			color: #000000;
-			width: 100%;
-			height: 100%;
-			overflow: hidden;
-			scrollbar-3dlight-color: #92A3B0; /*立体滚动条亮边的颜色*/
-			scrollbar-arrow-color: #FFFFFF; /*立体滚动条亮边的颜色*/
-			scrollbar-base-color: #C1D3FB; /*底色*/
-			scrollbar-darkshadow-color: #FFFFFF; /*立体滚动条强阴影的颜色*/
-			scrollbar-face-color: #C1D3FB; /*立体滚动条凸出部分的颜色*/
-			scrollbar-highlight-color: #FFFFFF; /*滚动条空白部分的颜色*/
-			scrollbar-shadow-color: #92A3B0 /*立体滚动条亮边的颜色*/;
-		}
-		body, html
-		{
-			overflow: hidden;
-		}
-	</style>
 	@{
 		var error = TempData["Error"];
 		var message = TempData["Message"];
@@ -46,10 +22,6 @@
 			navigation = $.trim($(window.top.document).find(".menu-active").text()) + ">>" + $.trim($(window.top.document).find(".navigation").text());
 			$("form").append("<input type='hidden' name='navigation' id='navigation' value='" + navigation + "' />");
 
-			/* 快捷键事件注册
-			----------------------------------------------------------*/
-			$(document).keydown(window.top.menuShortKeydown).keyup(window.top.menuShortKeyup);
-
 			/* 初始化异步Grid
 			----------------------------------------------------------*/
 			commonPage.ajaxGrid();
@@ -57,8 +29,20 @@
 		});
 	</script>
 </head>
-<body onresize="defaultTable.setTableHeight();defaultTable.setTableWidth();">
-	<div id="main">
+<body>
+	<div class="nav-bar">
+		<a class="logo" href="/">
+			<img src="/content/images/logo.png" title="社区订菜网" />
+		</a>
+		<ul>
+			<li><a href="/">首页</a></li>
+			<li><a href="/tag/社区活动" target="">社区活动</a></li>
+			<li><a href="/about" target="">关于我们</a></li>
+			<li><a href="/signup">注册</a></li>
+			<li><a href="/signin">登录</a></li>
+		</ul>
+	</div>
+	<div class="page">
 		@RenderBody()
 		<div class="clear">
 		</div>
