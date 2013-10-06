@@ -16,40 +16,34 @@ namespace FoodSys.Entity.EntitySearch
 		/// <summary>
 		///  
 		/// </summary>
-		public Guid _ProductType { get; set; }
+		public string _ProductType { get; set; }
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public Guid _Status { get; set; }
+		public string _Status { get; set; }
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public decimal PurchasePriceS { get; set; }
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public decimal PurchasePriceE { get; set; }
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public decimal SellPriceS { get; set; }
+		public string _PurchasePriceS { get; set; }
 
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public decimal SellPriceE { get; set; }
+		public string _PurchasePriceE { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public string _SellPriceS { get; set; }
 
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public int Status { get; set; }
-		
+		public string _SellPriceE { get; set; }
+
 	}
 }

@@ -137,8 +137,10 @@
     <Compile Include="Areas\ModuleLogin\Models\ModelLogin.cs" />
     <Compile Include="Areas\ModuleLogin\ModuleLoginAreaRegistration.cs" />
     <Compile Include="Areas\ModuleResource\Controllers\ProductController.cs" />
+    <Compile Include="Areas\ModuleResource\Controllers\ProductTypeController.cs" />
     <Compile Include="Areas\ModuleResource\Controllers\SupplierController.cs" />
     <Compile Include="Areas\ModuleResource\Models\ModelProduct.cs" />
+    <Compile Include="Areas\ModuleResource\Models\ModelProductType.cs" />
     <Compile Include="Areas\ModuleResource\Models\ModelSupplier.cs" />
     <Compile Include="Areas\ModuleResource\ModuleResourceAreaRegistration.cs" />
     <Compile Include="Areas\ModuleSys\Controllers\OrganizationManageController.cs" />
@@ -1521,6 +1523,10 @@
     <Content Include="Areas\ModuleResource\Views\Supplier\Create.cshtml" />
     <Content Include="Areas\ModuleResource\Views\Product\Index.cshtml" />
     <Content Include="Areas\ModuleResource\Views\Product\Create.cshtml" />
+    <Content Include="Areas\ModuleResource\Views\Product\Index_Partial.cshtml" />
+    <Content Include="Areas\ModuleResource\Views\ProductType\Index.cshtml" />
+    <Content Include="Areas\ModuleResource\Views\ProductType\Create.cshtml" />
+    <Content Include="Areas\ModuleResource\Views\ProductType\Index_Partial.cshtml" />
     <None Include="Content\themes\base\images\app_icons\Thumbs.db" />
     <None Include="Scripts\highslide\graphics\outlines\Outlines.psd" />
     <Content Include="Views\Controls\Paginate.cshtml" />

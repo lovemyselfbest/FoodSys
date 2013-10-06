@@ -23,7 +23,6 @@
 		@Html.HiddenFor(x => x.UTSupplierEntity.ID)
 		@Html.HiddenFor(x => x.UTSupplierEntity.CreateDate)
 		@Html.HiddenFor(x => x.UTSupplierEntity.CreateID)
-		@Html.HiddenFor(x => x.UTSupplierEntity.ID)
 		@Html.HiddenFor(x => x.ID)
 		<table cellpadding="0" cellspacing="0" align="center" class="table-detail">
 			<thead>
@@ -70,18 +69,18 @@
 				</tr>
 				<tr>
 					<th>
-						备注：
-					</th>
-					<td>
-						@Html.TextAreaForFix(x => x.UTSupplierEntity.Memo, new { style = "height:90px;width:460px;", cols = "20", rows = "3" })
-					</td>
-				</tr>
-				<tr>
-					<th>
 						状态：
 					</th>
 					<td>
 						@Html.DropDownListForFix(x => x.UTSupplierEntity.Status, SelectListHelper.ComposeSelectListFromEnum<FoodSys.Enum.EnumSupplierStatus>("==请选择==", ""))
+					</td>
+				</tr>
+				<tr>
+					<th>
+						备注：
+					</th>
+					<td>
+						@Html.TextAreaForFix(x => x.UTSupplierEntity.Memo, new { style = "height:90px;width:460px;", cols = "20", rows = "3" })
 					</td>
 				</tr>
 			</tbody>
