@@ -48,10 +48,10 @@ namespace FoodSys.Entity {
 					 
 			
 			/// <summary>
-			/// 是否有效
+			/// 状态 0不可用，1可用
 			/// Length : 
 			/// </summary>
-			public virtual System.Nullable<Boolean>	Status{get;set;}
+			public virtual System.Nullable<Int32>	Status{get;set;}
 					 
 			
 			/// <summary>

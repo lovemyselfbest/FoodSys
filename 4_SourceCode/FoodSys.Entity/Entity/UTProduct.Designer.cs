@@ -37,7 +37,7 @@ namespace FoodSys.Entity {
 			/// 类型
 			/// Length : 
 			/// </summary>
-			public virtual System.Nullable<Guid>	Type{get;set;}
+			public virtual System.Nullable<Guid>	ProductType{get;set;}
 					 
 			
 			/// <summary>
@@ -66,6 +66,13 @@ namespace FoodSys.Entity {
 			/// Length : 
 			/// </summary>
 			public virtual System.Nullable<Decimal>	SellPrice{get;set;}
+					 
+			
+			/// <summary>
+			/// 状态 0不可用，1可用
+			/// Length : 
+			/// </summary>
+			public virtual System.Nullable<Int32>	Status{get;set;}
 					 
 			
 			/// <summary>

@@ -18,6 +18,9 @@
 				<property name="Memo"  >
 			<column name="Memo" sql-type="varchar" not-null="false" />
 		</property>
+				<property name="Status"  >
+			<column name="Status" sql-type="int" not-null="false" />
+		</property>
 				<property name="CreateDate"  >
 			<column name="CreateDate" sql-type="datetime" not-null="false" />
 		</property>

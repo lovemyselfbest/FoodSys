@@ -12,8 +12,8 @@
 				<property name="Name"  >
 			<column name="Name" sql-type="varchar" not-null="false" />
 		</property>
-				<property name="Type"  >
-			<column name="Type" sql-type="uniqueidentifier" not-null="false" />
+				<property name="ProductType"  >
+			<column name="ProductType" sql-type="uniqueidentifier" not-null="false" />
 		</property>
 				<property name="Description"  >
 			<column name="Description" sql-type="varchar" not-null="true" />
@@ -26,6 +26,9 @@
 		</property>
 				<property name="SellPrice"  >
 			<column name="SellPrice" sql-type="decimal" not-null="false" />
+		</property>
+				<property name="Status"  >
+			<column name="Status" sql-type="int" not-null="false" />
 		</property>
 				<property name="MaxNumber"  >
 			<column name="MaxNumber" sql-type="int" not-null="false" />

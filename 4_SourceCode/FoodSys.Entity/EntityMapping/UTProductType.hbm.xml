@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <hibernate-mapping assembly="FoodSys.Entity" namespace="FoodSys.Entity" xmlns="urn:nhibernate-mapping-2.2">
-  <class name="UTProductType" table="UT_ProductType" lazy="true" >
+  <class name="UTProductType" table="UT_Product_Type" lazy="true" >
 					<id name="ID">
 			  <generator class="guid.comb" />
 			</id>
@@ -19,7 +19,7 @@
 			<column name="IsLeaf" sql-type="bit" not-null="false" />
 		</property>
 				<property name="Status"  >
-			<column name="Status" sql-type="bit" not-null="false" />
+			<column name="Status" sql-type="int" not-null="false" />
 		</property>
 				<property name="CreateDate"  >
 			<column name="CreateDate" sql-type="datetime" not-null="false" />

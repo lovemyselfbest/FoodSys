@@ -48,6 +48,13 @@ namespace FoodSys.Entity {
 					 
 			
 			/// <summary>
+			/// 状态 0不可用，1可用
+			/// Length : 
+			/// </summary>
+			public virtual System.Nullable<Int32>	Status{get;set;}
+					 
+			
+			/// <summary>
 			/// 创建日期
 			/// Length : 
 			/// </summary>
