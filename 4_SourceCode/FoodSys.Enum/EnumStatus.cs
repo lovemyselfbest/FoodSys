@@ -292,4 +292,14 @@ namespace FoodSys.Enum
 		已发送 = 1
 	}
 
+
+	/// <summary>
+	/// 供应商状态
+	/// </summary>
+	public enum EnumSupplierStatus
+	{
+		禁用 = 0,
+		正常 = 1
+	}
+
 }
