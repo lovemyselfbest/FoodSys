@@ -129,22 +129,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\Model.cs" />
-    <Compile Include="Base\CacheManager.cs" />
     <Compile Include="Base\SessionManager.cs" />
-    <Compile Include="Base\UserProfile.cs" />
-    <Compile Include="Base\Widget.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ExportHelperController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\SampleController.cs" />
-    <Compile Include="Controllers\TreePageController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ModelHome.cs" />
-    <Compile Include="Models\ModelSample.cs" />
-    <Compile Include="Models\ModelTreePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Content\Images\building.jpg" />
     <Content Include="Content\Images\CommunityInfo\1.jpg" />
@@ -1456,19 +1449,7 @@
     <Content Include="Views\ExportHelper\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutDialog.cshtml" />
     <Content Include="Views\Shared\_LayoutEmbeddedFrame.cshtml" />
-    <Content Include="Views\Sample\Index.cshtml" />
-    <Content Include="Views\Sample\Create.cshtml" />
     <Content Include="Views\Controls\PaginateAjax.cshtml" />
-    <Content Include="Views\Sample\Index_Partial.cshtml" />
-    <Content Include="Views\TreePage\SysMenuManageIndex.cshtml" />
-    <Content Include="Views\TreePage\SysRoleManageIndex.cshtml" />
-    <Content Include="Views\TreePage\SysUserTypeManageIndex.cshtml" />
-    <Content Include="Views\TreePage\SysOrgDepartmentManageIndex.cshtml" />
-    <Content Include="Views\TreePage\SysUserManageIndex.cshtml" />
-    <Content Include="Views\TreePage\SysUserRightIndex.cshtml" />
-    <Content Include="Views\TreePage\ParameterSettingsIndex.cshtml" />
-    <Content Include="Views\TreePage\ModuleAssetNonAssetCommunityIndex.cshtml" />
-    <Content Include="Views\TreePage\AssetCodesIndex.cshtml" />
     <Content Include="Views\Home\Main.cshtml" />
     <Content Include="Scripts\ueditor\net\fileUp.ashx" />
     <Content Include="Scripts\ueditor\net\getContent.ashx" />

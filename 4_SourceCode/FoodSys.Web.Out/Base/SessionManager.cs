@@ -103,56 +103,57 @@ namespace FoodSys.Web.Out.Base
 		{
 			get
 			{
-				if (HttpContext.Current.Session[SYS_USER_RIGHT_SESSION_KEY] != null)
-					return HttpContext.Current.Session[SYS_USER_RIGHT_SESSION_KEY] as IList<SysMenu>;
-				BizSysRole bizSysRole = BizFactory.Get<BizSysRole>();
-				BizSysMenu bizSysMenu = BizFactory.Get<BizSysMenu>();
+				//if (HttpContext.Current.Session[SYS_USER_RIGHT_SESSION_KEY] != null)
+				//    return HttpContext.Current.Session[SYS_USER_RIGHT_SESSION_KEY] as IList<SysMenu>;
+				//BizSysRole bizSysRole = BizFactory.Get<BizSysRole>();
+				//BizSysMenu bizSysMenu = BizFactory.Get<BizSysMenu>();
 
 
-				List<SysMenu> menuCollection = new List<SysMenu>();
+				//List<SysMenu> menuCollection = new List<SysMenu>();
 
-				/* 获取角色相关菜单
-				----------------------------------------------------------*/
-				SysRole sysRole = bizSysRole.ListSysRoleByUserID(CurrentSysUser.ID);
-				if (sysRole != null)
-				{
-					List<SysMenu> userRoleMenus = bizSysMenu.ListSysMenuBySysRoleID(sysRole.ID) as List<SysMenu>;
-					menuCollection.AddRange(userRoleMenus);
-				}
+				///* 获取角色相关菜单
+				//----------------------------------------------------------*/
+				//SysRole sysRole = bizSysRole.ListSysRoleByUserID(CurrentSysUser.ID);
+				//if (sysRole != null)
+				//{
+				//    List<SysMenu> userRoleMenus = bizSysMenu.ListSysMenuBySysRoleID(sysRole.ID) as List<SysMenu>;
+				//    menuCollection.AddRange(userRoleMenus);
+				//}
 
 
-				/* 获取对用户额外分配的权限
-				----------------------------------------------------------*/
-				List<SysMenu> userExtraMenus = bizSysMenu.ListSysMenuByUserId(CurrentSysUser.ID) as List<SysMenu>;
-                for (int i = 0; i <menuCollection.Count; i++)
-                {
-                    for (int j = 0; j <= userExtraMenus.Count; j++)
-                    {
-                        if (j <userExtraMenus.Count)
-                        {
-                            if (menuCollection[i].Name == userExtraMenus[j].Name)
-                            {
-                                userExtraMenus.RemoveAt(j);
-                            }
-                        }
-                    }
-                }
-                    /* 两者权限合并返回
-                    ----------------------------------------------------------*/
-                    menuCollection.AddRange(userExtraMenus);
+				///* 获取对用户额外分配的权限
+				//----------------------------------------------------------*/
+				//List<SysMenu> userExtraMenus = bizSysMenu.ListSysMenuByUserId(CurrentSysUser.ID) as List<SysMenu>;
+				//for (int i = 0; i <menuCollection.Count; i++)
+				//{
+				//    for (int j = 0; j <= userExtraMenus.Count; j++)
+				//    {
+				//        if (j <userExtraMenus.Count)
+				//        {
+				//            if (menuCollection[i].Name == userExtraMenus[j].Name)
+				//            {
+				//                userExtraMenus.RemoveAt(j);
+				//            }
+				//        }
+				//    }
+				//}
+				//    /* 两者权限合并返回
+				//    ----------------------------------------------------------*/
+				//    menuCollection.AddRange(userExtraMenus);
 
-				/* 获取叶子权限的上级
-				----------------------------------------------------------*/
-				List<Guid> level2Ids = menuCollection.Select(x => x.ParentID.Value).Distinct().ToList();
-				List<SysMenu> level2 = bizSysMenu.ListBy(x => level2Ids.Contains(x.ID)) as List<SysMenu>;
+				///* 获取叶子权限的上级
+				//----------------------------------------------------------*/
+				//List<Guid> level2Ids = menuCollection.Select(x => x.ParentID.Value).Distinct().ToList();
+				//List<SysMenu> level2 = bizSysMenu.ListBy(x => level2Ids.Contains(x.ID)) as List<SysMenu>;
 
-				List<Guid> level1Ids = level2.Select(x => x.ParentID.Value).Distinct().ToList();
-				List<SysMenu> level1 = bizSysMenu.ListBy(x => level1Ids.Contains(x.ID)) as List<SysMenu>;
+				//List<Guid> level1Ids = level2.Select(x => x.ParentID.Value).Distinct().ToList();
+				//List<SysMenu> level1 = bizSysMenu.ListBy(x => level1Ids.Contains(x.ID)) as List<SysMenu>;
 
-				menuCollection.AddRange(level1);
-				menuCollection.AddRange(level2);
+				//menuCollection.AddRange(level1);
+				//menuCollection.AddRange(level2);
 
-				return menuCollection;
+				//return menuCollection;
+				return null;
 			}
 		}
 

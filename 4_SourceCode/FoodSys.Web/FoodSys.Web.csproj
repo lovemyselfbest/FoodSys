@@ -161,10 +161,7 @@
     <Compile Include="Areas\ModuleSys\Models\ModelSysUserTypeManage.cs" />
     <Compile Include="Areas\ModuleSys\ModuleSysAreaRegistration.cs" />
     <Compile Include="Base\Model.cs" />
-    <Compile Include="Base\CacheManager.cs" />
     <Compile Include="Base\SessionManager.cs" />
-    <Compile Include="Base\UserProfile.cs" />
-    <Compile Include="Base\Widget.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ExportHelperController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

@@ -13,7 +13,7 @@ using NHibernate.Context;
 using FoodSys.Web.Out.Base;
 using System.Configuration;
 
-namespace FoodSys.Web
+namespace FoodSys.Web.Out
 {
 	// Note: For instructions on enabling IIS6 or IIS7 classic mode, 
 	// visit http://go.microsoft.com/?LinkId=9394801
@@ -85,7 +85,7 @@ namespace FoodSys.Web
 		{
 			if (WebTools.IsNotExcuteAspx(Context.Request.CurrentExecutionFilePathExtension))
 				return;
-			SessionManager.Authorize();
+			//SessionManager.Authorize();
 		}
 
 
