@@ -145,6 +145,7 @@
     <Compile Include="EntitySearch\SearchPersonalReNewAuditIndex.cs" />
     <Compile Include="EntitySearch\SearchPersonalRenewNotifyIndex.cs" />
     <Compile Include="EntitySearch\SearchProduct.cs" />
+    <Compile Include="EntitySearch\SearchProductType.cs" />
     <Compile Include="EntitySearch\SearchRefundFeeListDeposit.cs" />
     <Compile Include="EntitySearch\SearchRentalChargeIndex.cs" />
     <Compile Include="EntitySearch\SearchRentBookFeeCarryover.cs" />

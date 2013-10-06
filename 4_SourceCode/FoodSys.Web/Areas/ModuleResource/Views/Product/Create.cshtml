@@ -1,5 +1,117 @@
-﻿@{
-    ViewBag.Title = "Create";
+﻿@model FoodSys.Web.Areas.ModuleResource.Models.ModelProductCreate
+@{
+	ViewBag.Title = "ModelProductCreate";
+	Layout = "~/Views/Shared/_LayoutDialog.cshtml";
 }
-
-<h2>Create</h2>
+<style type="text/css">
+	.table-detail th
+	{
+		width: 150px;
+	}
+	.td-retype .field-validation-valid
+	{
+		display: none;
+	}
+</style>
+<div class="wfill hfill center">
+	<p class="p-s1">
+		@(Model.PageState)产品
+	</p>
+	@using (Html.BeginForm())
+ {
+		
+		@Html.HiddenFor(x => x.UTProductEntity.ID)
+		@Html.HiddenFor(x => x.UTProductEntity.CreateDate)
+		@Html.HiddenFor(x => x.UTProductEntity.CreateID)
+		@Html.HiddenFor(x => x.UTProductEntity.Version)
+		@Html.HiddenFor(x => x.ID)
+		<table cellpadding="0" cellspacing="0" align="center" class="table-detail">
+			<thead>
+				<tr>
+					<td colspan="2">
+						<div>
+							产品信息</div>
+					</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>
+						<span class="red">*</span>名称：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.UTProductEntity.Name, new { maxlength = 50 })
+						@Html.ValidationMessageFor(x => x.UTProductEntity.Name)
+					</td>
+				</tr>
+				<tr>
+					<th>
+						供应商：
+					</th>
+					<td>
+						@Html.DropDownListForFix(x => x.UTProductEntity.SupplierID, SelectListHelper.ComposeSelectListFromCollect<UTSupplier>(Model.UTSupplierCollection, x => x.ID, x => x.Name, "==请选择==", ""))
+					</td>
+				</tr>
+				<tr>
+					<th>
+						类型：
+					</th>
+					<td>@Html.DropDownListForFix(x => x.UTProductEntity.ProductType, SelectListHelper.ComposeSelectListFromCollect<UTProductType>(Model.UTProductTypeCollection, x => x.ID, x => x.TypeName, "==请选择==", ""))
+					</td>
+				</tr>
+				<tr>
+					<th>
+						进价：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.UTProductEntity.PurchasePrice, new { maxlength = 20 })
+					</td>
+				</tr>
+				<tr>
+					<th>
+						售价：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.UTProductEntity.SellPrice, new { maxlength = 20 })
+					</td>
+				</tr>
+				<tr>
+					<th>
+						单位：
+					</th>
+					<td>
+						@Html.DropDownListForFix(x => x.UTProductEntity.UnitID, SelectListHelper.ComposeSelectListFromCollect<SysCodeInfo>(Model.SysCodeInfoCollection, x => x.Code, x => x.Name, "==请选择==", ""))
+					</td>
+				</tr>
+				<tr>
+					<th>
+						最大销售量：
+					</th>
+					<td>
+						@Html.TextBoxFor(x => x.UTProductEntity.MaxNumber, new { maxlength = 20 })
+					</td>
+				</tr>
+				<tr>
+					<th>
+						状态：
+					</th>
+					<td>
+						@Html.DropDownListForFix(x => x.UTProductEntity.Status, SelectListHelper.ComposeSelectListFromEnum<FoodSys.Enum.EnumProductStatus>())
+					</td>
+				</tr>
+				<tr>
+					<th>
+						描述：
+					</th>
+					<td>
+						@Html.TextAreaForFix(x => x.UTProductEntity.Description, new { style = "height:90px;width:460px;", cols = "20", rows = "3" })
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="center wfill">
+			<input type="submit" value="保存" class="button" />
+			<input type="button" value="关闭" class="button" onclick="javascript:window.parent.closeDialog();" />
+		</div>
+ }
+</div>

@@ -1,0 +1,81 @@
+﻿@{
+	Layout = null;
+}
+@model FoodSys.Web.Areas.ModuleResource.Models.ModelProductTypeIndex
+<div class="common-table-container">
+	<table class="common-table" id="common-table">
+		<colgroup>
+			<col width="45" />
+			<col width="45" />
+			<col width="45" />
+			<col width="200" />
+			<col width="200" />
+			<col width="100" />
+			<col width="100" />
+			<col width="100" />
+			<col width="150" />
+			<col width="150" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th>
+					<input type="checkbox" class="common-table-checkbox-all" />
+				</th>
+				<th colspan="2">
+					操作
+				</th>
+				@Html.HiddenFor(x => x.SearchEntity._OrderName, new { data_order_name = "" })
+				@Html.HiddenFor(x => x.SearchEntity._OrderDirection, new { data_order_direction = "" })
+				@(Html.ThOrderHelper<FoodSys.Entity.UTProductType>(x => x.ID, "ID"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTProductType>(x => x.TypeName, "名称"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTProductType>(x => x.IsLeaf, "叶子"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTProductType>(x => x.SortIndex, "排序号"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTProductType>(x => x.Status, "状态"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTProductType>(x => x.UpdateDate, "添加时间"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UTProductType>(x => x.CreateDate, "更新时间"))
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model.UTProductTypeCollection)
+   {
+				<tr ondblclick="javascript:show('@item.ID');">
+					<td>
+						<input type="checkbox" name="checkboxItem" class="checkboxItem" value="@item.ID" />
+					</td>
+					<td>
+						<a href="javascript:editProductType('@item.ID')" class="a-edit" title="修改">&nbsp</a>
+					</td>
+					<td>
+						<a href="javascript:deleteProductType('@item.ID')" class="a-delete" title="删除">&nbsp</a>
+					</td>
+					<td title="@item.ID">
+						@item.ID
+					</td>
+					<td title="@item.TypeName">
+						@item.TypeName
+					</td>
+					<td>
+						@(item.IsLeaf ?? false ? "是" : "否")
+					</td>
+					<td title="@item.SortIndex">
+						@item.SortIndex
+					</td>
+					<td>
+						@(((EnumProductTypeStatus)item.Status).ToString())
+					</td>
+					<td title="@item.CreateDate">
+						@item.CreateDate.ToString()
+					</td>
+					<td title="@item.UpdateDate">
+						@item.UpdateDate.ToString()
+					</td>
+				</tr>
+   }
+		</tbody>
+	</table>
+</div>
+<div>
+	@{
+		Html.RenderPartial("/Views/Controls/Paginate.cshtml", Model.PaginateHelperObject);
+	}
+</div>

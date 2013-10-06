@@ -1,16 +1,16 @@
 ﻿@{
-	ViewBag.Title = "Product";
+	ViewBag.Title = "ModelProductTypeIndex";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model FoodSys.Web.Areas.ModuleResource.Models.ModelProductIndex
+@model FoodSys.Web.Areas.ModuleResource.Models.ModelProductTypeIndex
 <script type="text/javascript">
-	//添加产品信息
-	function addProduct() {
-		window.top.openDialog({ Url: "/ModuleResource/Product/Create/?pageState=" + create, Title: "新增产品信息", Width: 750, Height: 500 });
+	//添加企业信息
+	function addProductType() {
+		window.top.openDialog({ Url: "/ModuleResource/ProductType/Create/?pageState=" + create, Title: "新增企业信息", Width: 750, Height: 500 });
 	}
 
 	//根据ID删除用户
-	function deleteProduct(ID) {
+	function deleteProductType(ID) {
 		top.window.$("#sysConfirm").html("确定要删除？");
 		top.window.$("#sysConfirm").dialog({
 			resizable: false,
@@ -21,7 +21,7 @@
 				"是": function () {
 					$.ajax({
 						type: "POST",
-						url: "/ModuleResource/Product/Delete",
+						url: "/ModuleResource/ProductType/Delete",
 						data: "id=" + ID,
 						success: function (msg) {
 							msg = eval("(" + msg + ")");
@@ -43,7 +43,7 @@
 		});
 	}
 	//批量删除
-	function deleteProductBatch() {
+	function deleteProductTypeBatch() {
 		if (!defaultTable.isSelect())
 			return;
 
@@ -56,7 +56,7 @@
 			buttons: {
 				"是": function () {
 					$("form").ajaxFormUnbind();
-					$("form").attr("action", "/ModuleResource/Product/DeleteBatch/?RetUrl=" + escape(commonPage.getCurrentUrl())).submit();
+					$("form").attr("action", "/ModuleResource/ProductType/DeleteBatch/?RetUrl=" + escape(commonPage.getCurrentUrl())).submit();
 					top.window.$("#sysConfirm").dialog("close");
 				},
 				"否": function () {
@@ -67,12 +67,12 @@
 	}
 
 	//根据ID修改供应商信息
-	function editProduct(ID) {
-		window.top.openDialog({ Url: "/ModuleResource/Product/Create/?ID=" + ID + "&pagestate=" + edit, Title: "修改产品信息", Width: 750, Height: 500 });
+	function editProductType(ID) {
+		window.top.openDialog({ Url: "/ModuleResource/ProductType/Create/?ID=" + ID + "&pagestate=" + edit, Title: "修改供应商信息", Width: 750, Height: 500 });
 	}
 	//根据编号查看用户信息
 	function show(ID) {
-		window.top.openDialog({ Url: "/ModuleResource/Product/Create/?ID=" + ID + "&pagestate=" + detail, Title: "供应产品查看", Width: 750, Height: 500 });
+		window.top.openDialog({ Url: "/ModuleResource/ProductType/Create/?ID=" + ID + "&pagestate=" + detail, Title: "供应商信息查看", Width: 750, Height: 500 });
 	}
 </script>
 @using (Html.BeginForm())
@@ -81,9 +81,9 @@
 	 ----------------------------------------------------------*/
 	<div class="toolbar">
 		<div class="toolbar-left">
-			@Html.Button(ButtonType.新增, "addProduct()")
-			@Html.Button(ButtonType.批量删除, "deleteProductBatch()")
-			@Html.Button(ButtonType.导出XLS, string.Format("defaultExport.showExportDialog('{0}')", Project.Common.StringUtility.EncodeBase64("FoodSys.Entity.UTProduct")), "导出")
+			@Html.Button(ButtonType.新增, "addProductType()")
+			@Html.Button(ButtonType.批量删除, "deleteProductTypeBatch()")
+			@Html.Button(ButtonType.导出XLS, string.Format("defaultExport.showExportDialog('{0}')", Project.Common.StringUtility.EncodeBase64("FoodSys.Entity.UTProductType")), "导出")
 			@Html.Button(ButtonType.条件查询, "commonPage.scan()")
 		</div>
 		<div class="toolbar-right">
@@ -101,38 +101,14 @@
 					名称：
 				</th>
 				<td>
-					@Html.TextBoxFor(x => x.SearchEntity._Name, new { style = "width:190px" })
-				</td>
-				<th>
-					类型：
-				</th>
-				<td>
-					@Html.TextBoxFor(x => x.SearchEntity._ProductType, new { style = "width:190px" })
+					@Html.TextBoxFor(x => x.SearchEntity._TypeName, new { style = "width:100px" })
 				</td>
 				<th>
 					状态：
 				</th>
 				<td>
-					@Html.DropDownListForFix(x => x.SearchEntity._Status, SelectListHelper.ComposeSelectListFromEnum<FoodSys.Enum.EnumProductStatus>("==请选择==", ""), new { style = "width:127px" })
+					@Html.DropDownListForFix(x => x.SearchEntity._Status, SelectListHelper.ComposeSelectListFromEnum<FoodSys.Enum.EnumProductTypeStatus>("==请选择==", ""), new { style = "width:127px" })
 				</td>
-			</tr>
-			<tr>
-				<th>
-					进价区间：
-				</th>
-				<td>
-					@Html.TextBoxFor(x => x.SearchEntity._PurchasePriceS, new { style = "width:80px" })
-					<span>至</span> @Html.TextBoxFor(x => x.SearchEntity._PurchasePriceE, new { style = "width:80px" })
-				</td>
-				<th>
-					售价区间：
-				</th>
-				<td>
-					@Html.TextBoxFor(x => x.SearchEntity._SellPriceS, new { style = "width:80px" })
-					<span>至</span> @Html.TextBoxFor(x => x.SearchEntity._SellPriceE, new { style = "width:80px" })
-				</td>
-				<th>
-				</th>
 				<td class="search-button">
 					<input type="submit" value="" class="button-search" />
 					<input type="button" value="" class="button-clear" />

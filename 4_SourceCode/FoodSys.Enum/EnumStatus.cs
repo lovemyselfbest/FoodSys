@@ -302,4 +302,22 @@ namespace FoodSys.Enum
 		正常 = 1
 	}
 
+	/// <summary>
+	/// 产品状态
+	/// </summary>
+	public enum EnumProductStatus
+	{
+		待审核 = 0,
+		正常 = 1,
+		已下架 = 1,
+		作废
+	}
+
+
+	public enum EnumProductTypeStatus
+	{
+		不可用 = 0,
+		可用 = 1
+	}
+
 }

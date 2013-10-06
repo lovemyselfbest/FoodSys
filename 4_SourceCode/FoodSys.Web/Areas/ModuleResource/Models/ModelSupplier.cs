@@ -104,9 +104,8 @@ namespace FoodSys.Web.Areas.ModuleResource.Models
 			set { uTSupplierEntity = value; }
 		}
 
-
 		public void RetriveData()
-		{
+		{		 
 			//如果编号不能NULL  则查找该实体
 			if (ID != null)
 				UTSupplierEntity = bizUSupplier.GetFirst(x => x.ID == ID);
