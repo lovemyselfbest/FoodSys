@@ -201,8 +201,8 @@ namespace FoodSys.Web.Areas.ModuleResource.Models
 				UTProductEntity.UpdateDate = DateTime.Now;
 				UTProductEntity.UpdateID = SessionManager.CurrentSysUser.ID;
 			}
-			UTProductEntity.ImgAddress = ImgAddress == null ? UTProductEntity.ImgAddress : UploadHelper.SaveFile(ImgAddress);
-
+			UTProductEntity.ImgAddress = ImgAddress == null ? UTProductEntity.ImgAddress : UploadHelper.SaveOriginalImgFile(ImgAddress);
+			UploadHelper.CutImg(ImgAddress, UTProductEntity.ImgAddress, 300, 300);
 
 			bizUTProduct.SaveOrUpdate(UTProductEntity);
 		}
