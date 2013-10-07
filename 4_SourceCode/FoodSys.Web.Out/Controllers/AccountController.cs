@@ -4,25 +4,29 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Project.Web.Base;
-using Project.Common;
-using Project.Web.Base.Utility;
-using FoodSys.Biz.BizAccess;
-using FoodSys.Web.Out.Models;
-using FoodSys.Web.Out.Base;
 
 namespace FoodSys.Web.Out.Controllers
 {
-	public class HomeController : BaseController
+	public class AccountController : BaseController
 	{
+		//
+		// GET: /Account/
+
 		public ActionResult Index()
 		{
 			return View();
 		}
 
-		public ActionResult About()
+		public ActionResult Register()
 		{
 			return View();
 		}
+
+		public ActionResult Login()
+		{
+			return View();
+		}
+
 
 	}
 }

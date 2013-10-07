@@ -1,0 +1,413 @@
+﻿@{
+	ViewBag.Title = "Index";
+}
+<style type="text/css">
+	.layout-left
+	{
+		float: left;
+		width: 150px;
+		background-color: #EDF4FC;
+		padding: 0 15px 0 0;
+		height: 100%;
+	}
+	.layout-left ul
+	{
+		margin-top: 0;
+	}
+	
+	.layout-left li
+	{
+		list-style-type: none;
+		font-size: 14px;
+		margin: 5px 0;
+		text-align: right;
+	}
+	.active
+	{
+		font-weight: bold;
+		color: Black;
+		border-bottom: 1px solid #0071bc;
+	}
+	
+	.layout-right
+	{
+		margin: 0 0 0 165px;
+	}
+	.layout-right ul
+	{
+	}
+	
+	.layout-right li
+	{
+		list-style-type: none;
+		margin: 10px 0;
+	}
+	
+	.title-item
+	{
+		color: Black;
+		font-size: 14px;
+		font-weight: bold;
+	}
+	.title-item-content
+	{
+		padding: 0 20px 0 0;
+	}
+	
+	.table-order-head
+	{
+		border-collapse: collapse;
+	}
+	.table-order-head tr th
+	{
+		background: #CADFFA;
+		border: 1px solid #DBDBDD;
+		color: Black;
+		text-align: center;
+		height: 27px;
+		line-height: 26px;
+	}
+	
+	
+	.table-order-detail
+	{
+		border-collapse: collapse;
+	}
+	.table-order-detail tr th
+	{
+		background: #F6F6F6;
+		border: 1px solid #DBDBDD;
+		color: Black;
+		text-align: right;
+	}
+	.table-order-detail td, .table-order-detail th
+	{
+		border: 1px solid #C0D1E3;
+		height: 27px;
+		line-height: 26px;
+		text-align: center;
+		vertical-align: middle;
+		text-decoration: none;
+	}
+	
+	.small-image img
+	{
+		width: 50px;
+		height: 50px;
+	}
+	
+	.search
+	{
+		padding: 10px 0 5px 0;
+		margin: 0 0 0 40px;
+		color: Black;
+		font-size: 14px;
+		font-weight: bold;
+		border-bottom: 1px solid #E5EDE1;
+	}
+	.search a
+	{
+		color: White;
+	}
+	.sort
+	{
+		height: 30px;
+		margin: 0 0 0 45px;
+	}
+	.sort ul
+	{
+		margin: 0;
+		padding: 0;
+	}
+	.sort li
+	{
+		list-style-type: none;
+		float: left;
+		width: 50px;
+	}
+</style>
+<h2 class="title-h2">
+	个人中心..
+</h2>
+<div class="layout-left">
+	<ul>
+		<li class="active">我的订单</li>
+		<li><a href="#">我的购物车</a></li>
+		<li><a href="#">我的资料</a></li>
+	</ul>
+</div>
+<div class="layout-right">
+	<div class="search">
+		<span>菜品：</span>
+		<input />
+		<a href="#" class="button button-rounded button-flat-primary button-tiny">搜索</a>
+	</div>
+	<div class="sort">
+		<ul>
+			<li><a href="#">日期</a></li>
+			<li><a href="#">状态</a></li>
+		</ul>
+	</div>
+	<ul>
+		<li>
+			<table class="table-order-head">
+				<colgroup>
+					<col width="110px" />
+					<col width="150px" />
+					<col width="150px" />
+					<col width="150px" />
+					<col width="150px" />
+					<col width="150px" />
+				</colgroup>
+				<tr>
+					<th class="small-image">
+						菜品
+					</th>
+					<th>
+						价格
+					</th>
+					<th>
+						数量
+					</th>
+					<th>
+						实际付款
+					</th>
+					<th>
+						交易状态
+					</th>
+					<th>
+						交易操作
+					</th>
+				</tr>
+			</table>
+		</li>
+		<li>
+			<div>
+				<span class="title-item">订单编号：</span> <span class="title-item-content">255433314302316</span>
+				<span class="title-item">成交时间：</span> <span>2013-10-7 23:48:09</span>
+			</div>
+			<table class="table-order-detail">
+				<colgroup>
+					<col width="110px" />
+					<col width="150px" />
+					<col width="150px" />
+					<col width="150px" />
+					<col width="150px" />
+					<col width="150px" />
+				</colgroup>
+				<tr>
+					<td class="small-image">
+						<img src="http://img.dingcai.com/images/product/9/9/list/1.jpg" />
+					</td>
+					<td>
+						9.8 / 斤
+					</td>
+					<td>
+						1
+					</td>
+					<td>
+						9.8
+					</td>
+					<td>
+						交易成功
+					</td>
+					<td>
+						再次购买
+					</td>
+				</tr>
+				<tr>
+					<td class="small-image">
+						<img src="http://img.dingcai.com/images/product/9/9/list/1.jpg" />
+					</td>
+					<td>
+						9.8 / 斤
+					</td>
+					<td>
+						1
+					</td>
+					<td>
+						9.8
+					</td>
+					<td>
+						交易成功
+					</td>
+					<td>
+						再次购买
+					</td>
+				</tr>
+				<tr>
+					<td class="small-image">
+						<img src="http://img.dingcai.com/images/product/9/9/list/1.jpg" />
+					</td>
+					<td>
+						9.8 / 斤
+					</td>
+					<td>
+						1
+					</td>
+					<td>
+						9.8
+					</td>
+					<td>
+						交易成功
+					</td>
+					<td>
+						再次购买
+					</td>
+				</tr>
+			</table>
+		</li>
+		<li>
+			<div>
+				<span class="title-item">订单编号：</span> <span class="title-item-content">255433314302316</span>
+				<span class="title-item">成交时间：</span> <span>2013-10-7 23:48:09</span>
+			</div>
+			<table class="table-order-detail">
+				<colgroup>
+					<col width="110px" />
+					<col width="150px" />
+					<col width="150px" />
+					<col width="150px" />
+					<col width="150px" />
+					<col width="150px" />
+				</colgroup>
+				<tr>
+					<td class="small-image">
+						<img src="http://img.dingcai.com/images/product/9/9/list/1.jpg" />
+					</td>
+					<td>
+						9.8 / 斤
+					</td>
+					<td>
+						1
+					</td>
+					<td>
+						9.8
+					</td>
+					<td>
+						交易成功
+					</td>
+					<td>
+						再次购买
+					</td>
+				</tr>
+				<tr>
+					<td class="small-image">
+						<img src="http://img.dingcai.com/images/product/9/9/list/1.jpg" />
+					</td>
+					<td>
+						9.8 / 斤
+					</td>
+					<td>
+						1
+					</td>
+					<td>
+						9.8
+					</td>
+					<td>
+						交易成功
+					</td>
+					<td>
+						再次购买
+					</td>
+				</tr>
+				<tr>
+					<td class="small-image">
+						<img src="http://img.dingcai.com/images/product/9/9/list/1.jpg" />
+					</td>
+					<td>
+						9.8 / 斤
+					</td>
+					<td>
+						1
+					</td>
+					<td>
+						9.8
+					</td>
+					<td>
+						交易成功
+					</td>
+					<td>
+						再次购买
+					</td>
+				</tr>
+			</table>
+		</li>
+		<li>
+			<div>
+				<span class="title-item">订单编号：</span> <span class="title-item-content">255433314302316</span>
+				<span class="title-item">成交时间：</span> <span>2013-10-7 23:48:09</span>
+			</div>
+			<table class="table-order-detail">
+				<colgroup>
+					<col width="110px" />
+					<col width="150px" />
+					<col width="150px" />
+					<col width="150px" />
+					<col width="150px" />
+					<col width="150px" />
+				</colgroup>
+				<tr>
+					<td class="small-image">
+						<img src="http://img.dingcai.com/images/product/9/9/list/1.jpg" />
+					</td>
+					<td>
+						9.8 / 斤
+					</td>
+					<td>
+						1
+					</td>
+					<td>
+						9.8
+					</td>
+					<td>
+						交易成功
+					</td>
+					<td>
+						再次购买
+					</td>
+				</tr>
+				<tr>
+					<td class="small-image">
+						<img src="http://img.dingcai.com/images/product/9/9/list/1.jpg" />
+					</td>
+					<td>
+						9.8 / 斤
+					</td>
+					<td>
+						1
+					</td>
+					<td>
+						9.8
+					</td>
+					<td>
+						交易成功
+					</td>
+					<td>
+						再次购买
+					</td>
+				</tr>
+				<tr>
+					<td class="small-image">
+						<img src="http://img.dingcai.com/images/product/9/9/list/1.jpg" />
+					</td>
+					<td>
+						9.8 / 斤
+					</td>
+					<td>
+						1
+					</td>
+					<td>
+						9.8
+					</td>
+					<td>
+						交易成功
+					</td>
+					<td>
+						再次购买
+					</td>
+				</tr>
+			</table>
+		</li>
+	</ul>
+</div>

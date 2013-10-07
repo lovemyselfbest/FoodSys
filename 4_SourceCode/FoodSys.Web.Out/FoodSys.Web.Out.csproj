@@ -130,9 +130,11 @@
   <ItemGroup>
     <Compile Include="Base\Model.cs" />
     <Compile Include="Base\SessionManager.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
-    <Compile Include="Controllers\ExportHelperController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PersonalController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -204,8 +206,6 @@
     <Content Include="Content\themes\ui-lightness\jquery.ui.slider.css" />
     <Content Include="Content\themes\ui-lightness\jquery.ui.tabs.css" />
     <Content Include="Content\themes\ui-lightness\jquery.ui.theme.css" />
-    <Content Include="Content\Css\Flow.css" />
-    <Content Include="Content\Css\SysRoleManageIndex.css" />
     <Content Include="Content\Home.css" />
     <Content Include="Content\Images\T1ebamXel5XXXXXXXX-20-2400.png" />
     <Content Include="Content\Images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
@@ -994,6 +994,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\" />
+    <Folder Include="Content\Css\" />
     <Folder Include="Content\tables\default\images\" />
     <Folder Include="Content\themes\base\images\Start_Menu\" />
   </ItemGroup>
@@ -1026,6 +1027,13 @@
     <Content Include="Scripts\ueditor\net\imageUp.ashx" />
     <Content Include="Scripts\ueditor\net\Web.config" />
     <Content Include="Scripts\ueditor\third-party\source code for imgupload with flash.zip" />
+    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Personal\Index.cshtml" />
+    <Content Include="Views\Personal\Cart.cshtml" />
+    <Content Include="Views\Personal\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Project.Biz.Base\Project.Biz.Base.csproj">

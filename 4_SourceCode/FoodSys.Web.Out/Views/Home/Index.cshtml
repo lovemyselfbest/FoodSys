@@ -23,8 +23,8 @@
 	{
 		margin: 0 0 0 200px;
 		width: 585px;
-		background-color: #F1FAED;
-		overflow:hidden;
+		background-color: #F3F7F9;
+		overflow: hidden;
 	}
 	
 	.product ul
@@ -39,14 +39,16 @@
 		float: left;
 		width: 180px;
 		margin: 0 5px 5px 0;
-		padding:10px 0 0 0;
+		padding: 10px 0 0 0;
 		border: 1px solid #EDF7E9;
 		text-align: center;
 		background-color: White;
+		cursor: pointer;
 	}
-	.product-item:hover{
-		border-color:#ABF7B5;
-		background-color:#C5FACC;
+	.product-item:hover
+	{
+		border-color: #ABF7B5;
+		background-color: #C5FACC;
 	}
 	
 	.product-item-title
@@ -77,42 +79,43 @@
 		list-style-type: none;
 		margin: 0 0 0 40px;
 	}
-
-	.search{
-		padding:10px 0 5px 0;
-		margin:0 0 0 10px;
-		color:Black;
-		font-size:14px;
-		font-weight:bold;
-		border-bottom:1px solid #E5EDE1;
+	
+	.search
+	{
+		padding: 10px 0 5px 0;
+		margin: 0 0 0 10px;
+		color: Black;
+		font-size: 14px;
+		font-weight: bold;
+		border-bottom: 1px solid #E5EDE1;
 	}
-	.search a{
-		color:White;
+	.search a
+	{
+		color: White;
 	}
-	.sort{
-		height:30px;
-		
+	.sort
+	{
+		height: 30px;
 	}
-	.sort ul{
-		margin:10px;
-		padding:0;
+	.sort ul
+	{
+		margin: 10px;
+		padding: 0;
 	}
-	.sort li{
-		list-style-type:none;
-		float:left;
-		width:50px;
-		
+	.sort li
+	{
+		list-style-type: none;
+		float: left;
+		width: 50px;
 	}
 	
 	/* 右侧布局
 	----------------------------------------------------------*/
 	.layout-right
 	{
-		float:right;
-		width:250px;
+		float: right;
+		width: 250px;
 	}
-
-
 
 	li-button a:visited
 	{
@@ -124,8 +127,43 @@
 	$(function () {
 		var leftWidth = $(".layout-left").width();
 		var middleWidth = $(".layout-middle").width();
-		$(".layout-right").width(($(".layout").width() - leftWidth - middleWidth-20) + "px");
+		$(".layout-right").width(($(".layout").width() - leftWidth - middleWidth - 20) + "px");
+		$(".product-item").click(
+			function () {
+				var title = $(this).find(".product-item-title").html();
+				openDialog({ Title: title + "-订购", Url: "/product/detail/", Width: 800, Height: 600, BeforeClose: function () {
+					$("body").css("overflow", "auto");
+				}, Open: function () {
+					$("body").css("overflow", "hidden");
+				}
+				});
+			}
+		);
 	})
+
+	function openDialog(option) {
+		option = option || {};
+		var _default = {
+			Index: "1",
+			Width: 650,
+			Height: 550
+		};
+		$.extend(_default, option);
+		var dialogID = "#dialog" + _default.Index;
+		var frameID = "#iframeDialog" + _default.Index;
+		if ($(frameID)[0].contentWindow.itpOverlay)
+			$(frameID)[0].contentWindow.itpOverlay.show();
+		$(frameID).attr("src", _default.Url);
+		var dialogExtendOptions = {
+			"minimize": true
+		};
+		var windowHeight = $(window).height();
+		var windowWidth = $(window).width();
+		_default.Height = _default.Height > windowHeight ? windowHeight : _default.Height;
+		_default.Width = _default.Width > windowWidth ? windowWidth : _default.Width;
+
+		$(dialogID).dialog({ modal: true, title: _default.Title, width: _default.Width, height: _default.Height, beforeClose: _default.BeforeClose, open: _default.Open }).dialogExtend(dialogExtendOptions);
+	}
 
 </script>
 <h2 class="title-h2">
@@ -134,105 +172,60 @@
 <div class="layout">
 	<div class="layout-right">
 		<div class="module">
-			<div class="module-title">我的购物车..</div>
+			<div class="module-title">
+				我的购物车..</div>
 			<ul class="module-content">
-				<li>
-					<a href="/RegexHome/index/Email/">白灼生菜 </a>
-					<input value="2" style="width:40px; text-align:center;" />
-					<em>删除</em>
-				</li>
-				<li>
-					<a href="/RegexHome/index/Email/">白灼生菜 </a>
-					<input value="2" style="width:40px; text-align:center;" />
-					<em>删除</em>
-				</li>
-				<li>
-					<a href="/RegexHome/index/Email/">白灼生菜 </a>
-					<input value="2" style="width:40px; text-align:center;" />
-					<em>删除</em>
-				</li>
-				<li>
-					<a href="/RegexHome/index/Email/">白灼生菜 </a>
-					<input value="2" style="width:40px; text-align:center;" />
-					<em>删除</em>
-				</li>
-				<li>
-					<a href="/RegexHome/index/Email/">白灼生菜 </a>
-					<input value="2" style="width:40px; text-align:center;" />
-					<em>删除</em>
-				</li>
-				<li>
-					<a href="/RegexHome/index/Email/">白灼生菜 </a>
-					<input value="2" style="width:40px; text-align:center;" />
-					<em>删除</em>
-				</li>
+				<li><a href="/RegexHome/index/Email/">白灼生菜 </a>
+					<input value="2" style="width: 40px; text-align: center;" />
+					<em>删除</em> </li>
+				<li><a href="/RegexHome/index/Email/">白灼生菜 </a>
+					<input value="2" style="width: 40px; text-align: center;" />
+					<em>删除</em> </li>
+				<li><a href="/RegexHome/index/Email/">白灼生菜 </a>
+					<input value="2" style="width: 40px; text-align: center;" />
+					<em>删除</em> </li>
+				<li><a href="/RegexHome/index/Email/">白灼生菜 </a>
+					<input value="2" style="width: 40px; text-align: center;" />
+					<em>删除</em> </li>
+				<li><a href="/RegexHome/index/Email/">白灼生菜 </a>
+					<input value="2" style="width: 40px; text-align: center;" />
+					<em>删除</em> </li>
+				<li><a href="/RegexHome/index/Email/">白灼生菜 </a>
+					<input value="2" style="width: 40px; text-align: center;" />
+					<em>删除</em> </li>
 			</ul>
-			<div style="margin:0 0 20px 25px">
-				<input type="button" value="去结算" class="button button-rounded button-flat-primary button-small"></input>
+			<div style="margin: 0 0 20px 25px">
+				<input type="button" value="去结算" class="button button-rounded button-flat-primary button-small" />
 			</div>
 		</div>
 		<div class="module">
-			<div class="module-title">其他顾客买了..</div>
+			<div class="module-title">
+				其他顾客买了..</div>
 			<ul class="module-content">
-				<li>
-					<span>6-302</span>
-					<a href="/RegexHome/index/Email/">白灼生菜 </a>
-					<em>6 小时前..</em>
+				<li><span>6-302</span> <a href="/RegexHome/index/Email/">白灼生菜 </a><em>6 小时前..</em>
 				</li>
-				<li>
-					<span>6-302</span>
-					<a href="/RegexHome/index/Email/">白灼生菜 </a>
-					<em>6 小时前..</em>
+				<li><span>6-302</span> <a href="/RegexHome/index/Email/">白灼生菜 </a><em>6 小时前..</em>
 				</li>
-				<li>
-					<span>6-302</span>
-					<a href="/RegexHome/index/Email/">白灼生菜 </a>
-					<em>6 小时前..</em>
+				<li><span>6-302</span> <a href="/RegexHome/index/Email/">白灼生菜 </a><em>6 小时前..</em>
 				</li>
-				<li>
-					<span>6-302</span>
-					<a href="/RegexHome/index/Email/">白灼生菜 </a>
-					<em>6 小时前..</em>
+				<li><span>6-302</span> <a href="/RegexHome/index/Email/">白灼生菜 </a><em>6 小时前..</em>
 				</li>
-				<li>
-					<span>6-302</span>
-					<a href="/RegexHome/index/Email/">白灼生菜 </a>
-					<em>6 小时前..</em>
+				<li><span>6-302</span> <a href="/RegexHome/index/Email/">白灼生菜 </a><em>6 小时前..</em>
 				</li>
-				<li>
-					<span>6-302</span>
-					<a href="/RegexHome/index/Email/">白灼生菜 </a>
-					<em>6 小时前..</em>
+				<li><span>6-302</span> <a href="/RegexHome/index/Email/">白灼生菜 </a><em>6 小时前..</em>
 				</li>
 			</ul>
 		</div>
 		<div class="module">
-			<div class="module-title">我的浏览历史..</div>
+			<div class="module-title">
+				我的浏览历史..</div>
 			<ul class="module-content">
-				<li>
-					<a href="/RegexHome/index/Email/">白灼生菜 </a>
-					<em>6 小时前..</em>
-				</li>
-				<li>
-					<a href="/RegexHome/index/Email/">白灼生菜 </a>
-					<em>6 小时前..</em>
-				</li>
-				<li>
-					<a href="/RegexHome/index/Email/">白灼生菜 </a>
-					<em>6 小时前..</em>
-				</li>
-				<li>
-					<a href="/RegexHome/index/Email/">白灼生菜 </a>
-					<em>6 小时前..</em>
-				</li>
-				<li>
-					<a href="/RegexHome/index/Email/">白灼生菜 </a>
-					<em>6 小时前..</em>
-				</li>
-				<li>
-					<a href="/RegexHome/index/Email/">白灼生菜 </a>
-					<em>6 小时前..</em>
-				</li>
+				<li><a href="/RegexHome/index/Email/">白灼生菜 </a><em>6 小时前..</em> </li>
+				<li><a href="/RegexHome/index/Email/">白灼生菜 </a><em>6 小时前..</em> </li>
+				<li><a href="/RegexHome/index/Email/">白灼生菜 </a><em>6 小时前..</em> </li>
+				<li><a href="/RegexHome/index/Email/">白灼生菜 </a><em>6 小时前..</em> </li>
+				<li><a href="/RegexHome/index/Email/">白灼生菜 </a><em>6 小时前..</em> </li>
+				<li><a href="/RegexHome/index/Email/">白灼生菜 </a><em>6 小时前..</em> </li>
 			</ul>
 		</div>
 	</div>
@@ -346,5 +339,8 @@
 			</ul>
 		</div>
 	</div>
-	
+	<div id="dialog1" style="display: none; overflow: hidden;">
+		<iframe id="iframeDialog1" name="iframeDialog1" src='' frameborder='0' width='100%'
+			height='100%' marginheight='0' marginwidth='0' scrolling='no'></iframe>
+	</div>
 </div>
