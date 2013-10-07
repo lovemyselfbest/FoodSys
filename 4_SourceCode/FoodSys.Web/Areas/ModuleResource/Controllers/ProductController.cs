@@ -14,7 +14,7 @@ namespace FoodSys.Web.Areas.ModuleResource.Controllers
 	public class ProductController : BaseController
 	{
 		private BizUTProduct bizUTProduct;
-
+	 
 		public ActionResult Index(ModelProductIndex model, ExportHelper export)
 		{
 			model.ExportObject = export;

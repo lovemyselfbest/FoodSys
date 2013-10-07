@@ -14,7 +14,7 @@ namespace FoodSys.Web.Areas.ModuleResource.Models
 {
 	public class ModelProductIndex : Model
 	{
-		private BizUTProduct bizUTProduct;
+		private BizUVProduct bizUVProduct;
 		private BizUTProductType bizUTProductType;
 		private BizUTSupplier bizTUSupplier;
 
@@ -30,7 +30,7 @@ namespace FoodSys.Web.Areas.ModuleResource.Models
 					searchEntity = new SearchProduct();
 				if (string.IsNullOrEmpty(searchEntity._OrderName))
 				{
-					searchEntity._OrderName = ReflectionTools.GetPropertyNameFromExpression<UTProduct>(x => x.Name);
+					searchEntity._OrderName = ReflectionTools.GetPropertyNameFromExpression<UVProduct>(x => x.Name);
 					searchEntity._OrderDirection = ((int)EnumOrder.ASC).ToString();
 				}
 				return searchEntity;
@@ -41,14 +41,14 @@ namespace FoodSys.Web.Areas.ModuleResource.Models
 			}
 		}
 
-		private IList<UTProduct> uTProductCollection = new List<UTProduct>();
+		private IList<UVProduct> uVProductCollection = new List<UVProduct>();
 		/// <summary>
 		///    集合
 		/// </summary>
-		public IList<UTProduct> UTProductCollection
+		public IList<UVProduct> UVProductCollection
 		{
-			get { return uTProductCollection; }
-			set { uTProductCollection = value; }
+			get { return uVProductCollection; }
+			set { uVProductCollection = value; }
 		}
 
 		private IList<UTSupplier> uTSupplierCollection = new List<UTSupplier>();
@@ -76,7 +76,7 @@ namespace FoodSys.Web.Areas.ModuleResource.Models
 		{
 			UTSupplierCollection = bizTUSupplier.ListBy(x => x.Status == (int)EnumSupplierStatus.正常).OrderBy(y => y.Name).ToList();
 			UTProductTypeCollection = bizUTProductType.ListBy(x => x.Status == (int)EnumProductStatus.正常, "SortIndex", EnumOrder.ASC);
-			ExpressionCondition<UTProduct> condition = ExpressionCondition<UTProduct>.GetInstance();
+			ExpressionCondition<UVProduct> condition = ExpressionCondition<UVProduct>.GetInstance();
 			if (string.IsNullOrEmpty(SearchEntity._CommonSearchCondition))
 			{
 				condition.And(x => x.Name, SearchEntity._Name, ExpressionValueRelation.Like)
@@ -85,7 +85,8 @@ namespace FoodSys.Web.Areas.ModuleResource.Models
 					.And(x => x.PurchasePrice, SearchEntity._PurchasePriceE, ExpressionValueRelation.LessThanOrEqual)
 					.And(x => x.SellPrice, SearchEntity._SellPriceS, ExpressionValueRelation.GreaterThanOrEqual)
 					.And(x => x.SellPrice, SearchEntity._SellPriceE, ExpressionValueRelation.LessThanOrEqual)
-					.And(x => x.Status, SearchEntity._Status, ExpressionValueRelation.Equal);
+					.And(x => x.Status, SearchEntity._Status, ExpressionValueRelation.Equal)
+					.And(x => x.SupplierID, SearchEntity._SupplierID, ExpressionValueRelation.Equal);
 
 
 			}
@@ -93,14 +94,16 @@ namespace FoodSys.Web.Areas.ModuleResource.Models
 				condition
 					.Or(x => x.Name, SearchEntity._CommonSearchCondition, ExpressionValueRelation.Like)
 					.Or(x => x.PurchasePrice, SearchEntity._CommonSearchCondition, ExpressionValueRelation.Like)
-					.Or(x => x.SellPrice, SearchEntity._CommonSearchCondition, ExpressionValueRelation.Like);
+					.Or(x => x.SellPrice, SearchEntity._CommonSearchCondition, ExpressionValueRelation.Like)
+					.Or(x => x.SupplierName, SearchEntity._CommonSearchCondition, ExpressionValueRelation.Like)
+					.Or(x => x.TypeName, SearchEntity._CommonSearchCondition, ExpressionValueRelation.Like);
 
 			//导出全部数据
 			if (ExportObject.ExportType != null && ExportObject.ExportType == ExportType.导出全部)
 			{
 				return;
 			}
-			UTProductCollection = bizUTProduct.PaginateListBy(SearchEntity._PageSize.Value, SearchEntity._PageIndex ?? 0, ref count, condition.ConditionExpression, SearchEntity._OrderName, SearchEntity.EnumOrderDirection);
+			UVProductCollection = bizUVProduct.PaginateListBy(SearchEntity._PageSize.Value, SearchEntity._PageIndex ?? 0, ref count, condition.ConditionExpression, SearchEntity._OrderName, SearchEntity.EnumOrderDirection);
 			PaginateHelperObject = PaginateHelper.ConstructPaginate(SearchEntity._PageSize.Value, count, SearchEntity._PageIndex ?? 0, SearchEntity, "SearchEntity");
 
 		}

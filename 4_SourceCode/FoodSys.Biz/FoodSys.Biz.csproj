@@ -12,14 +12,10 @@
     <AssemblyName>FoodSys.Biz</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName></SccProjectName>
+    <SccLocalPath></SccLocalPath>
+    <SccAuxPath></SccAuxPath>
+    <SccProvider></SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -205,6 +201,10 @@
     <Compile Include="Biz\BizUTCustomer.cs" />
     <Compile Include="Biz\BizUTCustomer.Designer.cs">
       <DependentUpon>BizUTCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BizView\BizUVProduct.cs" />
+    <Compile Include="BizView\BizUVProduct.Designer.cs">
+      <DependentUpon>BizUVProduct.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

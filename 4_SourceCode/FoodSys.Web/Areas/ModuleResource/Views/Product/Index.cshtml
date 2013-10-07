@@ -101,21 +101,22 @@
 					名称：
 				</th>
 				<td>
-					@Html.TextBoxFor(x => x.SearchEntity._Name, new { style = "width:190px" })
-				</td>
-				<th>
-					类型：
-				</th>
-				<td>
-					@Html.DropDownListForFix(x => x.SearchEntity._ProductType, SelectListHelper.ComposeSelectListFromCollect<UTProductType>(Model.UTProductTypeCollection, x => x.ID, x => x.TypeName, "---请选择---", ""))
+					@Html.TextBoxFor(x => x.SearchEntity._Name, new { style = "width:192px" })
 				</td>
 				<th>
 					供应商：
 				</th>
 				<td>
-					@Html.DropDownListForFix(x => x.SearchEntity._SupplierID, SelectListHelper.ComposeSelectListFromCollect<UTSupplier>(Model.UTSupplierCollection, x => x.ID, x => x.Name, "---请选择---", ""))
+					@Html.DropDownListForFix(x => x.SearchEntity._SupplierID, SelectListHelper.ComposeSelectListFromCollect<UTSupplier>(Model.UTSupplierCollection, x => x.ID, x => x.Name, "---请选择---", ""), new { style = "width:192px" })
 				</td>
 				<th>
+					类型：
+				</th>
+				<td>
+					@Html.DropDownListForFix(x => x.SearchEntity._ProductType, SelectListHelper.ComposeSelectListFromCollect<UTProductType>(Model.UTProductTypeCollection, x => x.ID, x => x.TypeName, "---请选择---", ""), new { style = "width:128px" })
+				</td>
+				<th >
+					&nbsp;
 				</th>
 			</tr>
 			<tr>
@@ -137,7 +138,7 @@
 					状态：
 				</th>
 				<td>
-					@Html.DropDownListForFix(x => x.SearchEntity._Status, SelectListHelper.ComposeSelectListFromEnum<FoodSys.Enum.EnumProductStatus>("---请选择---", ""), new { style = "width:127px" })
+					@Html.DropDownListForFix(x => x.SearchEntity._Status, SelectListHelper.ComposeSelectListFromEnum<FoodSys.Enum.EnumProductStatus>("---请选择---", ""), new { style = "width:128px" })
 				</td>
 				<td class="search-button">
 					<input type="submit" value="" class="button-search" />
