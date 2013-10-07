@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <hibernate-mapping assembly="FoodSys.Entity" namespace="FoodSys.Entity" xmlns="urn:nhibernate-mapping-2.2">
-  <class name="UTProduct" table="UT_Product" lazy="true" >
-					<id name="ID">
-			  <generator class="guid.comb" />
-			</id>
-					<version name="Version" unsaved-value="null" generated="always"  type="BinaryBlob"/>
-        
+  <class name="UVProduct" table="UV_Product" lazy="true" >
+			<id name="KeyID">
+	</id>
+
+				<property name="ID"  >
+			<column name="ID" sql-type="uniqueidentifier" not-null="true" />
+		</property>
 				<property name="SupplierID"  >
 			<column name="SupplierID" sql-type="uniqueidentifier" not-null="false" />
 		</property>
 				<property name="Name"  >
-			<column name="Name" sql-type="varchar" not-null="false" />
+			<column name="Name" sql-type="nvarchar" not-null="false" />
 		</property>
 				<property name="ProductType"  >
 			<column name="ProductType" sql-type="uniqueidentifier" not-null="false" />
-		</property>
-				<property name="Description"  >
-			<column name="Description" sql-type="varchar" not-null="false" />
 		</property>
 				<property name="UnitID"  >
 			<column name="UnitID" sql-type="varchar" not-null="false" />
@@ -45,8 +43,14 @@
 				<property name="UpdateID"  >
 			<column name="UpdateID" sql-type="uniqueidentifier" not-null="false" />
 		</property>
-				<property name="ImgAddress"  >
-			<column name="ImgAddress" sql-type="nvarchar" not-null="false" />
+				<property name="SupplierName"  >
+			<column name="SupplierName" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="TypeName"  >
+			<column name="TypeName" sql-type="nvarchar" not-null="false" />
+		</property>
+				<property name="UnitName"  >
+			<column name="UnitName" sql-type="nvarchar" not-null="false" />
 		</property>
 			</class>
 </hibernate-mapping>

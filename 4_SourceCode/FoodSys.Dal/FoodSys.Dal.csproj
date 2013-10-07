@@ -12,14 +12,10 @@
     <AssemblyName>FoodSys.Dal</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName></SccProjectName>
+    <SccLocalPath></SccLocalPath>
+    <SccAuxPath></SccAuxPath>
+    <SccProvider></SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -206,6 +202,10 @@
     <Compile Include="Dal\DalUTCustomer.cs" />
     <Compile Include="Dal\DalUTCustomer.Designer.cs">
       <DependentUpon>DalUTCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DalView\DalUVProduct.cs" />
+    <Compile Include="DalView\DalUVProduct.Designer.cs">
+      <DependentUpon>DalUVProduct.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

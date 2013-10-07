@@ -14,7 +14,7 @@ namespace FoodSys.Web.Areas.ModuleResource.Controllers
 	public class ProductController : BaseController
 	{
 		private BizUTProduct bizUTProduct;
-
+	 
 		public ActionResult Index(ModelProductIndex model, ExportHelper export)
 		{
 			model.ExportObject = export;
@@ -33,7 +33,7 @@ namespace FoodSys.Web.Areas.ModuleResource.Controllers
 		}
 
 		/// <summary>
-		/// 创建 修改 查看 企业
+		/// 创建 修改 查看 
 		/// </summary>
 		[HttpPost]
 		public ActionResult Create(ModelProductCreate model, FormCollection collection)

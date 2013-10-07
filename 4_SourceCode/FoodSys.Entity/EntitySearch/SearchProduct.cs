@@ -19,6 +19,11 @@ namespace FoodSys.Entity.EntitySearch
 		public string _ProductType { get; set; }
 
 		/// <summary>
+		///  
+		/// </summary>
+		public string _SupplierID { get; set; }
+
+		/// <summary>
 		/// 
 		/// </summary>
 		public string _Status { get; set; }

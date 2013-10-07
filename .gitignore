@@ -16,6 +16,9 @@ local.properties
 .settings/
 .loadpath
 
+.pdsync
+.pdsyncu
+
 # External tool builders
 .externalToolBuilders/
 
@@ -224,3 +227,5 @@ pip-log.txt
 /4_SourceCode/FoodSys.Web.Out/Log
 /4_SourceCode/FoodSys.Web.Out/Files
 /4_SourceCode/FoodSys.Web.Out/App_Data
+/4_SourceCode/FoodSys.Web/Log/Sys/
+4_SourceCode/FoodSys.Web/Log/Sys/file

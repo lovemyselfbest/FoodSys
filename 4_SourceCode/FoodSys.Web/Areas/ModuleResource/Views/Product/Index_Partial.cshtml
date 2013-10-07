@@ -15,6 +15,7 @@
 			<col width="100" />
 			<col width="100" />
 			<col width="100" />
+			<col width="100" />
 			<col width="150" />
 			<col width="150" />
 		</colgroup>
@@ -28,19 +29,20 @@
 				</th>
 				@Html.HiddenFor(x => x.SearchEntity._OrderName, new { data_order_name = "" })
 				@Html.HiddenFor(x => x.SearchEntity._OrderDirection, new { data_order_direction = "" })
-				@(Html.ThOrderHelper<FoodSys.Entity.UTProduct>(x => x.Name, "名称"))
-				@(Html.ThOrderHelper<FoodSys.Entity.UTProduct>(x => x.SupplierID, "供应商"))
-				@(Html.ThOrderHelper<FoodSys.Entity.UTProduct>(x => x.ProductType, "产品类型"))
-				@(Html.ThOrderHelper<FoodSys.Entity.UTProduct>(x => x.PurchasePrice, "进价"))
-				@(Html.ThOrderHelper<FoodSys.Entity.UTProduct>(x => x.SellPrice, "售价"))
-				@(Html.ThOrderHelper<FoodSys.Entity.UTProduct>(x => x.UnitID, "单位"))
-				@(Html.ThOrderHelper<FoodSys.Entity.UTProduct>(x => x.MaxNumber, "最大售量"))
-				@(Html.ThOrderHelper<FoodSys.Entity.UTProduct>(x => x.CreateDate, "添加时间"))
-				@(Html.ThOrderHelper<FoodSys.Entity.UTProduct>(x => x.UpdateDate, "更新时间"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UVProduct>(x => x.Name, "名称"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UVProduct>(x => x.SupplierID, "供应商"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UVProduct>(x => x.ProductType, "产品类型"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UVProduct>(x => x.PurchasePrice, "进价"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UVProduct>(x => x.SellPrice, "售价"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UVProduct>(x => x.UnitID, "单位"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UVProduct>(x => x.MaxNumber, "最大售量"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UVProduct>(x => x.Status, "状态"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UVProduct>(x => x.CreateDate, "添加时间"))
+				@(Html.ThOrderHelper<FoodSys.Entity.UVProduct>(x => x.UpdateDate, "更新时间"))
 			</tr>
 		</thead>
 		<tbody>
-			@foreach (var item in Model.UTProductCollection)
+			@foreach (var item in Model.UVProductCollection)
    {
 				<tr ondblclick="javascript:show('@item.ID');">
 					<td>
@@ -55,11 +57,11 @@
 					<td title="@item.Name">
 						@item.Name
 					</td>
-					<td title="@item.SupplierID">
-						@item.SupplierID
+					<td title="@item.SupplierName">
+						@item.SupplierName
 					</td>
-					<td title="@item.ProductType">
-						@item.ProductType
+					<td title="@item.TypeName">
+						@item.TypeName
 					</td>
 					<td title="@item.PurchasePrice">
 						@item.PurchasePrice
@@ -67,11 +69,14 @@
 					<td title="@item.SellPrice">
 						@item.SellPrice
 					</td>
-					<td title="@item.UnitID">
-						@item.UnitID
+					<td title="@item.UnitName">
+						@item.UnitName
 					</td>
 					<td title="@item.MaxNumber">
 						@item.MaxNumber
+					</td>
+					<td>
+						@(((EnumProductStatus)item.Status).ToString())
 					</td>
 					<td title="@item.CreateDate">
 						@item.CreateDate.ToString()

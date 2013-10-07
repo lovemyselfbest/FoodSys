@@ -1,127 +1,117 @@
 using System.Collections.Generic; 
 using System.Text; 
-using System;
-using System.ComponentModel.DataAnnotations; 
+using System; 
 namespace FoodSys.Entity {
 
 	/// <summary>
 	/// 
 	/// </summary>
-	[MetadataType(typeof(UTProduct_Validation ))]
-	public partial class  UTProduct 
+	public class  UVProduct_Validation
 	{
 		
-		
-			/// <summary>
-			/// 主键
+
+					/// <summary>
+			/// 
+			/// Length : 
+			/// </summary>
+			public virtual System.Nullable<Guid>	KeyID{get;set;}
+					 
+						/// <summary>
+			/// 
 			/// Length : 
 			/// </summary>
 			public virtual System.Guid	ID{get;set;}
 					 
-			
-			/// <summary>
-			/// 供应商ID
+						/// <summary>
+			/// 
 			/// Length : 
 			/// </summary>
 			public virtual System.Nullable<Guid>	SupplierID{get;set;}
 					 
-			
-			/// <summary>
-			/// 名称
+						/// <summary>
+			/// 
 			/// Length : 50
 			/// </summary>
 			public virtual System.String	Name{get;set;}
 					 
-			
-			/// <summary>
-			/// 类型
+						/// <summary>
+			/// 
 			/// Length : 
 			/// </summary>
 			public virtual System.Nullable<Guid>	ProductType{get;set;}
 					 
-			
-			/// <summary>
-			/// 描述
-			/// Length : 500
-			/// </summary>
-			public virtual System.String	Description{get;set;}
-					 
-			
-			/// <summary>
-			/// 单位ID
+						/// <summary>
+			/// 
 			/// Length : 20
 			/// </summary>
 			public virtual System.String	UnitID{get;set;}
 					 
-			
-			/// <summary>
-			/// 进价
+						/// <summary>
+			/// 
 			/// Length : 
 			/// </summary>
 			public virtual System.Nullable<Decimal>	PurchasePrice{get;set;}
 					 
-			
-			/// <summary>
-			/// 售价
+						/// <summary>
+			/// 
 			/// Length : 
 			/// </summary>
 			public virtual System.Nullable<Decimal>	SellPrice{get;set;}
 					 
-			
-			/// <summary>
-			/// 状态 0不可用，1可用
+						/// <summary>
+			/// 
 			/// Length : 
 			/// </summary>
 			public virtual System.Nullable<Int32>	Status{get;set;}
 					 
-			
-			/// <summary>
-			/// 最大购买数量
+						/// <summary>
+			/// 
 			/// Length : 
 			/// </summary>
 			public virtual System.Nullable<Int32>	MaxNumber{get;set;}
 					 
-			
-			/// <summary>
-			/// 创建日期
+						/// <summary>
+			/// 
 			/// Length : 
 			/// </summary>
 			public virtual System.Nullable<DateTime>	CreateDate{get;set;}
 					 
-			
-			/// <summary>
-			/// 创建人ID
+						/// <summary>
+			/// 
 			/// Length : 
 			/// </summary>
 			public virtual System.Nullable<Guid>	CreateID{get;set;}
 					 
-			
-			/// <summary>
-			/// 修改日期
+						/// <summary>
+			/// 
 			/// Length : 
 			/// </summary>
 			public virtual System.Nullable<DateTime>	UpdateDate{get;set;}
 					 
-			
-			/// <summary>
-			/// 修改人ID
+						/// <summary>
+			/// 
 			/// Length : 
 			/// </summary>
 			public virtual System.Nullable<Guid>	UpdateID{get;set;}
 					 
-			
-			/// <summary>
-			/// 图片地址
-			/// Length : 255
+						/// <summary>
+			/// 
+			/// Length : 100
 			/// </summary>
-			public virtual System.String	ImgAddress{get;set;}
+			public virtual System.String	SupplierName{get;set;}
 					 
-			
-			/// <summary>
-			/// 版本号
-			/// Length : 
+						/// <summary>
+			/// 
+			/// Length : 10
 			/// </summary>
-			public virtual System.Byte[]	Version{get;set;}
+			public virtual System.String	TypeName{get;set;}
 					 
-			}
-	}
+						/// <summary>
+			/// 
+			/// Length : 100
+			/// </summary>
+			public virtual System.String	UnitName{get;set;}
+					 
+				}
+}
+		
