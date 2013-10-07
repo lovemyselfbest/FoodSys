@@ -16,7 +16,7 @@
 			<column name="ProductType" sql-type="uniqueidentifier" not-null="false" />
 		</property>
 				<property name="Description"  >
-			<column name="Description" sql-type="varchar" not-null="true" />
+			<column name="Description" sql-type="varchar" not-null="false" />
 		</property>
 				<property name="UnitID"  >
 			<column name="UnitID" sql-type="varchar" not-null="false" />
@@ -44,6 +44,9 @@
 		</property>
 				<property name="UpdateID"  >
 			<column name="UpdateID" sql-type="uniqueidentifier" not-null="false" />
+		</property>
+				<property name="ImgAddress"  >
+			<column name="ImgAddress" sql-type="nvarchar" not-null="false" />
 		</property>
 			</class>
 </hibernate-mapping>

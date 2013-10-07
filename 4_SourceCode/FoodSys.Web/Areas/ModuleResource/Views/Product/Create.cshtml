@@ -14,21 +14,22 @@
 	}
 </style>
 <div class="wfill hfill center">
-	<p class="p-s1">
+	@*<p class="p-s1">
 		@(Model.PageState)产品
-	</p>
-	@using (Html.BeginForm())
+	</p>*@
+	@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
  {
 		
 		@Html.HiddenFor(x => x.UTProductEntity.ID)
 		@Html.HiddenFor(x => x.UTProductEntity.CreateDate)
 		@Html.HiddenFor(x => x.UTProductEntity.CreateID)
+		@Html.HiddenFor(x => x.UTProductEntity.ImgAddress)
 		@Html.HiddenFor(x => x.UTProductEntity.Version)
 		@Html.HiddenFor(x => x.ID)
 		<table cellpadding="0" cellspacing="0" align="center" class="table-detail">
 			<thead>
 				<tr>
-					<td colspan="2">
+					<td colspan="3">
 						<div>
 							产品信息</div>
 					</td>
@@ -43,20 +44,38 @@
 						@Html.TextBoxFor(x => x.UTProductEntity.Name, new { maxlength = 50 })
 						@Html.ValidationMessageFor(x => x.UTProductEntity.Name)
 					</td>
+					<th style="text-align: left;">
+						图片：
+					</th>
 				</tr>
 				<tr>
 					<th>
 						供应商：
 					</th>
 					<td>
-						@Html.DropDownListForFix(x => x.UTProductEntity.SupplierID, SelectListHelper.ComposeSelectListFromCollect<UTSupplier>(Model.UTSupplierCollection, x => x.ID, x => x.Name, "==请选择==", ""))
+						@Html.DropDownListForFix(x => x.UTProductEntity.SupplierID, SelectListHelper.ComposeSelectListFromCollect<UTSupplier>(Model.UTSupplierCollection, x => x.ID, x => x.Name))
+					</td>
+					<td>
+						<input type="file" id="ImgAddress" name="ImgAddress" />
 					</td>
 				</tr>
 				<tr>
 					<th>
 						类型：
 					</th>
-					<td>@Html.DropDownListForFix(x => x.UTProductEntity.ProductType, SelectListHelper.ComposeSelectListFromCollect<UTProductType>(Model.UTProductTypeCollection, x => x.ID, x => x.TypeName, "==请选择==", ""))
+					<td>@Html.DropDownListForFix(x => x.UTProductEntity.ProductType, SelectListHelper.ComposeSelectListFromCollect<UTProductType>(Model.UTProductTypeCollection, x => x.ID, x => x.TypeName))
+					</td>
+					<td rowspan="6">
+						@if (!string.IsNullOrEmpty(Model.UTProductEntity.ImgAddress))
+	  {
+							<a href="@( Project.Web.Base.Utility.UploadHelper.GetFileHttpUrl(Model.UTProductEntity.ImgAddress))" target="_blank">
+								<img class="photo" width="200px" height="150px;" src="@(Project.Web.Base.Utility.UploadHelper.GetFileHttpUrl(Model.UTProductEntity.ImgAddress))" />
+							</a> 
+	  }
+	  else
+	  { 
+							<img src="../../../../Content/Images/SysDefault.gif" class="photo" />
+	  }
 					</td>
 				</tr>
 				<tr>
@@ -80,7 +99,7 @@
 						单位：
 					</th>
 					<td>
-						@Html.DropDownListForFix(x => x.UTProductEntity.UnitID, SelectListHelper.ComposeSelectListFromCollect<SysCodeInfo>(Model.SysCodeInfoCollection, x => x.Code, x => x.Name, "==请选择==", ""))
+						@Html.DropDownListForFix(x => x.UTProductEntity.UnitID, SelectListHelper.ComposeSelectListFromCollect<SysCodeInfo>(Model.SysCodeInfoCollection, x => x.Code, x => x.Name))
 					</td>
 				</tr>
 				<tr>
@@ -103,7 +122,7 @@
 					<th>
 						描述：
 					</th>
-					<td>
+					<td colspan="2">
 						@Html.TextAreaForFix(x => x.UTProductEntity.Description, new { style = "height:90px;width:460px;", cols = "20", rows = "3" })
 					</td>
 				</tr>

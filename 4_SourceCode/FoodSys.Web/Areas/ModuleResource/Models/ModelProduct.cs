@@ -15,6 +15,8 @@ namespace FoodSys.Web.Areas.ModuleResource.Models
 	public class ModelProductIndex : Model
 	{
 		private BizUTProduct bizUTProduct;
+		private BizUTProductType bizUTProductType;
+		private BizUTSupplier bizTUSupplier;
 
 		private SearchProduct searchEntity;
 		/// <summary>
@@ -49,8 +51,31 @@ namespace FoodSys.Web.Areas.ModuleResource.Models
 			set { uTProductCollection = value; }
 		}
 
+		private IList<UTSupplier> uTSupplierCollection = new List<UTSupplier>();
+		/// <summary>
+		///    集合
+		/// </summary>
+		public IList<UTSupplier> UTSupplierCollection
+		{
+			get { return uTSupplierCollection; }
+			set { uTSupplierCollection = value; }
+		}
+
+
+		private IList<UTProductType> uTProductTypeCollection = new List<UTProductType>();
+		/// <summary>
+		///    集合
+		/// </summary>
+		public IList<UTProductType> UTProductTypeCollection
+		{
+			get { return uTProductTypeCollection; }
+			set { uTProductTypeCollection = value; }
+		}
+
 		public void RetriveData()
 		{
+			UTSupplierCollection = bizTUSupplier.ListBy(x => x.Status == (int)EnumSupplierStatus.正常).OrderBy(y => y.Name).ToList();
+			UTProductTypeCollection = bizUTProductType.ListBy(x => x.Status == (int)EnumProductStatus.正常, "SortIndex", EnumOrder.ASC);
 			ExpressionCondition<UTProduct> condition = ExpressionCondition<UTProduct>.GetInstance();
 			if (string.IsNullOrEmpty(SearchEntity._CommonSearchCondition))
 			{
@@ -141,6 +166,15 @@ namespace FoodSys.Web.Areas.ModuleResource.Models
 			set { sysCodeInfoCollection = value; }
 		}
 
+		/// <summary>
+		/// 图片
+		/// </summary>
+		public HttpPostedFileBase ImgAddress
+		{
+			get;
+			set;
+		}
+
 		public void RetriveData()
 		{
 			UTSupplierCollection = bizTUSupplier.ListBy(x => x.Status == (int)EnumSupplierStatus.正常).OrderBy(y => y.Name).ToList();
@@ -167,6 +201,8 @@ namespace FoodSys.Web.Areas.ModuleResource.Models
 				UTProductEntity.UpdateDate = DateTime.Now;
 				UTProductEntity.UpdateID = SessionManager.CurrentSysUser.ID;
 			}
+			UTProductEntity.ImgAddress = ImgAddress == null ? UTProductEntity.ImgAddress : UploadHelper.SaveFile(ImgAddress);
+
 
 			bizUTProduct.SaveOrUpdate(UTProductEntity);
 		}

@@ -107,14 +107,16 @@
 					类型：
 				</th>
 				<td>
-					@Html.TextBoxFor(x => x.SearchEntity._ProductType, new { style = "width:190px" })
+					@Html.DropDownListForFix(x => x.SearchEntity._ProductType, SelectListHelper.ComposeSelectListFromCollect<UTProductType>(Model.UTProductTypeCollection, x => x.ID, x => x.TypeName, "---请选择---", ""))
 				</td>
 				<th>
-					状态：
+					供应商：
 				</th>
 				<td>
-					@Html.DropDownListForFix(x => x.SearchEntity._Status, SelectListHelper.ComposeSelectListFromEnum<FoodSys.Enum.EnumProductStatus>("==请选择==", ""), new { style = "width:127px" })
+					@Html.DropDownListForFix(x => x.SearchEntity._SupplierID, SelectListHelper.ComposeSelectListFromCollect<UTSupplier>(Model.UTSupplierCollection, x => x.ID, x => x.Name, "---请选择---", ""))
 				</td>
+				<th>
+				</th>
 			</tr>
 			<tr>
 				<th>
@@ -132,7 +134,11 @@
 					<span>至</span> @Html.TextBoxFor(x => x.SearchEntity._SellPriceE, new { style = "width:80px" })
 				</td>
 				<th>
+					状态：
 				</th>
+				<td>
+					@Html.DropDownListForFix(x => x.SearchEntity._Status, SelectListHelper.ComposeSelectListFromEnum<FoodSys.Enum.EnumProductStatus>("---请选择---", ""), new { style = "width:127px" })
+				</td>
 				<td class="search-button">
 					<input type="submit" value="" class="button-search" />
 					<input type="button" value="" class="button-clear" />

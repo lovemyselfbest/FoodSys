@@ -309,10 +309,9 @@ namespace FoodSys.Enum
 	{
 		待审核 = 0,
 		正常 = 1,
-		已下架 = 1,
-		作废
+		已下架 = 2,
+		作废 = 3
 	}
-
 
 	public enum EnumProductTypeStatus
 	{
