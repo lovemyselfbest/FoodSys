@@ -1,7 +1,218 @@
 ﻿@{
-    ViewBag.Title = "Cart";
+	ViewBag.Title = "Cart";
 }
+<style type="text/css">
+	/* 其他三个页面共用，需要放在css文件中
+----------------------------------------------------------*/
+	.layout-left
+	{
+		float: left;
+		width: 150px;
+		background-color: #EDF4FC;
+		padding: 0 15px 0 0;
+		height: 100%;
+		overflow: hidden;
+	}
+	.layout-left ul
+	{
+		margin-top: 0;
+	}
+	
+	.layout-left li
+	{
+		list-style-type: none;
+		font-size: 14px;
+		margin: 5px 0;
+		text-align: right;
+	}
+	
+	.layout-left a:visited
+	{
+		color: Black;
+	}
+	
+	.active
+	{
+		font-weight: bold;
+		color: Black;
+		border-bottom: 1px solid #0071bc;
+	}
+	
+	.layout-right
+	{
+		margin: 0 0 0 165px;
+	}
+	.layout-right ul
+	{
+	}
+	
+	.layout-right li
+	{
+		list-style-type: none;
+		margin: 10px 0;
+	}
+	
+	.small-image img
+	{
+		width: 50px;
+		height: 50px;
+	}
+	
+	table
+	{
+		font-size: 14px;
+	}
+	
+	.table-cart
+	{
+		border-collapse: collapse;
+	}
+	.table-cart thead tr th
+	{
+		background: #EDF4FC;
+		border: 1px solid #DBDBDD;
+		color: Black;
+		text-align: center;
+		height: 27px;
+		line-height: 26px;
+	}
+	.table-cart tbody tr th
+	{
+		background: #F6F6F6;
+		border: 1px solid #DBDBDD;
+		color: Black;
+		text-align: right;
+	}
+	.table-cart tbody td, .table-cart tbody th
+	{
+		border: 1px solid #C0D1E3;
+		height: 27px;
+		line-height: 26px;
+		text-align: center;
+		vertical-align: middle;
+		text-decoration: none;
+	}
 
+	input[type='text']{
+		width:30px;
+	}
+	.span-title{
+		margin:0 0 0 520px;
+		font-size:16px;
+		font-weight:bold;
+		color:Black;
+	}
+	.span-price{
+		font-size:16px;
+		font-weight:bold;
+		color:#ff5400;
+		margin:0 10px 0 0;
+	}
+</style>
+<script type="text/javascript">
+	$(function () {
+		$(".layout-left").height($(".layout-right").height() + "px");
+	});
+
+</script>
 <h2 class="title-h2">
 	我的购物车..
 </h2>
+<div class="layout-left">
+	<ul>
+		<li><a href="/personal">我的订单</a></li>
+		<li class="active"><a href="/personal/cart">我的购物车</a></li>
+		<li><a href="/personal/Profile">我的资料</a></li>
+	</ul>
+</div>
+<div class="layout-right">
+	<ul>
+		<li>
+			<table class="table-cart">
+				<colgroup>
+					<col width="120px" />
+					<col width="150px" />
+					<col width="150px" />
+					<col width="150px" />
+					<col width="150px" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th class="small-image">
+							菜品
+						</th>
+						<th>
+							名称
+						</th>
+						<th>
+							价格
+						</th>
+						<th>
+							数量
+						</th>
+						<th>
+							操作
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="small-image">
+							<img src="http://img.dingcai.com/images/product/9/9/list/1.jpg" />
+						</td>
+						<td>
+							红烧排骨
+						</td>
+						<td>
+							9.8 / 斤
+						</td>
+						<td>
+							<input type="text" value="1" />
+						</td>
+						<td>
+							<input type="button" value="删除" class="button button-rounded button-flat-primary button-tiny" />
+						</td>
+					</tr>
+					<tr>
+						<td class="small-image">
+							<img src="http://img.dingcai.com/images/product/9/9/list/1.jpg" />
+						</td>
+						<td>
+							红烧排骨
+						</td>
+						<td>
+							9.8 / 斤
+						</td>
+						<td>
+							<input type="text" value="1" />
+						</td>
+						<td>
+							<input type="button" value="删除" class="button button-rounded button-flat-primary button-tiny" />
+						</td>
+					</tr>
+					<tr>
+						<td class="small-image">
+							<img src="http://img.dingcai.com/images/product/9/9/list/1.jpg" />
+						</td>
+						<td>
+							红烧排骨
+						</td>
+						<td>
+							9.8 / 斤
+						</td>
+						<td>
+							<input type="text" value="1" />
+						</td>
+						<td>
+							<input type="button" value="删除" class="button button-rounded button-flat-primary button-tiny" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</li>
+		<li>
+			<span class="span-title">总价：</span> <span class="span-price">34.5</span>
+			<input type="button" value="去结算" class="button button-rounded button-action" />
+		</li>
+	</ul>
+</div>
