@@ -1034,6 +1034,7 @@
     <Content Include="Views\Personal\Index.cshtml" />
     <Content Include="Views\Personal\Cart.cshtml" />
     <Content Include="Views\Personal\Profile.cshtml" />
+    <Content Include="Views\Account\Password.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Project.Biz.Base\Project.Biz.Base.csproj">

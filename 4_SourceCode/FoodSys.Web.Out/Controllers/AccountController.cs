@@ -27,6 +27,11 @@ namespace FoodSys.Web.Out.Controllers
 			return View();
 		}
 
+		public ActionResult Password()
+		{
+			return View();
+		}
+
 
 	}
 }
